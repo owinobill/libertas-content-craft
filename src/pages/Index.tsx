@@ -30,10 +30,9 @@ const Index = () => {
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-hero"></div>
         
-        {/* Minimalist accent elements */}
-        <div className="absolute top-20 right-20 w-2 h-32 bg-primary/40 rounded-full blur-sm opacity-60"></div>
-        <div className="absolute top-40 right-40 w-1 h-24 bg-accent/50 rounded-full blur-sm opacity-80"></div>
-        <div className="absolute bottom-20 left-20 w-3 h-40 bg-primary/30 rounded-full blur-sm opacity-50"></div>
+        {/* Floating geometric shapes */}
+        <div className="absolute top-28 right-32 w-72 h-48 bg-primary/12 rounded-3xl blur-2xl animate-float opacity-70 rotate-12"></div>
+        <div className="absolute bottom-32 left-24 w-56 h-56 bg-accent/10 rounded-2xl blur-3xl animate-float opacity-50" style={{animationDelay: '2.5s'}}></div>
         
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className="max-w-5xl mx-auto">
@@ -41,12 +40,12 @@ const Index = () => {
               East Africa's Premier Advisory Firm
             </Badge>
             
-            <h1 className="text-5xl md:text-7xl font-light tracking-wide mb-8 leading-tight">
-              Financial
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-tight">
+              Strategic Advisory
               <br />
-              <span className="font-bold text-gradient">Excellence</span>
+              <span className="text-gradient">Excellence</span>
               <br />
-              <span className="text-4xl md:text-5xl font-extralight text-muted-foreground">Refined for East Africa</span>
+              for East Africa
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
@@ -55,12 +54,12 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button size="lg" className="text-lg px-12 py-4 bg-primary hover:bg-primary/90 text-primary-foreground border-none shadow-platinum font-medium">
-                Connect with Excellence
-                <ArrowRight className="ml-3 h-5 w-5" />
+              <Button size="lg" className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-elegant">
+                Let's Connect
+                <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="ghost" size="lg" className="text-lg px-12 py-4 text-primary hover:bg-primary/10 border border-primary/20 font-medium">
-                Discover Our Approach
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 rounded-full border-border hover:bg-secondary/50">
+                Explore Our Vision
               </Button>
             </div>
           </div>
@@ -104,7 +103,7 @@ const Index = () => {
               </div>
               
               <div className="relative">
-                <div className="card-executive rounded-2xl p-10 h-96">
+                <div className="card-elevated rounded-2xl p-8 h-96">
                   <div className="grid grid-cols-2 gap-6 h-full">
                     <div className="space-y-6">
                       <div className="flex items-center space-x-3">
@@ -204,7 +203,7 @@ const Index = () => {
                   features: ["Collection Strategy", "Training Programs", "Portfolio Reviews"]
                 }
               ].map((service, index) => (
-                <Card key={index} className="card-executive border-border/30 hover:shadow-platinum smooth-transition group hover:border-primary/20">
+                <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader className="pb-4">
                     <service.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 smooth-transition" />
                     <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -266,7 +265,7 @@ const Index = () => {
                   impact: "Systemic NPL reduction"
                 }
               ].map((study, index) => (
-                <Card key={index} className="card-executive border-border/30 hover:shadow-platinum smooth-transition group hover:border-primary/20">
+                <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="outline" className="border-primary/30 text-primary">
@@ -313,7 +312,7 @@ const Index = () => {
                 { icon: Phone, label: "Phone", value: "[Your Phone Number]" },
                 { icon: MapPin, label: "Office", value: "[Your Office Address]" }
               ].map((contact, index) => (
-                <Card key={index} className="card-executive border-border/30 hover:shadow-platinum smooth-transition hover:border-primary/20">
+                <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
                   <CardContent className="pt-8 text-center">
                     <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <h3 className="font-semibold mb-2">{contact.label}</h3>
@@ -323,9 +322,9 @@ const Index = () => {
               ))}
             </div>
             
-            <Button size="lg" className="text-lg px-16 py-4 bg-primary hover:bg-primary/90 shadow-platinum font-medium">
-              Begin the Conversation
-              <ArrowRight className="ml-3 h-5 w-5" />
+            <Button size="lg" className="text-lg px-12 py-4 rounded-full bg-primary hover:bg-primary/90 shadow-elegant">
+              Let's Connect Today
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
