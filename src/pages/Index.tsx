@@ -30,9 +30,9 @@ const Index = () => {
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-hero"></div>
         
-        {/* Floating gradient orbs */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float opacity-60"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float opacity-40" style={{animationDelay: '2s'}}></div>
+        {/* Floating geometric shapes */}
+        <div className="absolute top-28 right-32 w-72 h-48 bg-primary/12 rounded-3xl blur-2xl animate-float opacity-70 rotate-12"></div>
+        <div className="absolute bottom-32 left-24 w-56 h-56 bg-accent/10 rounded-2xl blur-3xl animate-float opacity-50" style={{animationDelay: '2.5s'}}></div>
         
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className="max-w-5xl mx-auto">
@@ -40,12 +40,12 @@ const Index = () => {
               East Africa's Premier Advisory Firm
             </Badge>
             
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-              We're building
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-tight">
+              Strategic Advisory
               <br />
-              <span className="text-gradient">strategic financial solutions</span>
+              <span className="text-gradient">Excellence</span>
               <br />
-              to unlock sustainable growth
+              for East Africa
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
