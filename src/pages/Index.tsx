@@ -12,7 +12,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-accent"></div>
-              <h1 className="text-2xl font-bold text-foreground tracking-tight">Libertas Africa</h1>
+              <h1 className="text-2xl font-bold text-foreground tracking-tight">Libertas Advisory</h1>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="nav-item">About</a>
@@ -50,7 +50,7 @@ const Index = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
-              Libertas Africa specializes in strategic consulting, deal origination, and investment solutions 
+              Libertas Advisory specializes in strategic consulting, deal origination, and investment solutions 
               for debt financing, structured credit, and NPL transactions across East Africa's key growth sectors.
             </p>
             
@@ -93,7 +93,7 @@ const Index = () => {
                     driving sustainable financial recovery and growth across East Africa.
                   </p>
                   <p className="text-foreground font-medium">
-                    At Libertas Africa, we believe in unlimited outcomes. Imagine what we could achieve together.
+                    At Libertas Advisory, we believe in unlimited outcomes. Imagine what we could achieve together.
                   </p>
                 </div>
                 
@@ -337,7 +337,7 @@ const Index = () => {
           <div className="max-w-6xl mx-auto text-center">
             <div className="flex items-center justify-center space-x-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-gradient-accent"></div>
-              <h3 className="text-2xl font-bold">Libertas Africa</h3>
+              <h3 className="text-2xl font-bold">Libertas Advisory</h3>
             </div>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               East Africa's premier advisory firm for strategic financial solutions, 
@@ -345,7 +345,7 @@ const Index = () => {
             </p>
             <div className="pt-8 border-t border-border/50">
               <p className="text-sm text-muted-foreground">
-                © 2024 Libertas Africa. All rights reserved.
+                © 2024 Libertas Advisory. All rights reserved.
               </p>
             </div>
           </div>
