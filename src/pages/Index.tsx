@@ -5,7 +5,7 @@ import { ChevronRight, Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, B
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="theme-platinum min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="relative z-50 border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-6 py-6">
@@ -29,10 +29,11 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-hero"></div>
-        
+        <div className="absolute inset-0 surface-noise pointer-events-none"></div>
+        <div className="absolute inset-0 pattern-diagonal opacity-40 pointer-events-none"></div>
         {/* Floating geometric shapes */}
-        <div className="absolute top-28 right-32 w-72 h-48 bg-primary/12 rounded-3xl blur-2xl animate-float opacity-70 rotate-12"></div>
-        <div className="absolute bottom-32 left-24 w-56 h-56 bg-accent/10 rounded-2xl blur-3xl animate-float opacity-50" style={{animationDelay: '2.5s'}}></div>
+        <div className="absolute -top-24 -right-10 w-[60%] h-[70%] bg-gradient-accent opacity-30 blur-3xl rounded-3xl rotate-12 shadow-glow-accent"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
         
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className="max-w-5xl mx-auto">
@@ -40,7 +41,7 @@ const Index = () => {
               East Africa's Premier Advisory Firm
             </Badge>
             
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-tight">
+            <h1 className="font-playfair text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-tight">
               Strategic Advisory
               <br />
               <span className="text-gradient">Excellence</span>
@@ -74,7 +75,7 @@ const Index = () => {
               <div className="space-y-8">
                 <div className="space-y-4">
                   <p className="text-primary font-medium text-lg tracking-wide uppercase">Our Vision</p>
-                  <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                  <h2 className="font-playfair text-4xl md:text-5xl font-bold leading-tight">
                     Leverage the magic of 
                     <span className="text-gradient"> strategic advisory</span>
                     <br />for financial prosperity.
@@ -152,7 +153,7 @@ const Index = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-20">
               <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Solutions</p>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+               <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Powerful customized solutions.
                 <br />
                 <span className="text-gradient">Analytically informed. Outcomes led.</span>
@@ -300,7 +301,7 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Connect</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Your strategic partner for 
               <span className="text-gradient">impactful financial solutions</span>
             </h2>
