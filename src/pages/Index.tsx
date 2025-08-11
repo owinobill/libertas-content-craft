@@ -5,7 +5,7 @@ import { ChevronRight, Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, B
 
 const Index = () => {
   return (
-    <div className="theme-platinum min-h-screen bg-background text-foreground">
+    <div className="theme-charcoal min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="relative z-50 border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-6 py-6">

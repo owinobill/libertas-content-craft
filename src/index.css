@@ -162,6 +162,60 @@ All colors MUST be HSL.
     --sidebar-border: 210 18% 88%;
     --sidebar-ring: 156 55% 34%;
   }
+  /* Charcoal Quartz theme with sapphire accents */
+  .theme-charcoal {
+    --background: 222 15% 8%;
+    --foreground: 220 25% 94%;
+
+    --card: 222 12% 12%;
+    --card-foreground: 220 25% 94%;
+
+    --popover: 222 12% 12%;
+    --popover-foreground: 220 25% 94%;
+
+    --primary: 210 90% 56%; /* sapphire */
+    --primary-foreground: 230 20% 9%;
+
+    --secondary: 222 10% 16%;
+    --secondary-foreground: 220 25% 94%;
+
+    --muted: 222 10% 18%;
+    --muted-foreground: 220 12% 70%;
+
+    --accent: 210 80% 60%;
+    --accent-foreground: 230 20% 9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 95%;
+
+    --border: 222 12% 22%;
+    --input: 222 10% 20%;
+    --ring: 210 90% 56%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(145deg, hsl(222 15% 8%) 0%, hsl(222 12% 12%) 50%, hsl(222 10% 16%) 100%);
+    --gradient-hero: linear-gradient(120deg, hsl(224 16% 8%) 0%, hsl(222 14% 10%) 40%, hsl(220 18% 12%) 70%, hsl(210 40% 16%) 100%);
+    --gradient-accent: linear-gradient(125deg, hsl(210 90% 56%) 0%, hsl(210 80% 60%) 100%);
+    --gradient-subtle: linear-gradient(160deg, hsl(222 12% 12%) 0%, hsl(222 10% 16%) 100%);
+
+    /* Effects */
+    --glow-primary: 0 0 50px hsl(210 90% 56% / 0.25);
+    --glow-accent: 0 0 35px hsl(210 80% 60% / 0.2);
+    --glow-subtle: 0 0 25px hsl(224 16% 8% / 0.9);
+
+    --shadow-elegant: 0 20px 40px -8px hsl(224 16% 8% / 0.7);
+    --shadow-glow: 0 0 0 1px hsl(210 90% 56% / 0.12), 0 8px 25px -3px hsl(210 90% 56% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 222 12% 12%;
+    --sidebar-foreground: 220 25% 94%;
+    --sidebar-primary: 210 90% 56%;
+    --sidebar-primary-foreground: 230 20% 9%;
+    --sidebar-accent: 222 10% 16%;
+    --sidebar-accent-foreground: 220 25% 94%;
+    --sidebar-border: 222 12% 22%;
+    --sidebar-ring: 210 90% 56%;
+  }
 }
 
 @layer base {
