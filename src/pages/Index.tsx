@@ -325,9 +325,7 @@ const Index = () => {
               driving sustainable financial recovery and growth across key sectors.
             </p>
             <div className="pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground">
-                © 2024 Libertas Advisory. All rights reserved.
-              </p>
+              <p className="text-sm text-muted-foreground">© 2024 Libertas Advisory Ltd. All rights reserved.</p>
             </div>
           </div>
         </div>
