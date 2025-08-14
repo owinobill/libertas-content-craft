@@ -290,7 +290,7 @@ const Index = () => {
             }, {
               icon: Phone,
               label: "Phone",
-              value: "[Your Phone Number]"
+              value: "+254 20 5253963"
             }, {
               icon: MapPin,
               label: "Office",
