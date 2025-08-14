@@ -71,7 +71,7 @@ const Index = () => {
                   <p className="text-primary font-medium text-lg tracking-wide uppercase">Our Approach</p>
                   <h2 className="text-4xl md:text-5xl font-bold leading-tight">
                     Strategic consulting and 
-                    <span className="text-gradient">financial advisory</span>
+                    <span className="text-gradient"> financial advisory</span>
                     <br />that unlocks value.
                   </h2>
                   <div className="w-16 h-1 bg-gradient-accent rounded-full"></div>
@@ -290,7 +290,7 @@ const Index = () => {
             }, {
               icon: Phone,
               label: "Phone",
-              value: "+254-20-5253963"
+              value: "+254 20 5253963"
             }, {
               icon: MapPin,
               label: "Office",
