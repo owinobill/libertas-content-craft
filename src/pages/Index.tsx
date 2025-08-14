@@ -2,10 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ChevronRight, Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  return <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="relative z-50 border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-6 py-6">
@@ -32,13 +30,13 @@ const Index = () => {
         
         {/* Floating gradient orbs */}
         <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float opacity-60"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float opacity-40" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float opacity-40" style={{
+        animationDelay: '2s'
+      }}></div>
         
         <div className="relative z-10 container mx-auto px-6 text-center">
           <div className="max-w-5xl mx-auto">
-            <Badge variant="outline" className="mb-8 border-primary/30 text-primary bg-primary/10 text-lg px-6 py-2">
-              East Africa's Premier Advisory Firm
-            </Badge>
+            
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
               <span className="text-gradient">Freeing Capital.</span>
@@ -160,45 +158,37 @@ const Index = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Briefcase,
-                  title: "NPL Portfolio Advisory",
-                  description: "Rigorous portfolio assessment, valuation, and strategic transaction structuring for optimal outcomes.",
-                  features: ["Portfolio Assessment", "Transaction Structuring", "Asset Recovery"]
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Deal Origination",
-                  description: "Sourcing investment-ready opportunities across renewable energy, infrastructure, and key growth sectors.",
-                  features: ["Opportunity Sourcing", "Due Diligence", "Investor Matching"]
-                },
-                {
-                  icon: Shield,
-                  title: "Regulatory Advisory",
-                  description: "Expert guidance on compliance frameworks, risk management, and policy development.",
-                  features: ["Compliance Frameworks", "Risk Management", "Policy Consultation"]
-                },
-                {
-                  icon: PieChart,
-                  title: "Valuation & Analytics",
-                  description: "Advanced financial modeling, predictive analytics, and comprehensive risk assessment.",
-                  features: ["Financial Modeling", "Predictive Analytics", "Risk Assessment"]
-                },
-                {
-                  icon: FileText,
-                  title: "Policy Development",
-                  description: "Supporting effective financial sector policy formulation and regulatory framework development.",
-                  features: ["Policy Recommendations", "Framework Development", "Stakeholder Engagement"]
-                },
-                {
-                  icon: Users,
-                  title: "Post-Transaction Services",
-                  description: "Ongoing support with collection strategies, training programs, and portfolio management.",
-                  features: ["Collection Strategy", "Training Programs", "Portfolio Reviews"]
-                }
-              ].map((service, index) => (
-                <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+              {[{
+              icon: Briefcase,
+              title: "NPL Portfolio Advisory",
+              description: "Rigorous portfolio assessment, valuation, and strategic transaction structuring for optimal outcomes.",
+              features: ["Portfolio Assessment", "Transaction Structuring", "Asset Recovery"]
+            }, {
+              icon: TrendingUp,
+              title: "Deal Origination",
+              description: "Sourcing investment-ready opportunities across renewable energy, infrastructure, and key growth sectors.",
+              features: ["Opportunity Sourcing", "Due Diligence", "Investor Matching"]
+            }, {
+              icon: Shield,
+              title: "Regulatory Advisory",
+              description: "Expert guidance on compliance frameworks, risk management, and policy development.",
+              features: ["Compliance Frameworks", "Risk Management", "Policy Consultation"]
+            }, {
+              icon: PieChart,
+              title: "Valuation & Analytics",
+              description: "Advanced financial modeling, predictive analytics, and comprehensive risk assessment.",
+              features: ["Financial Modeling", "Predictive Analytics", "Risk Assessment"]
+            }, {
+              icon: FileText,
+              title: "Policy Development",
+              description: "Supporting effective financial sector policy formulation and regulatory framework development.",
+              features: ["Policy Recommendations", "Framework Development", "Stakeholder Engagement"]
+            }, {
+              icon: Users,
+              title: "Post-Transaction Services",
+              description: "Ongoing support with collection strategies, training programs, and portfolio management.",
+              features: ["Collection Strategy", "Training Programs", "Portfolio Reviews"]
+            }].map((service, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader className="pb-4">
                     <service.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 smooth-transition" />
                     <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -208,16 +198,13 @@ const Index = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-center text-sm text-muted-foreground">
+                      {service.features.map((feature, idx) => <li key={idx} className="flex items-center text-sm text-muted-foreground">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
                           {feature}
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -237,30 +224,25 @@ const Index = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              {[
-                {
-                  title: "NPL Portfolio Sale",
-                  amount: "KES 8 Billion",
-                  description: "Facilitated a major East African bank's disposal of a digital loan portfolio, achieving optimal pricing and streamlined execution.",
-                  category: "Banking",
-                  impact: "Optimal pricing achieved"
-                },
-                {
-                  title: "Renewable Energy Financing",
-                  amount: "Large-scale Project",
-                  description: "Advised international investor's successful entry into renewable energy through structured debt financing via DFI/ECA backing.",
-                  category: "Energy",
-                  impact: "DFI/ECA financing secured"
-                },
-                {
-                  title: "Policy Framework Development",
-                  amount: "National Impact",
-                  description: "Successfully guided Central Bank in establishing effective national NPL resolution framework, reducing systemic NPL levels.",
-                  category: "Policy",
-                  impact: "Systemic NPL reduction"
-                }
-              ].map((study, index) => (
-                <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+              {[{
+              title: "NPL Portfolio Sale",
+              amount: "KES 8 Billion",
+              description: "Facilitated a major East African bank's disposal of a digital loan portfolio, achieving optimal pricing and streamlined execution.",
+              category: "Banking",
+              impact: "Optimal pricing achieved"
+            }, {
+              title: "Renewable Energy Financing",
+              amount: "Large-scale Project",
+              description: "Advised international investor's successful entry into renewable energy through structured debt financing via DFI/ECA backing.",
+              category: "Energy",
+              impact: "DFI/ECA financing secured"
+            }, {
+              title: "Policy Framework Development",
+              amount: "National Impact",
+              description: "Successfully guided Central Bank in establishing effective national NPL resolution framework, reducing systemic NPL levels.",
+              category: "Policy",
+              impact: "Systemic NPL reduction"
+            }].map((study, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="outline" className="border-primary/30 text-primary">
@@ -282,8 +264,7 @@ const Index = () => {
                       {study.impact}
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
         </div>
@@ -302,19 +283,25 @@ const Index = () => {
             <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-12"></div>
             
             <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {[
-                { icon: Mail, label: "Email", value: "info@libertasadvisory.com" },
-                { icon: Phone, label: "Phone", value: "[Your Phone Number]" },
-                { icon: MapPin, label: "Office", value: "[Your Office Address]" }
-              ].map((contact, index) => (
-                <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
+              {[{
+              icon: Mail,
+              label: "Email",
+              value: "info@libertasadvisory.com"
+            }, {
+              icon: Phone,
+              label: "Phone",
+              value: "[Your Phone Number]"
+            }, {
+              icon: MapPin,
+              label: "Office",
+              value: "[Your Office Address]"
+            }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
                   <CardContent className="pt-8 text-center">
                     <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                     <h3 className="font-semibold mb-2">{contact.label}</h3>
                     <p className="text-muted-foreground">{contact.value}</p>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
             
             <Button size="lg" className="text-lg px-12 py-4 rounded-full bg-primary hover:bg-primary/90 shadow-elegant">
@@ -345,8 +332,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
