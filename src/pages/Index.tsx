@@ -218,7 +218,7 @@ const Index = () => {
               <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Case Studies</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Proven results across 
-                <span className="text-gradient">diverse transactions</span>
+                <span className="text-gradient"> diverse transactions</span>
               </h2>
               <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto"></div>
             </div>
@@ -278,7 +278,7 @@ const Index = () => {
             <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Connect</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Your strategic partner for 
-              <span className="text-gradient">impactful financial solutions</span>
+              <span className="text-gradient"> impactful financial solutions</span>
             </h2>
             <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-12"></div>
             
