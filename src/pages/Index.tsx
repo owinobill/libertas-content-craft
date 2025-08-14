@@ -286,7 +286,7 @@ const Index = () => {
               {[{
               icon: Mail,
               label: "Email",
-              value: "info@libertasadvisory.com"
+              value: "connect@libertasafrica.com"
             }, {
               icon: Phone,
               label: "Phone",
