@@ -12,7 +12,7 @@ const Index = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 rounded-lg bg-gradient-accent"></div>
-              <h1 className="text-2xl font-bold text-foreground tracking-tight">Libertas Advisory</h1>
+              <h1 className="text-2xl font-bold text-foreground tracking-tight">Libertas Africa</h1>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="nav-item">About</a>
@@ -41,16 +41,13 @@ const Index = () => {
             </Badge>
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-              We're building
+              <span className="text-gradient">Freeing Capital.</span>
               <br />
-              <span className="text-gradient">strategic financial solutions</span>
-              <br />
-              to unlock sustainable growth
+              Unlocking Potential.
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
-              Libertas Advisory specializes in strategic consulting, deal origination, and investment solutions 
-              for debt financing, structured credit, and NPL transactions across East Africa's key growth sectors.
+              Libertas Africa provides strategic consulting and advisory solutions in the financial sector. This includes advisory to lenders and investors for Non-performing loan portfolio sales, deal origination and investment solutions for private and structured credit transactions. Leveraging local market insights and global expertise, we bridge strategic investment opportunities with international and regional financiers, driving sustainable financial recovery and growth across key sectors.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -73,26 +70,24 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <p className="text-primary font-medium text-lg tracking-wide uppercase">Our Vision</p>
+                  <p className="text-primary font-medium text-lg tracking-wide uppercase">Our Approach</p>
                   <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                    Leverage the magic of 
-                    <span className="text-gradient"> strategic advisory</span>
-                    <br />for financial prosperity.
+                    Strategic consulting and 
+                    <span className="text-gradient">financial advisory</span>
+                    <br />that unlocks value.
                   </h2>
                   <div className="w-16 h-1 bg-gradient-accent rounded-full"></div>
                 </div>
                 
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Strategic financial solutions can have transformative impacts for businesses and economies – 
-                    strengthening communities, enabling business growth and job creation, and promoting sustainable development.
+                    Our expertise spans Non-performing loan portfolio advisory, deal origination, and investment solutions for private and structured credit transactions across Africa's most dynamic markets.
                   </p>
                   <p>
-                    We make this happen by bridging strategic investment opportunities with international and regional financiers, 
-                    driving sustainable financial recovery and growth across East Africa.
+                    By combining local market insights with global expertise, we bridge strategic investment opportunities with international and regional financiers, creating sustainable pathways for financial recovery and growth.
                   </p>
                   <p className="text-foreground font-medium">
-                    At Libertas Advisory, we believe in unlimited outcomes. Imagine what we could achieve together.
+                    At Libertas Africa, we're committed to freeing capital and unlocking potential across key sectors.
                   </p>
                 </div>
                 
@@ -336,11 +331,11 @@ const Index = () => {
           <div className="max-w-6xl mx-auto text-center">
             <div className="flex items-center justify-center space-x-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-gradient-accent"></div>
-              <h3 className="text-2xl font-bold">Libertas Advisory</h3>
+              <h3 className="text-2xl font-bold">Libertas Africa</h3>
             </div>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              East Africa's premier advisory firm for strategic financial solutions, 
-              driving sustainable growth through innovative debt financing and investment solutions.
+              Strategic consulting and advisory solutions in the financial sector, 
+              driving sustainable financial recovery and growth across key sectors.
             </p>
             <div className="pt-8 border-t border-border/50">
               <p className="text-sm text-muted-foreground">
