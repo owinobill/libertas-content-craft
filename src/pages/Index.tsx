@@ -9,8 +9,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-accent"></div>
-              <h1 className="text-2xl font-bold text-foreground tracking-tight">Libertas Africa</h1>
+              <img src="/lovable-uploads/d0894c83-3078-4a90-aa7b-a2370f4741e9.png" alt="Libertas Africa" className="h-10 w-auto" />
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="nav-item">About</a>
@@ -316,9 +315,8 @@ const Index = () => {
       <footer className="border-t border-border/50 bg-background/80 backdrop-blur-md py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gradient-accent"></div>
-              <h3 className="text-2xl font-bold">Libertas Africa</h3>
+            <div className="flex items-center justify-center mb-6">
+              <img src="/lovable-uploads/d0894c83-3078-4a90-aa7b-a2370f4741e9.png" alt="Libertas Africa" className="h-12 w-auto" />
             </div>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Strategic consulting and advisory solutions in the financial sector, 
