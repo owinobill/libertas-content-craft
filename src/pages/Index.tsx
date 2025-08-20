@@ -39,7 +39,7 @@ const Index = () => {
             
             
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-              <span className="text-gradient">Freeing Up Capital.</span>
+              <span className="text-gradient">Unchaining Capital.</span>
               <br />
               Unlocking Potential.
             </h1>
