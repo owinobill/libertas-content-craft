@@ -9,7 +9,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <img src="/libertas-logo.png" alt="Libertas Africa" className="h-10 w-auto" />
+              <img src="/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png" alt="Libertas Africa" className="h-10 w-auto" />
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="nav-item">About</a>
@@ -316,7 +316,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto text-center">
             <div className="flex items-center justify-center mb-6">
-              <img src="/libertas-logo.png" alt="Libertas Africa" className="h-12 w-auto" />
+              <img src="/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png" alt="Libertas Africa" className="h-12 w-auto" />
             </div>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
               Strategic consulting and advisory solutions in the financial sector, 
