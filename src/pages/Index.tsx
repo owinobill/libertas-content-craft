@@ -249,7 +249,7 @@ const Index = () => {
                       </Badge>
                       <div className="text-right">
                         <p className="text-sm text-muted-foreground">Value</p>
-                        <p className="font-semibold text-primary">{study.amount}</p>
+                        <p className="font-semibold text-primary">$23 Million</p>
                       </div>
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary smooth-transition">
