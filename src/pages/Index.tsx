@@ -145,48 +145,41 @@ const Index = () => {
             <div className="text-center mb-20">
               <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Solutions</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Powerful customized solutions.
+                Four pillars. One purpose:
                 <br />
-                <span className="text-gradient">Analytically informed. Outcomes led.</span>
+                <span className="text-gradient">unlock capital and confidence.</span>
               </h2>
               <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-8"></div>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                Closing the credit gap requires innovative solutions and energetic coordination. 
-                We support this through our platform and tools for creative problem-solving.
+                Libertas Africa delivers four integrated solutions that turn debt friction into financial freedom—helping lenders clean balance sheets, investors deploy with confidence, projects secure long-tenor capital, and policymakers build resilient markets.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-20">
               {[{
               icon: Briefcase,
-              title: "NPL Portfolio Advisory",
-              description: "Rigorous portfolio assessment, valuation, and strategic transaction structuring for optimal outcomes.",
-              features: ["Portfolio Assessment", "Transaction Structuring", "Asset Recovery"]
+              title: "NPL Sales Advisory (for Lenders)",
+              description: "We guide lenders through portfolio preparation, valuation, and sale—unlocking capital tied up in NPLs, easing regulatory pressure, and freeing resources for new lending.",
+              cta: "Maximize Your Exit",
+              anchor: "#npl-sales-advisory"
+            }, {
+              icon: Target,
+              title: "NPL Investment Advisory (for Investors)",
+              description: "We connect investors to carefully prepared, investment-ready NPL portfolios—delivering strong pipelines, robust due diligence, and performance oversight that ensures capital delivers on IRR targets.",
+              cta: "Deploy with Confidence",
+              anchor: "#npl-investment-advisory"
             }, {
               icon: TrendingUp,
-              title: "Deal Origination",
-              description: "Sourcing investment-ready opportunities across renewable energy, infrastructure, and key growth sectors.",
-              features: ["Opportunity Sourcing", "Due Diligence", "Investor Matching"]
+              title: "Project Finance & Cross-Border Credit",
+              description: "We originate and structure bankable projects for sectors like energy, infrastructure, and agriculture—aligning them with ECA and DFI financing to secure long-tenor, affordable, and de-risked capital.",
+              cta: "Unlock Long-Tenor Capital",
+              anchor: "#project-finance"
             }, {
               icon: Shield,
-              title: "Regulatory Advisory",
-              description: "Expert guidance on compliance frameworks, risk management, and policy development.",
-              features: ["Compliance Frameworks", "Risk Management", "Policy Consultation"]
-            }, {
-              icon: PieChart,
-              title: "Valuation & Analytics",
-              description: "Advanced financial modeling, predictive analytics, and comprehensive risk assessment.",
-              features: ["Financial Modeling", "Predictive Analytics", "Risk Assessment"]
-            }, {
-              icon: FileText,
-              title: "Policy Development",
-              description: "Supporting effective financial sector policy formulation and regulatory framework development.",
-              features: ["Policy Recommendations", "Framework Development", "Stakeholder Engagement"]
-            }, {
-              icon: Users,
-              title: "Post-Transaction Services",
-              description: "Ongoing support with collection strategies, training programs, and portfolio management.",
-              features: ["Collection Strategy", "Training Programs", "Portfolio Reviews"]
+              title: "Policy & Regulatory Advisory",
+              description: "We work with regulators, governments, and development partners to design frameworks that enable NPL sales, strengthen credit infrastructure, and build investor confidence in Africa's financial markets.",
+              cta: "Build Better Markets",
+              anchor: "#policy-advisory"
             }].map((service, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader className="pb-4">
                     <service.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 smooth-transition" />
@@ -196,14 +189,45 @@ const Index = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                          <div className="w-1.5 h-1.5 bg-primary rounded-full mr-3"></div>
-                          {feature}
-                        </li>)}
-                    </ul>
+                    <Button className="text-sm px-6 py-2 rounded-full bg-primary hover:bg-primary/90" asChild>
+                      <a href={service.anchor}>
+                        {service.cta}
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
                   </CardContent>
                 </Card>)}
+            </div>
+
+            {/* Detailed Sections */}
+            <div className="space-y-16">
+              <div id="npl-sales-advisory" className="card-elevated rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-4 text-primary">NPL Sales Advisory (for Lenders)</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We help banks, digital lenders, MFIs, and telcos turn non-performing loans into liquidity by preparing portfolios with clean data, accurate valuations, and transparent analytics. Our process ensures investor-ready packages that align with market appetite, reduce regulatory pressure, and maximize sale proceeds. The result: capital freed for new lending and stronger balance sheets.
+                </p>
+              </div>
+
+              <div id="npl-investment-advisory" className="card-elevated rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-4 text-primary">NPL Investment Advisory (for Investors)</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We connect global and regional NPL investors with high-quality, carefully prepared portfolios that fit their mandate and return objectives. From deal sourcing and due diligence to negotiations and servicer onboarding, we support every step to ensure execution certainty. Post-close, we deliver governance and monthly performance reviews that protect capital and enhance recoveries.
+                </p>
+              </div>
+
+              <div id="project-finance" className="card-elevated rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-4 text-primary">Project Finance & Cross-Border Credit</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We originate and structure projects in energy, infrastructure, agriculture, manufacturing, and logistics—aligning them with ECA, DFI, and private credit to unlock long-tenor and competitively priced financing. Our approach addresses bankability gaps, builds robust financial models, and coordinates investor engagement through to close. By de-risking capital structures, we attract blended finance and crowd-in private investment.
+                </p>
+              </div>
+
+              <div id="policy-advisory" className="card-elevated rounded-2xl p-8">
+                <h3 className="text-2xl font-bold mb-4 text-primary">Policy & Regulatory Advisory</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  We partner with governments, regulators, and development partners to design frameworks that make Africa's credit markets more liquid, ethical, and investable. Our work covers secondary loan sale guidelines, ethical collections codes, credit infrastructure upgrades, and sandbox pilots for innovative solutions. By building the right market rules and rails, we foster investor confidence and accelerate balance-sheet repair at a systemic level.
+                </p>
+              </div>
             </div>
           </div>
         </div>
