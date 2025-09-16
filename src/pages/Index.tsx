@@ -89,7 +89,7 @@ const Index = () => {
                       <li>• Expert team with deep financial sector experience</li>
                       <li>• Local market and regulatory insight</li>
                       <li>• Data-driven valuation and analytics</li>
-                      <li>• Proven track record with global investors and DFIs</li>
+                      <li>• Proven track record with global investors</li>
                     </ul>
                   </div>
                 </div>
