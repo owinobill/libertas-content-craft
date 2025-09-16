@@ -153,7 +153,7 @@ const Index = () => {
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Four pillars. One purpose:
                 <br />
-                <span className="text-gradient">unlock capital and confidence.</span>
+                <span className="text-gradient">Unlock capital and potential.</span>
               </h2>
               <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-8"></div>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
