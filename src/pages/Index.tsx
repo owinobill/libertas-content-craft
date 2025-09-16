@@ -67,25 +67,31 @@ const Index = () => {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="space-y-8">
                 <div className="space-y-4">
-                  <p className="text-primary font-medium text-lg tracking-wide uppercase">Our Approach</p>
+                  <p className="text-primary font-medium text-lg tracking-wide uppercase">About Us</p>
                   <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                    Strategic consulting and 
+                     In Latin, Libertas means
                     <span className="text-gradient"> financial advisory</span>
-                    <br />that unlocks value.
+                    <br />— and freedom is at the heart of everything we do.
                   </h2>
                   <div className="w-16 h-1 bg-gradient-accent rounded-full"></div>
                 </div>
                 
                 <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                   <p>
-                    Our expertise spans Non-performing loan portfolio advisory, deal origination, and investment solutions for private and structured credit transactions across Africa's most dynamic markets.
+                    At Libertas Africa, we unlock the potential of distressed and underutilized capital through bold strategies, intelligent advisory, and deep market expertise. We work with banks, investors, DFIs, ECAs, and governments to reimagine what's possible in finance — freeing up capital trapped in non-performing loans, advising on complex debt and credit structures, and structuring transformative investments across Africa.
                   </p>
-                  <p>
-                    By combining local market insights with global expertise, we bridge strategic investment opportunities with international and regional financiers, creating sustainable pathways for financial recovery and growth.
+                  <p className="text-foreground font-medium text-xl">
+                    We don't just consult — we liberate value.
                   </p>
-                  <p className="text-foreground font-medium">
-                    At Libertas Africa, we're committed to freeing capital and unlocking potential across key sectors.
-                  </p>
+                  <div className="space-y-4 text-base">
+                    <p><strong className="text-foreground">Our Competitive Edge:</strong></p>
+                    <ul className="space-y-2 ml-4">
+                      <li>• Expert team with deep financial sector experience</li>
+                      <li>• Local market and regulatory insight</li>
+                      <li>• Data-driven valuation and analytics</li>
+                      <li>• Proven track record with global investors and DFIs</li>
+                    </ul>
+                  </div>
                 </div>
                 
                 <Button className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90">
@@ -102,14 +108,14 @@ const Index = () => {
                         <Target className="h-8 w-8 text-primary" />
                         <div>
                           <h4 className="font-semibold">Mission</h4>
-                          <p className="text-sm text-muted-foreground">Strategic excellence</p>
+                          <p className="text-sm text-muted-foreground">Foster growth, recovery, resilience</p>
                         </div>
                       </div>
                       <div className="flex items-center space-x-3">
                         <Users className="h-8 w-8 text-accent" />
                         <div>
                           <h4 className="font-semibold">Expert Team</h4>
-                          <p className="text-sm text-muted-foreground">Industry leaders</p>
+                          <p className="text-sm text-muted-foreground">Deep financial sector experience</p>
                         </div>
                       </div>
                     </div>
@@ -118,7 +124,7 @@ const Index = () => {
                         <TrendingUp className="h-8 w-8 text-primary" />
                         <div>
                           <h4 className="font-semibold">Vision</h4>
-                          <p className="text-sm text-muted-foreground">Market leadership</p>
+                          <p className="text-sm text-muted-foreground">Africa's most respected debt advisory</p>
                         </div>
                       </div>
                       <div className="flex items-center space-x-3">
@@ -151,7 +157,7 @@ const Index = () => {
               </h2>
               <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-8"></div>
               <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                Libertas Africa delivers four integrated solutions that turn debt friction into financial freedom—helping lenders clean balance sheets, investors deploy with confidence, projects secure long-tenor capital, and policymakers build resilient markets.
+                Libertas Africa delivers four integrated solutions that turn debt friction into financial financial advisory—helping lenders clean balance sheets, investors deploy with confidence, projects secure long-tenor capital, and policymakers build resilient markets.
               </p>
             </div>
             
