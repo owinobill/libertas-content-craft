@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { ChevronRight, Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
 const Index = () => {
   return <div className="min-h-screen bg-background text-foreground">
@@ -191,10 +192,10 @@ const Index = () => {
                   </CardHeader>
                   <CardContent>
                     <Button className="text-sm px-6 py-2 rounded-full bg-primary hover:bg-primary/90" asChild>
-                      <a href="/solutions">
+                      <Link to={`/solutions/detailed${service.anchor}`}>
                         {service.cta}
                         <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                      </Link>
                     </Button>
                   </CardContent>
                 </Card>)}
