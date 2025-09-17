@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
-
 const Solutions = () => {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  return <div className="min-h-screen bg-background text-foreground">
       {/* SEO Head */}
       <title>Solutions (Detailed) | Libertas Africa</title>
       <meta name="description" content="Expanded, educational deep-dives into Libertas Africa's four solutions—sell-side NPL advisory for lenders, buy-side NPL advisory for investors, project finance with ECA/DFI/private credit, and policy & regulatory advisory." />
@@ -44,7 +42,7 @@ const Solutions = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-gradient">Solutions — Detailed</span>
+              <span className="text-gradient">Solutions</span>
             </h1>
             <p className="text-2xl text-muted-foreground mb-8">
               How we turn debt friction into financial freedom.
@@ -207,8 +205,6 @@ const Solutions = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Solutions;
