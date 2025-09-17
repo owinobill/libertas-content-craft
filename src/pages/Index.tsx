@@ -196,7 +196,7 @@ const Index = () => {
                   </CardHeader>
                   <CardContent>
                     <Button className="text-sm px-6 py-2 rounded-full bg-primary hover:bg-primary/90" asChild>
-                      <a href={service.anchor}>
+                      <a href="/solutions">
                         {service.cta}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </a>
@@ -205,36 +205,6 @@ const Index = () => {
                 </Card>)}
             </div>
 
-            {/* Detailed Sections */}
-            <div className="space-y-16">
-              <div id="npl-sales-advisory" className="card-elevated rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-primary">NPL Sales Advisory (for Lenders)</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We help banks, digital lenders, MFIs, and telcos turn non-performing loans into liquidity by preparing portfolios with clean data, accurate valuations, and transparent analytics. Our process ensures investor-ready packages that align with market appetite, reduce regulatory pressure, and maximize sale proceeds. The result: capital freed for new lending and stronger balance sheets.
-                </p>
-              </div>
-
-              <div id="npl-investment-advisory" className="card-elevated rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-primary">NPL Investment Advisory (for Investors)</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We connect global and regional NPL investors with high-quality, carefully prepared portfolios that fit their mandate and return objectives. From deal sourcing and due diligence to negotiations and servicer onboarding, we support every step to ensure execution certainty. Post-close, we deliver governance and monthly performance reviews that protect capital and enhance recoveries.
-                </p>
-              </div>
-
-              <div id="project-finance" className="card-elevated rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-primary">Project Finance & Cross-Border Credit</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We originate and structure projects in energy, infrastructure, agriculture, manufacturing, and logistics—aligning them with ECA, DFI, and private credit to unlock long-tenor and competitively priced financing. Our approach addresses bankability gaps, builds robust financial models, and coordinates investor engagement through to close. By de-risking capital structures, we attract blended finance and crowd-in private investment.
-                </p>
-              </div>
-
-              <div id="policy-advisory" className="card-elevated rounded-2xl p-8">
-                <h3 className="text-2xl font-bold mb-4 text-primary">Policy & Regulatory Advisory</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We partner with governments, regulators, and development partners to design frameworks that make Africa's credit markets more liquid, ethical, and investable. Our work covers secondary loan sale guidelines, ethical collections codes, credit infrastructure upgrades, and sandbox pilots for innovative solutions. By building the right market rules and rails, we foster investor confidence and accelerate balance-sheet repair at a systemic level.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
