@@ -44,9 +44,7 @@ const Solutions = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
               <span className="text-gradient">Solutions</span>
             </h1>
-            <p className="text-2xl text-muted-foreground mb-8">
-              How we turn debt friction into financial freedom.
-            </p>
+            <p className="text-2xl text-muted-foreground mb-8">How we turn credit and debt friction into financial freedom.</p>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
               Explore our four solution pillars in depth: who they're for, how they work, and why they deliver results.
             </p>
