@@ -93,11 +93,6 @@ const Index = () => {
                     </ul>
                   </div>
                 </div>
-                
-                <Button className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90">
-                  Let's explore together
-                  <ChevronRight className="ml-2 h-5 w-5" />
-                </Button>
               </div>
               
               <div className="relative">
