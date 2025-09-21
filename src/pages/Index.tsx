@@ -289,7 +289,7 @@ const Index = () => {
             }, {
               icon: MapPin,
               label: "Office",
-              value: "[Your Office Address]"
+              value: "Eaton Place, Market Rd, Gigiri, Nairobi, Kenya"
             }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
                   <CardContent className="pt-8 text-center">
                     <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
