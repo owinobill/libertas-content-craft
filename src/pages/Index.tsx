@@ -286,17 +286,23 @@ const Index = () => {
               icon: Phone,
               label: "Phone",
               value: "+254 20 5253963"
-            }, {
-              icon: MapPin,
-              label: "Office",
-              value: "Eaton Place, Market Rd, Gigiri, Nairobi, Kenya"
-            }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
-                  <CardContent className="pt-8 text-center">
-                    <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                    <h3 className="font-semibold mb-2">{contact.label}</h3>
-                    <p className="text-muted-foreground">{contact.value}</p>
-                  </CardContent>
-                </Card>)}
+             }, {
+               icon: MapPin,
+               label: "Office",
+               value: (
+                 <>
+                   Eaton Place<br />
+                   Market Rd Gigiri<br />
+                   Nairobi, Kenya
+                 </>
+               )
+             }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
+                   <CardContent className="pt-8 text-center">
+                     <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
+                     <h3 className="font-semibold mb-2">{contact.label}</h3>
+                     <div className="text-muted-foreground">{contact.value}</div>
+                   </CardContent>
+                 </Card>)}
             </div>
             
             <Button size="lg" className="text-lg px-12 py-4 rounded-full bg-primary hover:bg-primary/90 shadow-elegant">
