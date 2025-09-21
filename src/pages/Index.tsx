@@ -14,7 +14,6 @@ const Index = () => {
             </div>
             <nav className="hidden md:flex items-center space-x-8">
               <a href="#about" className="nav-item">About</a>
-              <a href="#services" className="nav-item">Services</a>
               <a href="#solutions" className="nav-item">Solutions</a>
               <a href="#case-studies" className="nav-item">Case Studies</a>
               <a href="#contact" className="nav-item">Contact</a>
