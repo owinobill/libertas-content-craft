@@ -1,7 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 const Solutions = () => {
+  // Handle anchor scrolling when component loads
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const element = document.getElementById(hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+  }, []);
+
   return <div className="min-h-screen bg-background text-foreground">
       {/* SEO Head */}
       <title>Solutions (Detailed) | Libertas Africa</title>
