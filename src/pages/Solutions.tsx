@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import Header from "@/components/Header";
 const Solutions = () => {
   // Handle anchor scrolling when component loads
   useEffect(() => {
@@ -21,23 +22,7 @@ const Solutions = () => {
       <title>Solutions (Detailed) | Libertas Africa</title>
       <meta name="description" content="Expanded, educational deep-dives into Libertas Africa's four solutions—sell-side NPL advisory for lenders, buy-side NPL advisory for investors, project finance with ECA/DFI/private credit, and policy & regulatory advisory." />
 
-      {/* Header */}
-      <header className="relative z-50 border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-16 w-auto" />
-            </div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link to="/#about" className="nav-item">About</Link>
-              <Link to="/#services" className="nav-item">Services</Link>
-              <Link to="/solutions" className="nav-item">Solutions</Link>
-              <Link to="/#case-studies" className="nav-item">Case Studies</Link>
-              <Link to="/#contact" className="nav-item">Contact</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Back to Home Button */}
       <section className="py-8 bg-gradient-subtle">
