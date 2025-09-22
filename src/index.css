@@ -171,4 +171,9 @@ All colors MUST be HSL.
   .nav-item:hover::after {
     @apply w-full;
   }
+  
+  /* Dropdown menu specific styles */
+  .dropdown-item {
+    @apply block w-full px-4 py-3 text-sm text-foreground hover:bg-muted/50 transition-colors cursor-pointer;
+  }
 }
