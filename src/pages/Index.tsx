@@ -137,9 +137,7 @@ const Index = () => {
                 <span className="text-gradient">Unlock capital and potential.</span>
               </h2>
               <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-8"></div>
-              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-                Libertas Africa delivers four integrated solutions that turn debt friction into financial financial advisory—helping lenders clean balance sheets, investors deploy with confidence, projects secure long-tenor capital, and policymakers build resilient markets.
-              </p>
+              <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">Libertas Africa delivers four integrated solutions that transform debt and credit management friction into financial agility. We help lenders clean their books, NPL investors achieve sustainable returns, projects access patient cross-border financing, and policymakers design credit markets that attract global investments.</p>
             </div>
             
             <div className="grid md:grid-cols-2 gap-8 mb-20">
@@ -271,17 +269,15 @@ const Index = () => {
               icon: Phone,
               label: "Phone",
               value: "+254 20 5253963"
-             }, {
-               icon: MapPin,
-               label: "Office",
-               value: (
-                 <>
+            }, {
+              icon: MapPin,
+              label: "Office",
+              value: <>
                    Eaton Place<br />
                    Market Rd Gigiri<br />
                    Nairobi, Kenya
                  </>
-               )
-             }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
+            }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
                    <CardContent className="pt-8 text-center">
                      <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
                      <h3 className="font-semibold mb-2">{contact.label}</h3>
