@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 const Index = () => {
   return <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -286,31 +288,14 @@ const Index = () => {
                  </Card>)}
             </div>
             
-            <Button size="lg" className="text-lg px-12 py-4 rounded-full bg-primary hover:bg-primary/90 shadow-elegant">
-              Let's Connect Today
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+            <div className="mt-16">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border/50 bg-background/80 backdrop-blur-md py-16">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto text-center">
-            <div className="flex items-center justify-center mb-6">
-              <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-12 w-auto" />
-            </div>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Strategic consulting and advisory solutions in the financial sector, 
-              driving sustainable financial recovery and growth across key sectors.
-            </p>
-            <div className="pt-8 border-t border-border/50">
-              <p className="text-sm text-muted-foreground">© 2024 Libertas Advisory Ltd. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>;
 };
 export default Index;

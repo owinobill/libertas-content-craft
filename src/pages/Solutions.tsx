@@ -3,6 +3,7 @@ import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 const Solutions = () => {
   // Handle anchor scrolling when component loads
   useEffect(() => {
@@ -202,6 +203,8 @@ const Solutions = () => {
           </div>
         </div>
       </section>
+      
+      <Footer />
     </div>;
 };
 export default Solutions;
