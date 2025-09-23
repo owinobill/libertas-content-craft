@@ -57,7 +57,7 @@ const Index = () => {
                   <h2 className="text-4xl md:text-5xl font-bold leading-tight">
                      In Latin, Libertas means
                     <span className="text-gradient"> freedom</span>
-                    <br />— and freedom is at the heart of everything we do.
+                    <br />— and this is at the heart of everything we do.
                   </h2>
                   <div className="w-16 h-1 bg-gradient-accent rounded-full"></div>
                 </div>
