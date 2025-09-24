@@ -16,8 +16,8 @@ const InsightsHub = () => {
   const articles = [
     {
       id: 4,
-      title: "Building a Collaborative NPL Ecosystem in Africa – Part 1",
-      excerpt: "Why Africa needs a collaborative NPL resolution ecosystem and what global and regional precedents teach us about tackling bad loans.",
+      title: "Part 1: Building a Collaborative NPL Ecosystem in African Countries",
+      excerpt: "Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration.",
       category: "npls",
       date: "September 25, 2025",
       image: "/src/assets/npl-ecosystem-part1-hero.jpg",

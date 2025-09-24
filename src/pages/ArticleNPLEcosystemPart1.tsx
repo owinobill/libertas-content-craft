@@ -9,7 +9,7 @@ import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
 
 const ArticleNPLEcosystemPart1 = () => {
   const shareUrl = window.location.href;
-  const title = "Building a Collaborative NPL Ecosystem in Africa – Part 1";
+  const title = "Part 1: Building a Collaborative NPL Ecosystem in African Countries";
   const date = "September 25, 2025";
 
   const handleShare = (platform: string) => {
