@@ -132,7 +132,7 @@ const InsightsHub = () => {
           <div className="absolute inset-0 hero-gradient opacity-10"></div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gradient leading-tight">
                 Insights Hub
               </h1>
               <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
