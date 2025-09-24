@@ -8,6 +8,7 @@ import Solutions from "./pages/Solutions";
 import InsightsHub from "./pages/InsightsHub";
 import ArticleDebtSalesAssignments from "./pages/ArticleDebtSalesAssignments";
 import ArticleDebtSalesDynamics from "./pages/ArticleDebtSalesDynamics";
+import ArticleNPLEcosystemPart1 from "./pages/ArticleNPLEcosystemPart1";
 import ArticleNPLEcosystemPart2 from "./pages/ArticleNPLEcosystemPart2";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/insights-hub" element={<InsightsHub />} />
           <Route path="/insights-hub/debt-sales-assignments" element={<ArticleDebtSalesAssignments />} />
           <Route path="/insights-hub/debt-sales-dynamics" element={<ArticleDebtSalesDynamics />} />
+          <Route path="/insights-hub/npl-ecosystem-part-1" element={<ArticleNPLEcosystemPart1 />} />
           <Route path="/insights-hub/npl-ecosystem-part-2" element={<ArticleNPLEcosystemPart2 />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
