@@ -3,13 +3,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Index = () => {
-  return <div className="min-h-screen bg-background text-foreground">
-      <title>Libertas Africa | Strategic Financial Advisory & NPL Solutions</title>
-      <meta name="description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Libertas Africa | Strategic Financial Advisory & NPL Solutions</title>
+        <meta name="description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
+        <meta property="og:title" content="Libertas Africa | Strategic Financial Advisory & NPL Solutions" />
+        <meta property="og:description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Libertas Africa | Strategic Financial Advisory & NPL Solutions" />
+        <meta name="twitter:description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
+      </Helmet>
 
       <Header />
 
@@ -324,6 +334,8 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Index;

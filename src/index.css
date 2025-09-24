@@ -140,6 +140,10 @@ All colors MUST be HSL.
     border: 1px solid hsl(var(--border));
   }
   
+  .shadow-elevated {
+    box-shadow: var(--shadow-elegant);
+  }
+  
   .text-gradient {
     background: var(--gradient-accent);
     -webkit-background-clip: text;

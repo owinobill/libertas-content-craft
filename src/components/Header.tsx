@@ -105,7 +105,7 @@ const Header = () => {
 
               <Link to="/#case-studies" className="nav-item">Case Studies</Link>
               <Link to="/insights-hub" className={`nav-item ${isActive("/insights-hub") ? "text-primary" : ""}`}>Insights Hub</Link>
-              <Link to="/#contact" className="nav-item">Contact</Link>
+              <Link to="/contact" className={`nav-item ${isActive("/contact") ? "text-primary" : ""}`}>Contact</Link>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -178,7 +178,7 @@ const Header = () => {
               <Link to="/insights-hub" className="mobile-nav-item" onClick={closeMenu}>
                 Insights Hub
               </Link>
-              <Link to="/#contact" className="mobile-nav-item" onClick={closeMenu}>
+              <Link to="/contact" className="mobile-nav-item" onClick={closeMenu}>
                 Contact
               </Link>
             </div>

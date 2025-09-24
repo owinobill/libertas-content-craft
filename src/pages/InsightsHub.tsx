@@ -5,6 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Download, ArrowRight, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
@@ -14,10 +15,6 @@ import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
-
-  // SEO Meta Information
-  const pageTitle = "Insights Hub | NPL Strategies & African Debt Market Analysis";
-  const pageDescription = "Explore expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond.";
 
   // Articles data - sorted by date (newest first)
   const articles = [
@@ -119,15 +116,13 @@ const InsightsHub = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* SEO Meta Tags */}
-      <title>{pageTitle}</title>
-      <meta name="description" content={pageDescription} />
-      <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={pageDescription} />
-      <meta property="og:type" content="website" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={pageDescription} />
+      <Helmet>
+        <title>Insights Hub | NPL Strategies & African Debt Market Analysis | Libertas Africa</title>
+        <meta name="description" content="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond." />
+        <meta property="og:title" content="Insights Hub | NPL Strategies & African Debt Market Analysis | Libertas Africa" />
+        <meta property="og:description" content="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       
       <Header />
       

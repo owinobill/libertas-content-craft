@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -21,10 +22,15 @@ const Solutions = () => {
     }
   }, [location.hash]); // Listen to hash changes
 
-  return <div className="min-h-screen bg-background text-foreground">
-      {/* SEO Head */}
-      <title>Solutions (Detailed) | Libertas Africa</title>
-      <meta name="description" content="Expanded, educational deep-dives into Libertas Africa's four solutions—sell-side NPL advisory for lenders, buy-side NPL advisory for investors, project finance with ECA/DFI/private credit, and policy & regulatory advisory." />
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Solutions | NPL Advisory & Financial Services | Libertas Africa</title>
+        <meta name="description" content="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa." />
+        <meta property="og:title" content="Solutions | NPL Advisory & Financial Services | Libertas Africa" />
+        <meta property="og:description" content="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa." />
+        <meta property="og:type" content="website" />
+      </Helmet>
 
       <Header />
 
@@ -208,6 +214,8 @@ const Solutions = () => {
       </section>
       
       <Footer />
-    </div>;
+    </div>
+  );
 };
+
 export default Solutions;
