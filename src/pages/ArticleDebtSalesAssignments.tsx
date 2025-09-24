@@ -5,6 +5,7 @@ import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 
 const ArticleDebtSalesAssignments = () => {
   const shareUrl = window.location.href;
@@ -99,8 +100,8 @@ const ArticleDebtSalesAssignments = () => {
               {/* Hero Image */}
               <div className="mb-12">
                 <img 
-                  src="/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png" 
-                  alt="Finance and banking concept"
+                  src={debtSalesHero} 
+                  alt="Financial documents and charts representing debt sales and NPL management in East African banking"
                   className="w-full h-64 md:h-96 object-cover rounded-lg"
                 />
               </div>

@@ -7,6 +7,7 @@ import { Download, ArrowRight, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -20,7 +21,7 @@ const InsightsHub = () => {
       category: "npls",
       author: "Billy Owino",
       date: "May 24, 2025",
-      image: "/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png",
+      image: debtSalesHero,
       readTime: "8 min read",
       slug: "debt-sales-and-assignments"
     }
