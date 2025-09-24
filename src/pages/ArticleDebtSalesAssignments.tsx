@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
+import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 
 const ArticleDebtSalesAssignments = () => {
   const shareUrl = window.location.href;
@@ -215,7 +216,7 @@ const ArticleDebtSalesAssignments = () => {
                     <div className="flex flex-col md:flex-row">
                       <div className="md:w-1/3">
                         <img 
-                          src="/src/assets/debt-sales-dynamics-hero.jpg" 
+                          src={debtSalesDynamicsHero} 
                           alt="Understanding debt sales dynamics"
                           className="w-full h-48 md:h-full object-cover"
                         />

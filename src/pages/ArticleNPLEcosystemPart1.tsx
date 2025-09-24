@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
+import debtSalesHero from "@/assets/debt-sales-hero.jpg";
+import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
+import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
 
 const ArticleNPLEcosystemPart1 = () => {
   const shareUrl = window.location.href;
@@ -232,7 +235,7 @@ const ArticleNPLEcosystemPart1 = () => {
                     <div className="flex flex-col">
                       <div className="w-full">
                         <img 
-                          src="/src/assets/debt-sales-hero.jpg" 
+                          src={debtSalesHero} 
                           alt="Debt sales and assignments for NPL management"
                           className="w-full h-48 object-cover"
                         />
@@ -265,7 +268,7 @@ const ArticleNPLEcosystemPart1 = () => {
                     <div className="flex flex-col">
                       <div className="w-full">
                         <img 
-                          src="/src/assets/debt-sales-dynamics-hero.jpg" 
+                          src={debtSalesDynamicsHero} 
                           alt="Understanding debt sales dynamics"
                           className="w-full h-48 object-cover"
                         />
@@ -298,7 +301,7 @@ const ArticleNPLEcosystemPart1 = () => {
                     <div className="flex flex-col">
                       <div className="w-full">
                         <img 
-                          src="/src/assets/npl-ecosystem-hero.jpg" 
+                          src={nplEcosystemHero} 
                           alt="NPL ecosystem collaboration strategies"
                           className="w-full h-48 object-cover"
                         />

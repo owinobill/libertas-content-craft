@@ -8,9 +8,16 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
+import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
+import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
+import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  // SEO Meta Information
+  const pageTitle = "Insights Hub | NPL Strategies & African Debt Market Analysis";
+  const pageDescription = "Explore expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond.";
 
   // Articles data - sorted by date (newest first)
   const articles = [
@@ -20,7 +27,7 @@ const InsightsHub = () => {
       excerpt: "Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration.",
       category: "npls",
       date: "September 25, 2025",
-      image: "/src/assets/npl-ecosystem-part1-hero.jpg",
+      image: nplEcosystemPart1Hero,
       readTime: "9 min read",
       slug: "npl-ecosystem-part-1"
     },
@@ -30,7 +37,7 @@ const InsightsHub = () => {
       excerpt: "Four strategic pillars — legal frameworks, market infrastructure, capital mobilization, and collaboration — to create a thriving African NPL ecosystem.",
       category: "npls",
       date: "September 25, 2025",
-      image: "/src/assets/npl-ecosystem-hero.jpg",
+      image: nplEcosystemHero,
       readTime: "10 min read",
       slug: "npl-ecosystem-part-2"
     },
@@ -40,7 +47,7 @@ const InsightsHub = () => {
       excerpt: "A practical guide for East African lenders on navigating debt sales. From regulatory frameworks and synthetic debt sales to valuation, pricing, and reputational risk management — here's how to turn NPL challenges into opportunity.",
       category: "npls",
       date: "June 30, 2025",
-      image: "/src/assets/debt-sales-dynamics-hero.jpg",
+      image: debtSalesDynamicsHero,
       readTime: "12 min read",
       slug: "debt-sales-dynamics"
     },
@@ -112,6 +119,16 @@ const InsightsHub = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* SEO Meta Tags */}
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={pageDescription} />
+      
       <Header />
       
       <main className="pt-20">
@@ -120,10 +137,10 @@ const InsightsHub = () => {
           <div className="absolute inset-0 hero-gradient opacity-10"></div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient leading-tight">
                 Insights Hub
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 Explore our perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond.
               </p>
             </div>
@@ -139,7 +156,7 @@ const InsightsHub = () => {
                 <span className="text-sm font-medium text-muted-foreground">Filter by category:</span>
               </div>
               <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="w-[240px]">
+                <SelectTrigger className="w-full sm:w-[240px]">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -171,8 +188,9 @@ const InsightsHub = () => {
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img 
                         src={article.image} 
-                        alt={article.title}
+                        alt={`${article.title} - ${article.excerpt.substring(0, 100)}...`}
                         className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
                       />
                       <div className="absolute top-4 left-4">
                         <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">
@@ -191,20 +209,20 @@ const InsightsHub = () => {
                         </>
                       )}
                     </div>
-                    <CardTitle className="text-xl mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                    <CardTitle className="text-lg sm:text-xl mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                       {article.title}
                     </CardTitle>
                     <p className="text-muted-foreground mb-4 line-clamp-3">
                       {article.excerpt}
                     </p>
                     {article.slug ? (
-                      <Link to={`/insights-hub/${article.slug}`}>
+                      <Link to={`/insights-hub/${article.slug}`} aria-label={`Read full article: ${article.title}`}>
                         <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
                           Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                         </Button>
                       </Link>
                     ) : (
-                      <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
+                      <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary" disabled>
                         Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                       </Button>
                     )}
