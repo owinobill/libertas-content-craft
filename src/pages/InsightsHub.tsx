@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Download, ArrowRight, Filter } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -14,6 +15,17 @@ const InsightsHub = () => {
   const articles = [
     {
       id: 1,
+      title: "How Lenders in East Africa Can Unlock the Benefits of Debt Sales and Debt Assignments for Non-Performing Loan Portfolios",
+      excerpt: "Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.",
+      category: "npls",
+      author: "Billy Owino",
+      date: "May 24, 2025",
+      image: "/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png",
+      readTime: "8 min read",
+      slug: "debt-sales-and-assignments"
+    },
+    {
+      id: 2,
       title: "NPL Market Trends in East Africa: 2024 Analysis",
       excerpt: "An in-depth look at non-performing loan markets across East African countries, highlighting key opportunities and regulatory developments.",
       category: "npls",
@@ -21,7 +33,7 @@ const InsightsHub = () => {
       readTime: "5 min read"
     },
     {
-      id: 2,
+      id: 3,
       title: "Cross-Border Financing: Navigating Regulatory Complexities",
       excerpt: "Understanding the regulatory landscape for cross-border transactions in emerging African markets and best practices for compliance.",
       category: "project-finance",
@@ -29,7 +41,7 @@ const InsightsHub = () => {
       readTime: "7 min read"
     },
     {
-      id: 3,
+      id: 4,
       title: "Policy Changes Impacting Debt Recovery in West Africa",
       excerpt: "Recent policy developments and their implications for debt collection and NPL management strategies in the region.",
       category: "policy-regulation",
@@ -37,7 +49,7 @@ const InsightsHub = () => {
       readTime: "4 min read"
     },
     {
-      id: 4,
+      id: 5,
       title: "Case Study: Successful NPL Portfolio Acquisition in Nigeria",
       excerpt: "A detailed analysis of a recent successful NPL portfolio transaction, highlighting key success factors and lessons learned.",
       category: "case-studies",
@@ -45,7 +57,7 @@ const InsightsHub = () => {
       readTime: "6 min read"
     },
     {
-      id: 5,
+      id: 6,
       title: "Market Trends: African Debt Markets Q4 2024",
       excerpt: "Quarterly analysis of debt market performance across key African economies with forward-looking insights for 2025.",
       category: "market-trends",
@@ -53,7 +65,7 @@ const InsightsHub = () => {
       readTime: "8 min read"
     },
     {
-      id: 6,
+      id: 7,
       title: "Digital Transformation in Debt Collection",
       excerpt: "How technology is revolutionizing debt collection processes and improving recovery rates across African markets.",
       category: "market-trends",
@@ -188,8 +200,20 @@ const InsightsHub = () => {
                     </div>
                   </CardHeader>
                   <CardContent className="p-6">
-                    <div className="mb-2">
-                      <span className="text-sm text-muted-foreground">{article.readTime}</span>
+                    <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
+                      <span>{article.readTime}</span>
+                      {article.author && (
+                        <>
+                          <span>•</span>
+                          <span>By {article.author}</span>
+                        </>
+                      )}
+                      {article.date && (
+                        <>
+                          <span>•</span>
+                          <span>{article.date}</span>
+                        </>
+                      )}
                     </div>
                     <CardTitle className="text-xl mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                       {article.title}
@@ -197,9 +221,17 @@ const InsightsHub = () => {
                     <p className="text-muted-foreground mb-4 line-clamp-3">
                       {article.excerpt}
                     </p>
-                    <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
-                      Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                    {article.slug ? (
+                      <Link to={`/insights-hub/${article.slug}`}>
+                        <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
+                          Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Button variant="ghost" className="p-0 h-auto font-semibold group-hover:text-primary">
+                        Read More <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}
