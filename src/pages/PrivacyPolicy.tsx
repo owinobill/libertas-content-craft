@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <title>Privacy Policy | Libertas Africa</title>
+      <meta name="description" content="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services." />
+      
       <Header />
       
       <main className="container mx-auto px-6 py-32">

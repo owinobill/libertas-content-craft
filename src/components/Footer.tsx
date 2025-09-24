@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="max-w-4xl mx-auto">
           {/* Logo centered */}
           <div className="text-center mb-8">
-            <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-10 w-auto mx-auto" />
+            <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-10 w-auto mx-auto" loading="lazy" />
           </div>
           
           {/* Navigation links in a clean row */}

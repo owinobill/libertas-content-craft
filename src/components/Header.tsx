@@ -30,7 +30,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Link to="/" onClick={closeMenu}>
-                <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-16 w-auto" />
+                <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-16 w-auto" loading="lazy" />
               </Link>
             </div>
 

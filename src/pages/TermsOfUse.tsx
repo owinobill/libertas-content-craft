@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 const TermsOfUse = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <title>Terms of Use | Libertas Africa</title>
+      <meta name="description" content="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services." />
+      
       <Header />
       
       <main className="container mx-auto px-6 py-32">

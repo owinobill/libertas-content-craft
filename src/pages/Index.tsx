@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
+
 const Index = () => {
   return <div className="min-h-screen bg-background text-foreground">
+      <title>Libertas Africa | Strategic Financial Advisory & NPL Solutions</title>
+      <meta name="description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
+
       <Header />
 
       {/* Hero Section with Geni-inspired design */}
@@ -262,34 +265,40 @@ const Index = () => {
             </h2>
             <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-12"></div>
             
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {[{
-              icon: Mail,
-              label: "Email",
-              value: "connect@libertasafrica.com"
-            }, {
-              icon: Phone,
-              label: "Phone",
-              value: "+254 20 5253963"
-            }, {
-              icon: MapPin,
-              label: "Office",
-              value: <>
-                   Eaton Place<br />
-                   Market Rd Gigiri<br />
-                   Nairobi, Kenya
-                 </>
-            }].map((contact, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition">
-                   <CardContent className="pt-8 text-center">
-                     <contact.icon className="h-12 w-12 text-primary mx-auto mb-4" />
-                     <h3 className="font-semibold mb-2">{contact.label}</h3>
-                     <div className="text-muted-foreground">{contact.value}</div>
-                   </CardContent>
-                 </Card>)}
-            </div>
-            
-            <div className="mt-16">
-              <ContactForm />
+            <div className="grid md:grid-cols-3 gap-8">
+              <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+                <a href="mailto:connect@libertasafrica.com?subject=Enquiry%20via%20Libertas%20Africa%20Website" className="block">
+                  <CardContent className="pt-8 text-center">
+                    <Mail className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
+                    <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Email</h3>
+                    <div className="text-muted-foreground group-hover:text-foreground smooth-transition">connect@libertasafrica.com</div>
+                  </CardContent>
+                </a>
+              </Card>
+              
+              <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+                <a href="tel:+254205253963" className="block">
+                  <CardContent className="pt-8 text-center">
+                    <Phone className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
+                    <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Phone</h3>
+                    <div className="text-muted-foreground group-hover:text-foreground smooth-transition">+254 20 5253963</div>
+                  </CardContent>
+                </a>
+              </Card>
+              
+              <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+                <a href="https://www.google.com/maps/search/?api=1&query=Eaton+Place%2C+Market+Rd%2C+Gigiri%2C+Nairobi%2C+Kenya" target="_blank" rel="noopener noreferrer" className="block">
+                  <CardContent className="pt-8 text-center">
+                    <MapPin className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
+                    <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Office</h3>
+                    <div className="text-muted-foreground group-hover:text-foreground smooth-transition">
+                      Eaton Place<br />
+                      Market Rd Gigiri<br />
+                      Nairobi, Kenya
+                    </div>
+                  </CardContent>
+                </a>
+              </Card>
             </div>
           </div>
         </div>
