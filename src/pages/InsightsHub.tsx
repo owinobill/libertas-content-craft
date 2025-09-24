@@ -166,12 +166,6 @@ const InsightsHub = () => {
                   <CardContent className="p-6">
                     <div className="mb-2 flex items-center gap-2 text-sm text-muted-foreground">
                       <span>{article.readTime}</span>
-                      {article.author && (
-                        <>
-                          <span>•</span>
-                          <span>By {article.author}</span>
-                        </>
-                      )}
                       {article.date && (
                         <>
                           <span>•</span>

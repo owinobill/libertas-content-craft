@@ -50,8 +50,6 @@ const ArticleDebtSalesDynamics = () => {
                 </h1>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                   <div className="text-muted-foreground">
-                    <span className="font-medium">By Billy Owino</span>
-                    <span className="mx-2">•</span>
                     <span>June 30, 2025</span>
                     <span className="mx-2">•</span>
                     <span>12 min read</span>
@@ -295,7 +293,7 @@ const ArticleDebtSalesDynamics = () => {
                       <div className="p-6 md:w-2/3">
                         <div className="mb-2">
                           <span className="text-sm text-muted-foreground">
-                            By Billy Owino • May 24, 2025 • 8 min read
+                            May 24, 2025 • 8 min read
                           </span>
                         </div>
                         <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
