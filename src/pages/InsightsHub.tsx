@@ -26,7 +26,7 @@ const InsightsHub = () => {
     },
     {
       id: 3,
-      title: "Strategies for Building a Collaborative NPL Ecosystem in Africa – Part 2",
+      title: "Part 2: Strategies for Building a Collaborative NPL Ecosystem in African Countries",
       excerpt: "Four strategic pillars — legal frameworks, market infrastructure, capital mobilization, and collaboration — to create a thriving African NPL ecosystem.",
       category: "npls",
       date: "September 25, 2025",
