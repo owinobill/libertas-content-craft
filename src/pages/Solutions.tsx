@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
 const Solutions = () => {
-  // Handle anchor scrolling when component loads
+  const location = useLocation();
+
+  // Handle anchor scrolling when component loads or hash changes
   useEffect(() => {
     const hash = window.location.hash;
     if (hash) {
@@ -16,7 +19,7 @@ const Solutions = () => {
         }, 100);
       }
     }
-  }, []);
+  }, [location.hash]); // Listen to hash changes
 
   return <div className="min-h-screen bg-background text-foreground">
       {/* SEO Head */}

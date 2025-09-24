@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -7,6 +7,24 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleAnchorClick = (href: string) => {
+    if (location.pathname === '/solutions/detailed' && href.startsWith('/solutions/detailed#')) {
+      // Same page, just scroll to anchor
+      const hash = href.split('#')[1];
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      // Update URL hash
+      window.history.pushState(null, '', href);
+    } else {
+      // Different page, use normal navigation
+      navigate(href);
+    }
+    closeMenu();
+  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -57,30 +75,30 @@ const Header = () => {
                 {/* Dropdown Menu */}
                 <div className="dropdown-menu">
                   <div className="dropdown-content">
-                    <Link 
-                      to="/solutions/detailed#npl-sales-advisory" 
-                      className="dropdown-item"
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#npl-sales-advisory')}
+                      className="dropdown-item text-left w-full"
                     >
                       NPL Sales Advisory (for Lenders)
-                    </Link>
-                    <Link 
-                      to="/solutions/detailed#npl-investment-advisory" 
-                      className="dropdown-item"
+                    </button>
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#npl-investment-advisory')}
+                      className="dropdown-item text-left w-full"
                     >
                       NPL Investment Advisory (for Investors)
-                    </Link>
-                    <Link 
-                      to="/solutions/detailed#project-finance" 
-                      className="dropdown-item"
+                    </button>
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#project-finance')}
+                      className="dropdown-item text-left w-full"
                     >
                       Project Finance & Cross-Border Credit
-                    </Link>
-                    <Link 
-                      to="/solutions/detailed#policy-advisory" 
-                      className="dropdown-item"
+                    </button>
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#policy-advisory')}
+                      className="dropdown-item text-left w-full"
                     >
                       Policy & Regulatory Advisory
-                    </Link>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -126,34 +144,30 @@ const Header = () => {
                 
                 {isMobileSolutionsOpen && (
                   <div className="pl-4 pb-2">
-                    <Link 
-                      to="/solutions/detailed#npl-sales-advisory" 
-                      className="mobile-sub-nav-item"
-                      onClick={closeMenu}
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#npl-sales-advisory')}
+                      className="mobile-sub-nav-item text-left w-full"
                     >
                       NPL Sales Advisory (for Lenders)
-                    </Link>
-                    <Link 
-                      to="/solutions/detailed#npl-investment-advisory" 
-                      className="mobile-sub-nav-item"
-                      onClick={closeMenu}
+                    </button>
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#npl-investment-advisory')}
+                      className="mobile-sub-nav-item text-left w-full"
                     >
                       NPL Investment Advisory (for Investors)
-                    </Link>
-                    <Link 
-                      to="/solutions/detailed#project-finance" 
-                      className="mobile-sub-nav-item"
-                      onClick={closeMenu}
+                    </button>
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#project-finance')}
+                      className="mobile-sub-nav-item text-left w-full"
                     >
                       Project Finance & Cross-Border Credit
-                    </Link>
-                    <Link 
-                      to="/solutions/detailed#policy-advisory" 
-                      className="mobile-sub-nav-item"
-                      onClick={closeMenu}
+                    </button>
+                    <button 
+                      onClick={() => handleAnchorClick('/solutions/detailed#policy-advisory')}
+                      className="mobile-sub-nav-item text-left w-full"
                     >
                       Policy & Regulatory Advisory
-                    </Link>
+                    </button>
                   </div>
                 )}
               </div>
