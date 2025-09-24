@@ -39,12 +39,31 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button size="lg" className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-elegant">
+              <Button 
+                size="lg" 
+                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-elegant"
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+              >
                 Let's Connect
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 rounded-full border-border hover:bg-secondary/50">
-                Explore Our Vision
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="text-lg px-8 py-4 rounded-full border-border hover:bg-secondary/50"
+                onClick={() => {
+                  const solutionsSection = document.getElementById('solutions');
+                  if (solutionsSection) {
+                    solutionsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
+              >
+                Explore Our Solutions
               </Button>
             </div>
           </div>
