@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Mock data for articles
+  // Articles data
   const articles = [
     {
       id: 1,
@@ -23,54 +23,6 @@ const InsightsHub = () => {
       image: "/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png",
       readTime: "8 min read",
       slug: "debt-sales-and-assignments"
-    },
-    {
-      id: 2,
-      title: "NPL Market Trends in East Africa: 2024 Analysis",
-      excerpt: "An in-depth look at non-performing loan markets across East African countries, highlighting key opportunities and regulatory developments.",
-      category: "npls",
-      image: "/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png",
-      readTime: "5 min read"
-    },
-    {
-      id: 3,
-      title: "Cross-Border Financing: Navigating Regulatory Complexities",
-      excerpt: "Understanding the regulatory landscape for cross-border transactions in emerging African markets and best practices for compliance.",
-      category: "project-finance",
-      image: "/lovable-uploads/d0894c83-3078-4a90-aa7b-a2370f4741e9.png",
-      readTime: "7 min read"
-    },
-    {
-      id: 4,
-      title: "Policy Changes Impacting Debt Recovery in West Africa",
-      excerpt: "Recent policy developments and their implications for debt collection and NPL management strategies in the region.",
-      category: "policy-regulation",
-      image: "/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png",
-      readTime: "4 min read"
-    },
-    {
-      id: 5,
-      title: "Case Study: Successful NPL Portfolio Acquisition in Nigeria",
-      excerpt: "A detailed analysis of a recent successful NPL portfolio transaction, highlighting key success factors and lessons learned.",
-      category: "case-studies",
-      image: "/lovable-uploads/d0894c83-3078-4a90-aa7b-a2370f4741e9.png",
-      readTime: "6 min read"
-    },
-    {
-      id: 6,
-      title: "Market Trends: African Debt Markets Q4 2024",
-      excerpt: "Quarterly analysis of debt market performance across key African economies with forward-looking insights for 2025.",
-      category: "market-trends",
-      image: "/lovable-uploads/60b62344-cbae-4a0b-9e55-eb9a2f4862a6.png",
-      readTime: "8 min read"
-    },
-    {
-      id: 7,
-      title: "Digital Transformation in Debt Collection",
-      excerpt: "How technology is revolutionizing debt collection processes and improving recovery rates across African markets.",
-      category: "market-trends",
-      image: "/lovable-uploads/d0894c83-3078-4a90-aa7b-a2370f4741e9.png",
-      readTime: "5 min read"
     }
   ];
 
