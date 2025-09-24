@@ -135,7 +135,7 @@ const InsightsHub = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gradient leading-tight">
                 Insights Hub
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
+              <p className="text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
                 Explore our perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond.
               </p>
             </div>
