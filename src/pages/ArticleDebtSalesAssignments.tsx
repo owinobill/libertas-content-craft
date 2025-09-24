@@ -35,63 +35,49 @@ const ArticleDebtSalesAssignments = () => {
       <Header />
       
       <main className="pt-20">
-        {/* Back Navigation */}
-        <div className="container mx-auto px-6 py-4">
-          <Link to="/insights-hub">
-            <Button variant="ghost" className="text-muted-foreground hover:text-primary">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Insights Hub
-            </Button>
-          </Link>
-        </div>
-
         {/* Hero Section */}
-        <section className="py-12">
-          <div className="container mx-auto px-6">
+        <section className="relative py-16 overflow-hidden">
+          <div className="absolute inset-0 hero-gradient opacity-10"></div>
+          <div className="container mx-auto px-6 relative z-10">
             <div className="max-w-4xl mx-auto">
-              <div className="mb-6">
-                <Badge variant="secondary" className="mb-4">
-                  NPLs
-                </Badge>
-                <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              {/* Back Navigation */}
+              <div className="mb-8">
+                <Link to="/insights-hub">
+                  <Button variant="ghost" className="p-0 h-auto font-medium hover:text-primary">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back to Insights Hub
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Article Header */}
+              <div className="mb-8">
+                <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
                   {title}
                 </h1>
-                <div className="flex items-center gap-4 text-muted-foreground mb-6">
-                  <span>By {author}</span>
-                  <span>•</span>
-                  <span>{date}</span>
-                  <span>•</span>
-                  <span>8 min read</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
+                  <div className="text-muted-foreground">
+                    <span className="font-medium">By {author}</span>
+                    <span className="mx-2">•</span>
+                    <span>{date}</span>
+                    <span className="mx-2">•</span>
+                    <span>8 min read</span>
+                  </div>
                 </div>
-                
+
                 {/* Social Share Buttons */}
-                <div className="flex items-center gap-2 mb-8">
-                  <span className="text-sm text-muted-foreground mr-2">Share:</span>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleShare('linkedin')}
-                    className="gap-2"
-                  >
-                    <Linkedin className="h-4 w-4" />
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-muted-foreground">Share:</span>
+                  <Button variant="outline" size="sm" onClick={() => handleShare('linkedin')}>
+                    <Linkedin className="h-4 w-4 mr-2" />
                     LinkedIn
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleShare('twitter')}
-                    className="gap-2"
-                  >
-                    <Twitter className="h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={() => handleShare('twitter')}>
+                    <Twitter className="h-4 w-4 mr-2" />
                     Twitter
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleShare('email')}
-                    className="gap-2"
-                  >
-                    <Mail className="h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={() => handleShare('email')}>
+                    <Mail className="h-4 w-4 mr-2" />
                     Email
                   </Button>
                 </div>
@@ -105,34 +91,38 @@ const ArticleDebtSalesAssignments = () => {
                   className="w-full h-64 md:h-96 object-cover rounded-lg"
                 />
               </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Article Content */}
-        <section className="pb-16">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto">
-              <article className="prose prose-lg max-w-none">
-                <h2>Introduction</h2>
-                <p>
+              {/* Article Content */}
+              <div className="prose prose-lg max-w-none">
+                <h2 className="text-2xl font-bold mb-6 mt-12">Introduction</h2>
+                
+                <p className="mb-6">
                   Non-performing loans (NPLs) have been a challenge for banks in East Africa and across the world. Banks are often left with limited options to address these issues, including default management, loan restructuring, and debt collection. However, there are other options for managing NPLs and distressed loan portfolios, such as debt sale and debt assignment.
                 </p>
 
-                <h2>Debt Sale and Debt Assignment Explained</h2>
-                <p>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Debt Sale and Debt Assignment Explained</h2>
+                
+                <p className="mb-6">
                   Debt sale and debt assignment are financial instruments that allow banks to transfer their debt obligations to third parties, such as asset management companies, distressed asset investors, or other financial institutions. The debt obligations are sold or assigned to a third party by the originating bank during this process. The third party is then responsible for collecting the debt from the borrower.
                 </p>
-                <p>
+                
+                <p className="mb-12">
                   Debt sales and debt assignments can be used by banks to manage distressed loan portfolios and NPLs in a more efficient and cost-effective manner. These instruments provide banks with the flexibility to manage their loan portfolios and reduce the risk associated with NPLs. They also have the potential to generate revenue from the sale or assignment of written-off loans, freeing up capital that can be used to grow the bank's business.
                 </p>
 
-                <h2>What Is the Difference Between a Debt Sale and a Debt Assignment?</h2>
-                <p><strong>Debt Sale:</strong> Transfer of legal ownership of the debt from the bank to a third party. The buyer becomes the legal owner and assumes all rights and responsibilities.</p>
-                <p><strong>Debt Assignment:</strong> Transfer of servicing rights only. The bank remains the legal owner but a third party manages the debt and collections.</p>
+                <h2 className="text-2xl font-bold mb-6 mt-12">What Is the Difference Between a Debt Sale and a Debt Assignment?</h2>
+                
+                <p className="mb-6">
+                  <strong>Debt Sale:</strong> Transfer of legal ownership of the debt from the bank to a third party. The buyer becomes the legal owner and assumes all rights and responsibilities.
+                </p>
+                
+                <p className="mb-12">
+                  <strong>Debt Assignment:</strong> Transfer of servicing rights only. The bank remains the legal owner but a third party manages the debt and collections.
+                </p>
 
-                <h2>Benefits of Debt Sale and Debt Assignment</h2>
-                <ul>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Benefits of Debt Sale and Debt Assignment</h2>
+                
+                <ul className="list-disc list-inside space-y-4 mb-12 ml-4">
                   <li><strong>Revenue Generation:</strong> Banks can generate revenue from the transfer of NPLs.</li>
                   <li><strong>Capital Efficiency:</strong> Freeing up capital tied in distressed assets allows reinvestment in growth.</li>
                   <li><strong>Risk Reduction:</strong> Reduces exposure to default risk and portfolio drag.</li>
@@ -140,74 +130,74 @@ const ArticleDebtSalesAssignments = () => {
                   <li><strong>Operational Focus:</strong> Allows banks to refocus on core business activities.</li>
                 </ul>
 
-                <h2>Enabling Debt Forgiveness</h2>
-                <p>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Enabling Debt Forgiveness</h2>
+                
+                <p className="mb-12">
                   Through partnerships with asset management companies and distressed asset investors, debt sales and assignments can also support borrower relief — including partial forgiveness, flexible repayment terms, or restructuring, especially when coupled with government or international support programs.
                 </p>
 
-                <h2>Challenges in Implementation</h2>
-                <ul>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Challenges in Implementation</h2>
+                
+                <ul className="list-disc list-inside space-y-4 mb-12 ml-4">
                   <li>Lack of transparency and trust between borrowers and lenders.</li>
                   <li>Complex regulatory environments in many African jurisdictions.</li>
                   <li>Difficulties in valuing distressed loans due to poor data quality.</li>
                   <li>Limited resources and expertise among local banks.</li>
                 </ul>
 
-                <h2>Case Studies from Other Markets</h2>
-                <p><strong>Europe:</strong> European banks have reduced systemic NPL risk through structured secondary markets encouraged by the ECB.</p>
-                <p><strong>India:</strong> Asset Reconstruction Companies (ARCs) under the RBI framework have helped banks resolve distressed assets and reduce NPL ratios.</p>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Case Studies from Other Markets</h2>
+                
+                <p className="mb-6">
+                  <strong>Europe:</strong> European banks have reduced systemic NPL risk through structured secondary markets encouraged by the ECB.
+                </p>
+                
+                <p className="mb-12">
+                  <strong>India:</strong> Asset Reconstruction Companies (ARCs) under the RBI framework have helped banks resolve distressed assets and reduce NPL ratios.
+                </p>
 
-                <h2>The Role of Asset Management Companies and Investors</h2>
-                <p>
+                <h2 className="text-2xl font-bold mb-6 mt-12">The Role of Asset Management Companies and Investors</h2>
+                
+                <p className="mb-12">
                   AMCs and distressed asset investors provide valuation expertise, assume risk, and improve borrower outcomes through restructuring and fair treatment practices. Their involvement deepens market liquidity and supports the stability of the financial system.
                 </p>
 
-                <h2>Consumer Protection and Data Privacy</h2>
-                <p>Implementing debt sales requires careful attention to:</p>
-                <ul>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Consumer Protection and Data Privacy</h2>
+                
+                <p className="mb-6">
+                  Implementing debt sales requires careful attention to:
+                </p>
+                
+                <ul className="list-disc list-inside space-y-4 mb-12 ml-4">
                   <li>Borrower rights and transparency.</li>
                   <li>Data protection laws (e.g., GDPR, local data privacy regulations).</li>
                   <li>Clear borrower consent and proper data-sharing agreements.</li>
                 </ul>
 
-                <h2>Conclusion</h2>
-                <p>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Conclusion</h2>
+                
+                <p className="mb-12">
                   Debt sales and debt assignments provide East African banks with powerful tools to manage NPLs, free up capital, and strengthen balance sheets. To maximize benefits, banks must build capacity in valuation, ensure robust data, and engage with ethical investors. With the right structures and frameworks, debt sales can improve both institutional resilience and financial inclusion.
                 </p>
 
-                <h3>Related Reading</h3>
-                <p>Next article in this series: "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa" (March 2023).</p>
-              </article>
+                <h2 className="text-2xl font-bold mb-6 mt-12">Related Reading</h2>
+                
+                <p className="mb-12">
+                  Next article in this series: "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa" (June 2025).
+                </p>
 
-              {/* Bottom Social Share */}
-              <div className="mt-12 pt-8 border-t border-border">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-muted-foreground mr-2">Share this article:</span>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleShare('linkedin')}
-                    className="gap-2"
-                  >
-                    <Linkedin className="h-4 w-4" />
+                {/* Social Share Buttons - Bottom */}
+                <div className="flex items-center gap-3 py-8 border-t border-border/20">
+                  <span className="text-sm font-medium text-muted-foreground">Share this article:</span>
+                  <Button variant="outline" size="sm" onClick={() => handleShare('linkedin')}>
+                    <Linkedin className="h-4 w-4 mr-2" />
                     LinkedIn
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleShare('twitter')}
-                    className="gap-2"
-                  >
-                    <Twitter className="h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={() => handleShare('twitter')}>
+                    <Twitter className="h-4 w-4 mr-2" />
                     Twitter
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => handleShare('email')}
-                    className="gap-2"
-                  >
-                    <Mail className="h-4 w-4" />
+                  <Button variant="outline" size="sm" onClick={() => handleShare('email')}>
+                    <Mail className="h-4 w-4 mr-2" />
                     Email
                   </Button>
                 </div>
@@ -216,72 +206,41 @@ const ArticleDebtSalesAssignments = () => {
           </div>
         </section>
 
-        {/* Related Articles */}
+        {/* Related Articles Section */}
         <section className="py-16 bg-secondary/30">
           <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8">Related Articles</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
+              <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                 <Card className="group hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="mb-3">
-                      <Badge variant="outline" className="text-xs">
-                        NPLs
-                      </Badge>
+                  <CardContent className="p-0">
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-1/3">
+                        <img 
+                          src="/src/assets/debt-sales-dynamics-hero.jpg" 
+                          alt="Understanding debt sales dynamics"
+                          className="w-full h-48 md:h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-6 md:w-2/3">
+                        <div className="mb-2">
+                          <span className="text-sm text-muted-foreground">
+                            By Billy Owino • June 30, 2025 • 12 min read
+                          </span>
+                        </div>
+                        <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                          Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa
+                        </h3>
+                        <p className="text-muted-foreground mb-4 line-clamp-3">
+                          A practical guide for East African lenders on navigating debt sales. From regulatory frameworks and synthetic debt sales to valuation, pricing, and reputational risk management — here's how to turn NPL challenges into opportunity.
+                        </p>
+                        <Link to="/insights-hub/debt-sales-dynamics">
+                          <Button variant="outline">
+                            Read Article
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                      NPL Market Trends in East Africa: 2024 Analysis
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      An in-depth look at non-performing loan markets across East African countries...
-                    </p>
-                    <Link to="/insights-hub">
-                      <Button variant="ghost" className="p-0 h-auto font-semibold text-sm">
-                        Read More
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-
-                <Card className="group hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="mb-3">
-                      <Badge variant="outline" className="text-xs">
-                        Policy & Regulation
-                      </Badge>
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                      Policy Changes Impacting Debt Recovery in West Africa
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      Recent policy developments and their implications for debt collection...
-                    </p>
-                    <Link to="/insights-hub">
-                      <Button variant="ghost" className="p-0 h-auto font-semibold text-sm">
-                        Read More
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
-
-                <Card className="group hover:shadow-lg transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="mb-3">
-                      <Badge variant="outline" className="text-xs">
-                        Case Studies
-                      </Badge>
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
-                      Case Study: Successful NPL Portfolio Acquisition in Nigeria
-                    </h3>
-                    <p className="text-muted-foreground text-sm mb-4">
-                      A detailed analysis of a recent successful NPL portfolio transaction...
-                    </p>
-                    <Link to="/insights-hub">
-                      <Button variant="ghost" className="p-0 h-auto font-semibold text-sm">
-                        Read More
-                      </Button>
-                    </Link>
                   </CardContent>
                 </Card>
               </div>

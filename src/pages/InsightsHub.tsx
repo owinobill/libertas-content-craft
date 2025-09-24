@@ -12,19 +12,8 @@ import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Articles data
+  // Articles data - sorted by date (newest first)
   const articles = [
-    {
-      id: 1,
-      title: "How Lenders in East Africa Can Unlock the Benefits of Debt Sales and Debt Assignments for Non-Performing Loan Portfolios",
-      excerpt: "Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.",
-      category: "npls",
-      author: "Billy Owino",
-      date: "May 24, 2025",
-      image: debtSalesHero,
-      readTime: "8 min read",
-      slug: "debt-sales-and-assignments"
-    },
     {
       id: 2,
       title: "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa",
@@ -35,6 +24,17 @@ const InsightsHub = () => {
       image: "/src/assets/debt-sales-dynamics-hero.jpg",
       readTime: "12 min read",
       slug: "debt-sales-dynamics"
+    },
+    {
+      id: 1,
+      title: "How Lenders in East Africa Can Unlock the Benefits of Debt Sales and Debt Assignments for Non-Performing Loan Portfolios",
+      excerpt: "Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.",
+      category: "npls",
+      author: "Billy Owino",
+      date: "May 24, 2025",
+      image: debtSalesHero,
+      readTime: "8 min read",
+      slug: "debt-sales-and-assignments"
     }
   ];
 
