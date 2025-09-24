@@ -41,7 +41,7 @@ const Footer = () => {
 
         {/* Copyright and Legal */}
         <div className="mt-6 pt-4 border-t border-border/20 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-muted-foreground/70">
-          <span>© 2024 Libertas Advisory Ltd.</span>
+          <span>© 2025 Libertas Advisory Ltd.</span>
           <div className="flex gap-4">
             <Link to="/privacy-policy" className="hover:text-primary smooth-transition">
               Privacy
