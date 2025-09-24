@@ -15,11 +15,20 @@ const InsightsHub = () => {
   // Articles data - sorted by date (newest first)
   const articles = [
     {
+      id: 3,
+      title: "Strategies for Building a Collaborative NPL Ecosystem in Africa – Part 2",
+      excerpt: "Four strategic pillars — legal frameworks, market infrastructure, capital mobilization, and collaboration — to create a thriving African NPL ecosystem.",
+      category: "npls",
+      date: "September 25, 2025",
+      image: "/src/assets/npl-ecosystem-hero.jpg",
+      readTime: "10 min read",
+      slug: "npl-ecosystem-part-2"
+    },
+    {
       id: 2,
       title: "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa",
       excerpt: "A practical guide for East African lenders on navigating debt sales. From regulatory frameworks and synthetic debt sales to valuation, pricing, and reputational risk management — here's how to turn NPL challenges into opportunity.",
       category: "npls",
-      author: "Billy Owino",
       date: "June 30, 2025",
       image: "/src/assets/debt-sales-dynamics-hero.jpg",
       readTime: "12 min read",
@@ -30,11 +39,10 @@ const InsightsHub = () => {
       title: "How Lenders in East Africa Can Unlock the Benefits of Debt Sales and Debt Assignments for Non-Performing Loan Portfolios",
       excerpt: "Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.",
       category: "npls",
-      author: "Billy Owino",
       date: "May 24, 2025",
       image: debtSalesHero,
       readTime: "8 min read",
-      slug: "debt-sales-and-assignments"
+      slug: "debt-sales-assignments"
     }
   ];
 
