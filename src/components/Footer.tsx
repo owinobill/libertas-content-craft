@@ -5,16 +5,12 @@ const Footer = () => {
     <footer className="border-t border-border/50 bg-background/80 backdrop-blur-md py-16">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            {/* Logo and Description */}
-            <div className="md:col-span-2">
-              <div className="flex items-center mb-6">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            {/* Logo */}
+            <div>
+              <div className="flex items-center">
                 <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-12 w-auto" />
               </div>
-              <p className="text-muted-foreground mb-6 max-w-lg">
-                Strategic consulting and advisory solutions in the financial sector, 
-                driving sustainable financial recovery and growth across key sectors.
-              </p>
             </div>
             
             {/* Quick Links */}
