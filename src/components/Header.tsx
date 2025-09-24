@@ -25,17 +25,22 @@ const Header = () => {
   return (
     <>
       {/* Header */}
-      <header className="relative z-50 border-b border-border/50 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <Link to="/" onClick={closeMenu}>
-                <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-16 w-auto" loading="lazy" />
+      <header className="relative z-50 border-b border-border/50 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <Link to="/" onClick={closeMenu} className="flex items-center">
+                <img 
+                  src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" 
+                  alt="Libertas Africa" 
+                  className="h-12 w-auto transition-transform duration-200 hover:scale-105" 
+                  loading="lazy" 
+                />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className={`nav-item ${isActive("/") ? "text-primary" : ""}`}>Home</Link>
               <Link to="/#about" className="nav-item">About</Link>
               
@@ -43,10 +48,10 @@ const Header = () => {
               <div className="relative group">
                 <Link 
                   to="/solutions" 
-                  className={`nav-item flex items-center ${isActive("/solutions") ? "text-primary" : ""}`}
+                  className={`nav-item flex items-center gap-1 ${isActive("/solutions") ? "text-primary" : ""}`}
                 >
                   Solutions
-                  <ChevronDown className="ml-1 h-4 w-4 transition-transform group-hover:rotate-180" />
+                  <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
                 </Link>
                 
                 {/* Dropdown Menu */}
@@ -89,10 +94,11 @@ const Header = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="md:hidden"
+              className="md:hidden h-10 w-10"
               onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
