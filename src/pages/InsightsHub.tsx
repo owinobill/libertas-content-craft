@@ -24,6 +24,17 @@ const InsightsHub = () => {
       image: debtSalesHero,
       readTime: "8 min read",
       slug: "debt-sales-and-assignments"
+    },
+    {
+      id: 2,
+      title: "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa",
+      excerpt: "A practical guide for East African lenders on navigating debt sales. From regulatory frameworks and synthetic debt sales to valuation, pricing, and reputational risk management — here's how to turn NPL challenges into opportunity.",
+      category: "npls",
+      author: "Billy Owino",
+      date: "June 30, 2025",
+      image: "/src/assets/debt-sales-dynamics-hero.jpg",
+      readTime: "12 min read",
+      slug: "debt-sales-dynamics"
     }
   ];
 
