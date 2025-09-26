@@ -6,6 +6,7 @@ import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieC
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 
 const Index = () => {
   return (
@@ -292,7 +293,17 @@ const Index = () => {
               Whether you're a lender looking to optimize NPL portfolios, an investor seeking opportunities, or need strategic advisory on complex financing structures, 
               <span className="text-gradient"> our team is ready to help</span>.
             </h2>
-            <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-12"></div>
+            <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-16"></div>
+            
+            {/* Contact Form */}
+            <div className="mb-20">
+              <ContactForm />
+            </div>
+            
+            {/* Contact Information */}
+            <div className="text-center mb-8">
+              <h3 className="text-xl font-semibold mb-4">Or reach out directly</h3>
+            </div>
             
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
