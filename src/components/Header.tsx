@@ -12,17 +12,32 @@ const Header = () => {
   const handleAnchorClick = (href: string) => {
     const [path, hash] = href.split('#');
     
-    if (location.pathname === path) {
+    if (location.pathname === path || (path === '' && location.pathname === '/')) {
       // Same page, just scroll to anchor
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (hash) {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        // Update URL hash
+        window.history.pushState(null, '', href);
       }
-      // Update URL hash
-      window.history.pushState(null, '', href);
     } else {
-      // Different page, use normal navigation
-      navigate(href);
+      // Different page, navigate and then scroll to anchor
+      if (hash) {
+        // Navigate to the page first
+        navigate(path || '/');
+        // Use setTimeout to ensure the page loads before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      } else {
+        // Just navigate without anchor
+        navigate(href);
+      }
     }
     closeMenu();
   };
