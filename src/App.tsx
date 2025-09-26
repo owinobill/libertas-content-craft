@@ -26,7 +26,7 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   return (
-    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
+    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-WSYGGNY21N' : undefined}>
       <ErrorBoundary>
         <ScrollToTop />
         <Routes>
