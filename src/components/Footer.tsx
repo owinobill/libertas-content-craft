@@ -57,6 +57,10 @@ const Footer = () => {
               <Phone className="h-4 w-4" />
               <span className="hidden sm:inline">+254 20 5253963</span>
             </a>
+            <a href="https://www.linkedin.com/company/libertas-africa/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary smooth-transition" aria-label="Follow Libertas Africa on LinkedIn">
+              <Linkedin className="h-4 w-4" />
+              <span className="hidden sm:inline">LinkedIn</span>
+            </a>
           </div>
         </div>
 
