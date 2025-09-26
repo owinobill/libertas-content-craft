@@ -61,7 +61,12 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-6">
               <Link to="/" className={`nav-item ${isActive("/") ? "text-primary" : ""}`}>Home</Link>
-              <Link to="/#about" className="nav-item">About</Link>
+              <button 
+                onClick={() => handleAnchorClick('/#about')}
+                className="nav-item"
+              >
+                About
+              </button>
               
               {/* Solutions Dropdown */}
               <div className="relative group">
@@ -139,9 +144,12 @@ const Header = () => {
               <Link to="/" className="mobile-nav-item" onClick={closeMenu}>
                 Home
               </Link>
-              <Link to="/#about" className="mobile-nav-item" onClick={closeMenu}>
+              <button 
+                onClick={() => handleAnchorClick('/#about')}
+                className="mobile-nav-item text-left w-full"
+              >
                 About
-              </Link>
+              </button>
               
               {/* Mobile Solutions with Dropdown */}
               <div className="border-b border-border/20">
