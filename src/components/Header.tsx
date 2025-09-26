@@ -10,9 +10,10 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleAnchorClick = (href: string) => {
-    if (location.pathname === '/solutions/detailed' && href.startsWith('/solutions/detailed#')) {
+    const [path, hash] = href.split('#');
+    
+    if (location.pathname === path) {
       // Same page, just scroll to anchor
-      const hash = href.split('#')[1];
       const element = document.getElementById(hash);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -103,7 +104,12 @@ const Header = () => {
                 </div>
               </div>
 
-              <Link to="/#case-studies" className="nav-item">Case Studies</Link>
+              <button 
+                onClick={() => handleAnchorClick('/#case-studies')}
+                className="nav-item"
+              >
+                Case Studies
+              </button>
               <Link to="/insights-hub" className={`nav-item ${isActive("/insights-hub") ? "text-primary" : ""}`}>Insights Hub</Link>
               <Link to="/contact" className={`nav-item ${isActive("/contact") ? "text-primary" : ""}`}>Contact</Link>
             </nav>
@@ -172,9 +178,12 @@ const Header = () => {
                 )}
               </div>
 
-              <Link to="/#case-studies" className="mobile-nav-item" onClick={closeMenu}>
+              <button 
+                onClick={() => handleAnchorClick('/#case-studies')}
+                className="mobile-nav-item text-left w-full"
+              >
                 Case Studies
-              </Link>
+              </button>
               <Link to="/insights-hub" className="mobile-nav-item" onClick={closeMenu}>
                 Insights Hub
               </Link>
