@@ -1,19 +1,13 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Helmet } from "react-helmet-async";
+import { PageLayout } from "@/components/PageLayout";
 
 const PrivacyPolicy = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>Privacy Policy | Libertas Africa</title>
-        <meta name="description" content="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services." />
-        <meta property="og:title" content="Privacy Policy | Libertas Africa" />
-        <meta property="og:description" content="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      
-      <Header />
+    <PageLayout
+      title="Privacy Policy | Libertas Africa"
+      description="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services."
+      keywords="privacy policy, data protection, personal information, Libertas Africa"
+      canonical="https://libertasafrica.com/privacy-policy"
+    >
       
       <main className="container mx-auto px-6 py-32">
         <div className="max-w-4xl mx-auto">
@@ -131,8 +125,7 @@ const PrivacyPolicy = () => {
         </div>
       </main>
       
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

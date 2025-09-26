@@ -3,8 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { PageLayout } from "@/components/PageLayout";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 
@@ -32,8 +31,12 @@ const ArticleDebtSalesAssignments = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <PageLayout
+      title={`${title} | Libertas Africa`}
+      description="How lenders in East Africa can unlock the benefits of debt sales and debt assignments for non-performing loan portfolios."
+      keywords="debt sales, debt assignments, NPL, non-performing loans, East Africa, lenders, recovery"
+      canonical="https://libertasafrica.com/insights-hub/debt-sales-assignments"
+    >
       
       <main className="pt-20">
         {/* Hero Section */}
@@ -248,8 +251,7 @@ const ArticleDebtSalesAssignments = () => {
         </section>
       </main>
 
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

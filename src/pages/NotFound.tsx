@@ -2,9 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Helmet } from "react-helmet-async";
+import { PageLayout } from "@/components/PageLayout";
 
 const NotFound = () => {
   const location = useLocation();
@@ -17,15 +15,13 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>Page Not Found | Libertas Africa</title>
-        <meta name="description" content="The page you are looking for could not be found. Return to Libertas Africa's homepage to continue browsing our financial advisory services." />
-        <meta name="robots" content="noindex, nofollow" />
-      </Helmet>
-
-      <Header />
-      
+    <PageLayout
+      title="Page Not Found | Libertas Africa"
+      description="The page you are looking for could not be found. Return to our homepage or explore our solutions and insights."
+      keywords="404, page not found, Libertas Africa"
+      canonical="https://libertasafrica.com/404"
+      showBreadcrumb={false}
+    >
       <main className="min-h-screen flex items-center justify-center py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto text-center">
@@ -54,9 +50,7 @@ const NotFound = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

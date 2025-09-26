@@ -3,8 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { PageLayout } from "@/components/PageLayout";
 import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
@@ -33,8 +32,12 @@ const ArticleNPLEcosystemPart1 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
+    <PageLayout
+      title={`${title} | Libertas Africa`}
+      description="Part 1: Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration."
+      keywords="NPL ecosystem, African banking, non-performing loans, collaboration, financial recovery"
+      canonical="https://libertasafrica.com/insights-hub/npl-ecosystem-part-1"
+    >
       
       <main className="pt-20">
         {/* Hero Section */}
@@ -333,8 +336,7 @@ const ArticleNPLEcosystemPart1 = () => {
         </section>
       </main>
 
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

@@ -1,19 +1,13 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Helmet } from "react-helmet-async";
+import { PageLayout } from "@/components/PageLayout";
 
 const TermsOfUse = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>Terms of Use | Libertas Africa</title>
-        <meta name="description" content="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services." />
-        <meta property="og:title" content="Terms of Use | Libertas Africa" />
-        <meta property="og:description" content="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      
-      <Header />
+    <PageLayout
+      title="Terms of Use | Libertas Africa"
+      description="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services."
+      keywords="terms of use, terms and conditions, website terms, Libertas Africa"
+      canonical="https://libertasafrica.com/terms-of-use"
+    >
       
       <main className="container mx-auto px-6 py-32">
         <div className="max-w-4xl mx-auto">
@@ -113,8 +107,7 @@ const TermsOfUse = () => {
         </div>
       </main>
       
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
