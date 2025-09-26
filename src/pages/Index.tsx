@@ -3,24 +3,31 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ContactForm from "@/components/ContactForm";
+import { SEOHead } from "@/components/SEOHead";
+import { createOrganizationSchema, createWebsiteSchema } from "@/utils/structuredData";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Index = () => {
+  // Initialize analytics - Add your Google Analytics ID here
+  const analytics = useAnalytics(); // Add your GA4 measurement ID: useAnalytics('G-XXXXXXXXXX')
+
+  // Structured data for SEO
+  const organizationSchema = createOrganizationSchema();
+  const websiteSchema = createWebsiteSchema();
+  const combinedSchema = [organizationSchema, websiteSchema];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>Libertas Africa | Strategic Financial Advisory & NPL Solutions</title>
-        <meta name="description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
-        <meta property="og:title" content="Libertas Africa | Strategic Financial Advisory & NPL Solutions" />
-        <meta property="og:description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
-        <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Libertas Africa | Strategic Financial Advisory & NPL Solutions" />
-        <meta name="twitter:description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
-      </Helmet>
+      <SEOHead
+        title="Libertas Africa | Strategic Financial Advisory & NPL Solutions"
+        description="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa."
+        keywords="NPL portfolio sales, investment advisory, project finance, policy advisory, Africa financial services, debt advisory, non-performing loans, structured credit, DFI financing"
+        structuredData={combinedSchema}
+        canonical="https://libertasafrica.com/"
+      />
 
       <Header />
 
@@ -54,6 +61,7 @@ const Index = () => {
                 size="lg" 
                 className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-elegant"
                 onClick={() => {
+                  analytics.trackBusinessEvent('cta_click', { button_text: 'Let\'s Connect', location: 'hero' });
                   const contactSection = document.getElementById('contact');
                   if (contactSection) {
                     contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -68,6 +76,7 @@ const Index = () => {
                 size="lg" 
                 className="text-lg px-8 py-4 rounded-full border-border hover:bg-secondary/50"
                 onClick={() => {
+                  analytics.trackBusinessEvent('cta_click', { button_text: 'Explore Our Solutions', location: 'hero' });
                   const solutionsSection = document.getElementById('solutions');
                   if (solutionsSection) {
                     solutionsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -255,7 +264,7 @@ const Index = () => {
               description: "The banking industry association needed a structured approach to engage regulators on NPL sales and securitization. Libertas Africa delivered research, data insights, and global benchmarks, enabling evidence-based dialogue. This work shaped draft policy discussions and positioned the sector for a healthier secondary NPL market.",
               category: "Policy",
               impact: "Systemic NPL reduction"
-            }].map((study, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+            }].map((study, idx) => <Card key={idx} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="outline" className="border-primary/30 text-primary">
@@ -295,10 +304,10 @@ const Index = () => {
             </h2>
             <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-16"></div>
             
-            {/* Contact Form */}
-            <div className="mb-20">
-              <ContactForm />
-            </div>
+          {/* Contact Form */}
+          <div className="mb-20">
+            <ContactForm />
+          </div>
             
             {/* Contact Information */}
             <div className="text-center mb-8">
@@ -306,8 +315,13 @@ const Index = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
-                <a href="mailto:connect@libertasafrica.com?subject=Enquiry%20via%20Libertas%20Africa%20Website" className="block" aria-label="Send email to Libertas Africa">
+                <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+                  <a 
+                    href="mailto:connect@libertasafrica.com?subject=Enquiry%20via%20Libertas%20Africa%20Website" 
+                    className="block" 
+                    aria-label="Send email to Libertas Africa"
+                    onClick={() => analytics.trackBusinessEvent('contact_form', { method: 'email' })}
+                  >
                   <CardContent className="pt-8 text-center">
                     <Mail className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
                     <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Email</h3>
