@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { AnalyticsProvider } from "@/components/Analytics";
+import { SecurityHeaders } from "@/components/SecurityHeaders";
+import { A11ySkipLink } from "@/components/A11ySkipLink";
+import { UpdateNotification } from "@/components/UpdateNotification";
+import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { useAnalytics, usePerformanceMonitoring } from "@/hooks/useAnalytics";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
@@ -49,13 +54,19 @@ const AppContent = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </TooltipProvider>
+    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
+      <TooltipProvider>
+        <SecurityHeaders />
+        <A11ySkipLink />
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppContent />
+          <UpdateNotification />
+          <PWAInstallPrompt />
+        </BrowserRouter>
+      </TooltipProvider>
+    </AnalyticsProvider>
   </QueryClientProvider>
 );
 
