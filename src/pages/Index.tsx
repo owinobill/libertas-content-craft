@@ -238,7 +238,7 @@ const Index = () => {
             <div className="grid md:grid-cols-3 gap-8">
               {[{
               title: "NPL Portfolio Sale",
-              amount: "KES 8 Billion",
+              amount: "$13 Million",
               description: "A lender held a $13M digital loan portfolio written off its books. After Libertas Africa's preparation and competitive investor outreach, multiple offers were secured and the sale closed at ~7% of book value, generating liquidity and improving capital adequacy.",
               category: "Banking",
               impact: "Optimal pricing achieved"
@@ -262,7 +262,7 @@ const Index = () => {
                       </Badge>
                       <div className="text-right">
                         <p className="text-sm text-muted-foreground">Value</p>
-                        <p className="font-semibold text-primary">$23 Million</p>
+                        <p className="font-semibold text-primary">{study.amount}</p>
                       </div>
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary smooth-transition">
