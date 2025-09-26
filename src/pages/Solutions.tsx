@@ -2,9 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { PageLayout } from "@/components/PageLayout";
 
 const Solutions = () => {
   const location = useLocation();
@@ -34,16 +32,12 @@ const Solutions = () => {
   }, [location.hash]); // Listen to hash changes
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Helmet>
-        <title>Solutions | NPL Advisory & Financial Services | Libertas Africa</title>
-        <meta name="description" content="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa." />
-        <meta property="og:title" content="Solutions | NPL Advisory & Financial Services | Libertas Africa" />
-        <meta property="og:description" content="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-
-      <Header />
+    <PageLayout
+      title="Solutions | NPL Advisory & Financial Services | Libertas Africa"
+      description="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa."
+      keywords="NPL advisory, investment advisory, project finance, cross-border credit, policy advisory, financial solutions"
+      canonical="https://libertasafrica.com/solutions"
+    >
 
       {/* Back to Home Button */}
       <section className="py-8 bg-gradient-subtle">
@@ -228,8 +222,7 @@ const Solutions = () => {
         </div>
       </section>
       
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 

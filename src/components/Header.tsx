@@ -4,6 +4,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { MainNavigation } from "@/components/NavigationMenu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -81,70 +82,27 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-6">
-              <Link to="/" className={`nav-item ${isActive("/") ? "text-primary" : ""}`}>Home</Link>
+            <div className="hidden md:flex items-center space-x-6">
+              <MainNavigation onLinkClick={handleAnchorClick} />
               <button 
                 onClick={() => handleAnchorClick('/#about')}
                 className="nav-item"
               >
                 About
               </button>
-              
-              {/* Solutions Dropdown */}
-              <div className="relative group">
-                <Link 
-                  to="/solutions" 
-                  className={`nav-item flex items-center gap-1 ${isActive("/solutions") ? "text-primary" : ""}`}
-                >
-                  Solutions
-                  <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
-                </Link>
-                
-                {/* Dropdown Menu */}
-                <div className="dropdown-menu">
-                  <div className="dropdown-content">
-                    <button 
-                      onClick={() => handleAnchorClick('/solutions/detailed#npl-sales-advisory')}
-                      className="dropdown-item text-left w-full"
-                    >
-                      NPL Sales Advisory (for Lenders)
-                    </button>
-                    <button 
-                      onClick={() => handleAnchorClick('/solutions/detailed#npl-investment-advisory')}
-                      className="dropdown-item text-left w-full"
-                    >
-                      NPL Investment Advisory (for Investors)
-                    </button>
-                    <button 
-                      onClick={() => handleAnchorClick('/solutions/detailed#project-finance')}
-                      className="dropdown-item text-left w-full"
-                    >
-                      Project Finance & Cross-Border Credit
-                    </button>
-                    <button 
-                      onClick={() => handleAnchorClick('/solutions/detailed#policy-advisory')}
-                      className="dropdown-item text-left w-full"
-                    >
-                      Policy & Regulatory Advisory
-                    </button>
-                  </div>
-                </div>
-              </div>
-
               <button 
                 onClick={() => handleAnchorClick('/#case-studies')}
                 className="nav-item"
               >
                 Case Studies
               </button>
-              <Link to="/insights-hub" className={`nav-item ${isActive("/insights-hub") ? "text-primary" : ""}`}>Insights Hub</Link>
               <button 
                 onClick={() => handleAnchorClick('/#contact')}
                 className="nav-item"
               >
                 Contact
               </button>
-            </nav>
+            </div>
 
             {/* Mobile Menu Button */}
             <Button

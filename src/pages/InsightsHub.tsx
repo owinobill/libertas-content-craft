@@ -5,9 +5,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Download, ArrowRight, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { PageLayout } from "@/components/PageLayout";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
@@ -115,16 +113,12 @@ const InsightsHub = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Insights Hub | NPL Strategies & African Debt Market Analysis | Libertas Africa</title>
-        <meta name="description" content="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond." />
-        <meta property="og:title" content="Insights Hub | NPL Strategies & African Debt Market Analysis | Libertas Africa" />
-        <meta property="og:description" content="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond." />
-        <meta property="og:type" content="website" />
-      </Helmet>
-      
-      <Header />
+    <PageLayout
+      title="Insights Hub | NPL Strategies & African Debt Market Analysis | Libertas Africa"
+      description="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond."
+      keywords="NPL strategies, debt market analysis, African finance, cross-border financing, debt recovery"
+      canonical="https://libertasafrica.com/insights-hub"
+    >
       
       <main className="pt-20">
         {/* Hero Section */}
@@ -288,8 +282,7 @@ const InsightsHub = () => {
         </section>
       </main>
 
-      <Footer />
-    </div>
+    </PageLayout>
   );
 };
 
