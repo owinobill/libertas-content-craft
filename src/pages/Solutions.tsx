@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
@@ -8,6 +8,17 @@ import Footer from "@/components/Footer";
 
 const Solutions = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/#contact');
+    setTimeout(() => {
+      const element = document.getElementById('contact');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
+  };
 
   // Handle anchor scrolling when component loads or hash changes
   useEffect(() => {
@@ -100,10 +111,11 @@ const Solutions = () => {
                 <li>Market credibility as a proactive lender</li>
               </ul>
 
-              <Button className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90" asChild>
-                <Link to="/#contact">
-                  Talk to Sell-Side Advisor
-                </Link>
+              <Button 
+                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90"
+                onClick={handleContactClick}
+              >
+                Talk to Sell-Side Advisor
               </Button>
             </div>
 
@@ -134,10 +146,11 @@ const Solutions = () => {
                 <li>Independent, transparent reporting</li>
               </ul>
 
-              <Button className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90" asChild>
-                <Link to="/#contact">
-                  Discuss Buy-Side Pipeline
-                </Link>
+              <Button 
+                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90"
+                onClick={handleContactClick}
+              >
+                Discuss Buy-Side Pipeline
               </Button>
             </div>
 
@@ -168,10 +181,11 @@ const Solutions = () => {
                 <li>Greater investor confidence and co-investment attraction</li>
               </ul>
 
-              <Button className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90" asChild>
-                <Link to="/#contact">
-                  Explore Project Finance
-                </Link>
+              <Button 
+                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90"
+                onClick={handleContactClick}
+              >
+                Explore Project Finance
               </Button>
             </div>
 
@@ -202,10 +216,11 @@ const Solutions = () => {
                 <li>Balanced consumer protection</li>
               </ul>
 
-              <Button className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90" asChild>
-                <Link to="/#contact">
-                  Engage on Policy & Markets
-                </Link>
+              <Button 
+                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90"
+                onClick={handleContactClick}
+              >
+                Engage on Policy & Markets
               </Button>
             </div>
 
