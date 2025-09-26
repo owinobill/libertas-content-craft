@@ -12,6 +12,7 @@ import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
+import DevTools from "./pages/DevTools";
 
 import InsightsHub from "./pages/InsightsHub";
 import ArticleDebtSalesAssignments from "./pages/ArticleDebtSalesAssignments";
@@ -41,6 +42,7 @@ const AppContent = () => {
             <Route path="/insights-hub/npl-ecosystem-part-2" element={<ArticleNPLEcosystemPart2 />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/dev-tools" element={<DevTools />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
