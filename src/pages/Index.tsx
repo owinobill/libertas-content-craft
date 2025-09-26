@@ -239,7 +239,7 @@ const Index = () => {
               {[{
               title: "NPL Portfolio Sale",
               amount: "KES 8 Billion",
-              description: "Facilitated a major East African bank's disposal of a digital loan portfolio, achieving optimal pricing and streamlined execution.",
+              description: "A lender held a $13M digital loan portfolio written off its books. After Libertas Africa's preparation and competitive investor outreach, multiple offers were secured and the sale closed at ~7% of book value, generating liquidity and improving capital adequacy.",
               category: "Banking",
               impact: "Optimal pricing achieved"
             }, {
