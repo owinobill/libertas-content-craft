@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { OptimizedImage } from "@/components/ui/optimized-image";
 const Footer = () => {
   return <footer className="border-t border-border/20 bg-background">
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Logo and Tagline */}
           <div className="flex flex-col items-center md:items-start gap-3">
-            <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-8 w-auto" loading="lazy" />
+            <OptimizedImage src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" className="h-8 w-auto" />
             
           </div>
 

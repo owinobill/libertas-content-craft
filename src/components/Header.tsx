@@ -2,12 +2,19 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OptimizedImage } from "@/components/ui/optimized-image";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileSolutionsOpen, setIsMobileSolutionsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const { trackBusinessEvent } = useAnalytics();
+
+  const handleLogoClick = () => {
+    trackBusinessEvent('cta_click', { element: 'logo', location: 'header' });
+  };
 
   const handleAnchorClick = (href: string) => {
     const [path, hash] = href.split('#');
@@ -63,12 +70,12 @@ const Header = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link to="/" onClick={closeMenu} className="flex items-center">
-                <img 
+              <Link to="/" onClick={() => { closeMenu(); handleLogoClick(); }} className="flex items-center">
+                <OptimizedImage 
                   src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" 
                   alt="Libertas Africa" 
                   className="h-12 w-auto transition-transform duration-200 hover:scale-105" 
-                  loading="lazy" 
+                  priority={true}
                 />
               </Link>
             </div>

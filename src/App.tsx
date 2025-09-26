@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { useAnalytics, usePerformanceMonitoring } from "@/hooks/useAnalytics";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -18,14 +20,15 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
+const AppContent = () => {
+  // Initialize analytics - replace with your actual GA4 tracking ID
+  const analytics = useAnalytics(process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined);
+  usePerformanceMonitoring();
+
+  return (
+    <ErrorBoundary>
+      <ScrollToTop />
+      <Routes>
           <Route path="/" element={<Index />} />
           
           <Route path="/solutions" element={<Solutions />} />
@@ -40,6 +43,17 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+    </ErrorBoundary>
+  );
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

@@ -16,10 +16,33 @@
     <meta name="twitter:title" content="Libertas Africa | Strategic Financial Advisory & NPL Solutions" />
     <meta name="twitter:description" content="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa." />
     <meta name="twitter:image" content="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1e40af" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Libertas Africa" />
+    <link rel="apple-touch-icon" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" />
   </head>
 
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
   </body>
 </html>
