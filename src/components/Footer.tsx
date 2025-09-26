@@ -21,9 +21,9 @@ const Footer = () => {
             <Link to="/insights-hub" className="text-muted-foreground hover:text-primary smooth-transition">
               Insights
             </Link>
-            <Link to="/contact" className="text-muted-foreground hover:text-primary smooth-transition">
+            <a href="/#contact" className="text-muted-foreground hover:text-primary smooth-transition">
               Contact
-            </Link>
+            </a>
           </nav>
 
           {/* Contact Info */}

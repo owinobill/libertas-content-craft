@@ -111,7 +111,12 @@ const Header = () => {
                 Case Studies
               </button>
               <Link to="/insights-hub" className={`nav-item ${isActive("/insights-hub") ? "text-primary" : ""}`}>Insights Hub</Link>
-              <Link to="/contact" className={`nav-item ${isActive("/contact") ? "text-primary" : ""}`}>Contact</Link>
+              <button 
+                onClick={() => handleAnchorClick('/#contact')}
+                className="nav-item"
+              >
+                Contact
+              </button>
             </nav>
 
             {/* Mobile Menu Button */}
@@ -187,9 +192,12 @@ const Header = () => {
               <Link to="/insights-hub" className="mobile-nav-item" onClick={closeMenu}>
                 Insights Hub
               </Link>
-              <Link to="/contact" className="mobile-nav-item" onClick={closeMenu}>
+              <button 
+                onClick={() => handleAnchorClick('/#contact')}
+                className="mobile-nav-item text-left w-full"
+              >
                 Contact
-              </Link>
+              </button>
             </div>
           </div>
         )}
