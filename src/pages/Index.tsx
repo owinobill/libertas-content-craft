@@ -296,7 +296,7 @@ const Index = () => {
             
             <div className="grid md:grid-cols-3 gap-8">
               <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
-                <a href="mailto:connect@libertasafrica.com?subject=Enquiry%20via%20Libertas%20Africa%20Website" className="block">
+                <a href="mailto:connect@libertasafrica.com?subject=Enquiry%20via%20Libertas%20Africa%20Website" className="block" aria-label="Send email to Libertas Africa">
                   <CardContent className="pt-8 text-center">
                     <Mail className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
                     <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Email</h3>
@@ -306,7 +306,7 @@ const Index = () => {
               </Card>
               
               <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
-                <a href="tel:+254205253963" className="block">
+                <a href="tel:+254205253963" className="block" aria-label="Call Libertas Africa at +254 20 5253963">
                   <CardContent className="pt-8 text-center">
                     <Phone className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
                     <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Phone</h3>
@@ -316,7 +316,13 @@ const Index = () => {
               </Card>
               
               <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
-                <a href="https://www.google.com/maps/search/?api=1&query=Eaton+Place%2C+Market+Rd%2C+Gigiri%2C+Nairobi%2C+Kenya" target="_blank" rel="noopener noreferrer" className="block">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Eaton+Place%2C+Market+Rd%2C+Gigiri%2C+Nairobi%2C+Kenya" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="block"
+                  aria-label="View Libertas Africa office location on Google Maps"
+                >
                   <CardContent className="pt-8 text-center">
                     <MapPin className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
                     <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Office</h3>

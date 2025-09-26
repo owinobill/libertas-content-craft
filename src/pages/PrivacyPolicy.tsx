@@ -1,11 +1,17 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <title>Privacy Policy | Libertas Africa</title>
-      <meta name="description" content="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services." />
+      <Helmet>
+        <title>Privacy Policy | Libertas Africa</title>
+        <meta name="description" content="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services." />
+        <meta property="og:title" content="Privacy Policy | Libertas Africa" />
+        <meta property="og:description" content="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       
       <Header />
       

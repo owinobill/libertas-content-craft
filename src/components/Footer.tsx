@@ -12,18 +12,38 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <nav className="flex gap-6 text-sm">
-            <Link to="/#about" className="text-muted-foreground hover:text-primary smooth-transition">
+            <button 
+              onClick={() => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                  window.location.href = '/#about';
+                }
+              }}
+              className="text-muted-foreground hover:text-primary smooth-transition"
+            >
               About
-            </Link>
+            </button>
             <Link to="/solutions" className="text-muted-foreground hover:text-primary smooth-transition">
               Solutions
             </Link>
             <Link to="/insights-hub" className="text-muted-foreground hover:text-primary smooth-transition">
               Insights
             </Link>
-            <a href="/#contact" className="text-muted-foreground hover:text-primary smooth-transition">
+            <button 
+              onClick={() => {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                  window.location.href = '/#contact';
+                }
+              }}
+              className="text-muted-foreground hover:text-primary smooth-transition"
+            >
               Contact
-            </a>
+            </button>
           </nav>
 
           {/* Contact Info */}
@@ -32,7 +52,7 @@ const Footer = () => {
               <Mail className="h-4 w-4" />
               <span className="hidden sm:inline">connect@libertasafrica.com</span>
             </a>
-            <a href="tel:+254205253963" className="flex items-center gap-2 text-muted-foreground hover:text-primary smooth-transition">
+            <a href="tel:+254205253963" className="flex items-center gap-2 text-muted-foreground hover:text-primary smooth-transition" aria-label="Call Libertas Africa">
               <Phone className="h-4 w-4" />
               <span className="hidden sm:inline">+254 20 5253963</span>
             </a>

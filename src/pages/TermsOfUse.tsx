@@ -1,11 +1,17 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const TermsOfUse = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <title>Terms of Use | Libertas Africa</title>
-      <meta name="description" content="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services." />
+      <Helmet>
+        <title>Terms of Use | Libertas Africa</title>
+        <meta name="description" content="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services." />
+        <meta property="og:title" content="Terms of Use | Libertas Africa" />
+        <meta property="og:description" content="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       
       <Header />
       
