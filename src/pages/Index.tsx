@@ -243,9 +243,9 @@ const Index = () => {
               category: "Banking",
               impact: "Optimal pricing achieved"
             }, {
-              title: "Renewable Energy Financing",
-              amount: "Large-scale Project",
-              description: "Advised international investor's successful entry into renewable energy through structured debt financing via DFI/ECA backing.",
+              title: "Solar EPC Project Finance",
+              amount: "$11 Million",
+              description: "A solar EPC required funding for an $11 million solar project for one of the region's largest retailers. Libertas Africa secured ECA-backed financing, lowering capital costs and aligning repayments with project cash flows. The deal enabled successful project delivery and positioned the EPC for future renewable opportunities.",
               category: "Energy",
               impact: "DFI/ECA financing secured"
             }, {
