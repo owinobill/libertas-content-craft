@@ -68,7 +68,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to connect@libertasafrica.com
     const emailResponse = await resend.emails.send({
-      from: "Libertas Africa <noreply@libertasafrica.com>",
+      from: "Libertas Africa <connect@libertasafrica.com>",
       to: ["connect@libertasafrica.com"],
       subject: `New Contact Form Submission: ${formData.subject}`,
       html: `
@@ -97,7 +97,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the user
     const confirmationResponse = await resend.emails.send({
-      from: "Libertas Africa <noreply@libertasafrica.com>",
+      from: "Libertas Africa <connect@libertasafrica.com>",
       to: [formData.email],
       subject: "Thank you for contacting Libertas Africa",
       html: `
