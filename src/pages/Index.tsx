@@ -209,7 +209,7 @@ const Index = () => {
               description: "We work with regulators, governments, and development partners to design frameworks that enable NPL sales, strengthen credit infrastructure, and build investor confidence in Africa's financial markets.",
               cta: "Build Better Markets",
               anchor: "#policy-advisory"
-            }].map((service, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+            }].map((service, serviceIndex) => <Card key={serviceIndex} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader className="pb-4">
                     <service.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 smooth-transition" />
                     <CardTitle className="text-xl">{service.title}</CardTitle>
@@ -264,7 +264,7 @@ const Index = () => {
               description: "The banking industry association needed a structured approach to engage regulators on NPL sales and securitization. Libertas Africa delivered research, data insights, and global benchmarks, enabling evidence-based dialogue. This work shaped draft policy discussions and positioned the sector for a healthier secondary NPL market.",
               category: "Policy",
               impact: "Systemic NPL reduction"
-            }].map((study, idx) => <Card key={idx} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+            }].map((study, studyIndex) => <Card key={studyIndex} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="outline" className="border-primary/30 text-primary">
