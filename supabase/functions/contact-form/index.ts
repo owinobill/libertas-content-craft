@@ -97,7 +97,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the user
     const confirmationResponse = await resend.emails.send({
-      from: "Libertas Africa <connect@libertasafrica.com>",
+      from: "Libertas Africa <noreply@libertasafrica.com>",
       to: [formData.email],
       subject: "Thank you for contacting Libertas Africa",
       html: `
