@@ -10,7 +10,6 @@ import { SecurityHeaders } from "@/components/SecurityHeaders";
 import { A11ySkipLink } from "@/components/A11ySkipLink";
 import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
-import { useAnalytics, usePerformanceMonitoring } from "@/hooks/useAnalytics";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -26,47 +25,43 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const AppContent = () => {
-  // Initialize analytics - replace with your actual GA4 tracking ID
-  const analytics = useAnalytics(process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined);
-  usePerformanceMonitoring();
-
   return (
-    <ErrorBoundary>
-      <ScrollToTop />
-      <Routes>
-          <Route path="/" element={<Index />} />
-          
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/solutions/detailed" element={<Solutions />} />
-          <Route path="/insights-hub" element={<InsightsHub />} />
-          <Route path="/insights-hub/debt-sales-assignments" element={<ArticleDebtSalesAssignments />} />
-          <Route path="/insights-hub/debt-sales-dynamics" element={<ArticleDebtSalesDynamics />} />
-          <Route path="/insights-hub/npl-ecosystem-part-1" element={<ArticleNPLEcosystemPart1 />} />
-          <Route path="/insights-hub/npl-ecosystem-part-2" element={<ArticleNPLEcosystemPart2 />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-use" element={<TermsOfUse />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-    </ErrorBoundary>
+    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
+      <ErrorBoundary>
+        <ScrollToTop />
+        <Routes>
+            <Route path="/" element={<Index />} />
+            
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/detailed" element={<Solutions />} />
+            <Route path="/insights-hub" element={<InsightsHub />} />
+            <Route path="/insights-hub/debt-sales-assignments" element={<ArticleDebtSalesAssignments />} />
+            <Route path="/insights-hub/debt-sales-dynamics" element={<ArticleDebtSalesDynamics />} />
+            <Route path="/insights-hub/npl-ecosystem-part-1" element={<ArticleNPLEcosystemPart1 />} />
+            <Route path="/insights-hub/npl-ecosystem-part-2" element={<ArticleNPLEcosystemPart2 />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        <UpdateNotification />
+        <PWAInstallPrompt />
+      </ErrorBoundary>
+    </AnalyticsProvider>
   );
 };
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
-      <TooltipProvider>
-        <SecurityHeaders />
-        <A11ySkipLink />
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <AppContent />
-          <UpdateNotification />
-          <PWAInstallPrompt />
-        </BrowserRouter>
-      </TooltipProvider>
-    </AnalyticsProvider>
+    <TooltipProvider>
+      <SecurityHeaders />
+      <A11ySkipLink />
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 
