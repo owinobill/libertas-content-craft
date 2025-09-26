@@ -71,7 +71,7 @@ const ContactForm = () => {
       setIsSubmitted(true);
       toast({
         title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
+        description: "We've received your message and will get back to you within 24 hours. You'll also receive a confirmation email shortly.",
       });
       
       reset();
@@ -94,7 +94,7 @@ const ContactForm = () => {
           <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" />
           <h3 className="text-2xl font-semibold mb-4">Thank You!</h3>
           <p className="text-muted-foreground mb-6">
-            Your message has been sent successfully. We'll get back to you within 24 hours.
+            Your message has been sent successfully! We've received your inquiry and will get back to you within 24 hours. Please check your email for a confirmation message.
           </p>
           <Button 
             onClick={() => setIsSubmitted(false)}

@@ -68,7 +68,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to connect@libertasafrica.com
     const emailResponse = await resend.emails.send({
-      from: "Libertas Africa <noreply@libertasafrica.com>",
+      from: "Libertas Africa <onboarding@resend.dev>",
       to: ["connect@libertasafrica.com"],
       subject: `New Contact Form Submission: ${formData.subject}`,
       html: `
@@ -89,11 +89,15 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Notification email sent:", emailResponse);
+    if (emailResponse.error) {
+      console.error("Failed to send notification email:", emailResponse.error);
+    } else {
+      console.log("Notification email sent successfully:", emailResponse.data?.id);
+    }
 
     // Send confirmation email to the user
     const confirmationResponse = await resend.emails.send({
-      from: "Libertas Africa <noreply@libertasafrica.com>",
+      from: "Libertas Africa <onboarding@resend.dev>",
       to: [formData.email],
       subject: "Thank you for contacting Libertas Africa",
       html: `
@@ -119,7 +123,11 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Confirmation email sent:", confirmationResponse);
+    if (confirmationResponse.error) {
+      console.error("Failed to send confirmation email:", confirmationResponse.error);
+    } else {
+      console.log("Confirmation email sent successfully:", confirmationResponse.data?.id);
+    }
 
     return new Response(
       JSON.stringify({ 
