@@ -288,7 +288,7 @@ const Index = () => {
         <div className="relative z-10 container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Connect</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
               Whether you're a lender looking to optimize NPL portfolios, an investor seeking opportunities, or need strategic advisory on complex financial structures, 
               <span className="text-gradient"> our team is ready to help</span>.
             </h2>
