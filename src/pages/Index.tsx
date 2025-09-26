@@ -249,9 +249,9 @@ const Index = () => {
               category: "Energy",
               impact: "DFI/ECA financing secured"
             }, {
-              title: "Policy Framework Development",
+              title: "NPL Policy Framework Support",
               amount: "National Impact",
-              description: "Successfully guided Central Bank in establishing effective national NPL resolution framework, reducing systemic NPL levels.",
+              description: "The banking industry association needed a structured approach to engage regulators on NPL sales and securitization. Libertas Africa delivered research, data insights, and global benchmarks, enabling evidence-based dialogue. This work shaped draft policy discussions and positioned the sector for a healthier secondary NPL market.",
               category: "Policy",
               impact: "Systemic NPL reduction"
             }].map((study, index) => <Card key={index} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
