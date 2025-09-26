@@ -90,7 +90,7 @@ const Index = () => {
                   <p className="text-primary font-medium text-lg tracking-wide uppercase">About Us</p>
                   <h2 className="text-4xl md:text-5xl font-bold leading-tight">
                      In Latin, Libertas means
-                    <span className="text-gradient"> freedom</span>
+                    <span className="text-gradient"> freedom</span>
                     <br />— and this is at the heart of everything we do.
                   </h2>
                   <div className="w-16 h-1 bg-gradient-accent rounded-full"></div>
@@ -230,7 +230,7 @@ const Index = () => {
               <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Case Studies</p>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                 Proven results across 
-                <span className="text-gradient"> diverse transactions</span>
+                <span className="text-gradient"> diverse transactions</span>
               </h2>
               <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto"></div>
             </div>
@@ -289,8 +289,8 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Connect</p>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Your strategic partner for 
-              <span className="text-gradient"> impactful financial solutions</span>
+              Whether you're a lender looking to optimize NPL portfolios, an investor seeking opportunities, or need strategic advisory on complex financial structures, 
+              <span className="text-gradient"> our team is ready to help</span>.
             </h2>
             <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-12"></div>
             
