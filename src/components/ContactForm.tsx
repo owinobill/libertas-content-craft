@@ -52,20 +52,21 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission (replace with actual API call)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Create mailto link with form data (as fallback)
-      const subject = encodeURIComponent(data.subject);
-      const body = encodeURIComponent(
-        `Name: ${data.name}\n` +
-        `Email: ${data.email}\n` +
-        (data.company ? `Company: ${data.company}\n` : '') +
-        `\nMessage:\n${data.message}`
-      );
-      
-      // Open email client as fallback
-      window.location.href = `mailto:connect@libertasafrica.com?subject=${subject}&body=${body}`;
+      const response = await fetch('https://zznubsevogfqoxgkdnzg.supabase.co/functions/v1/contact-form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.details || 'Failed to send message');
+      }
+
+      const result = await response.json();
+      console.log('Form submitted successfully:', result);
       
       setIsSubmitted(true);
       toast({
@@ -75,6 +76,7 @@ const ContactForm = () => {
       
       reset();
     } catch (error) {
+      console.error('Form submission error:', error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact us directly via email.",
