@@ -289,7 +289,7 @@ const Index = () => {
           <div className="max-w-4xl mx-auto text-center">
             <p className="text-primary font-medium text-lg tracking-wide uppercase mb-4">Connect</p>
             <h2 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
-              Whether you're a lender looking to optimize NPL portfolios, an investor seeking opportunities, or need strategic advisory on complex financial structures, 
+              Whether you're a lender looking to optimize NPL portfolios, an investor seeking opportunities, or need strategic advisory on complex financing structures, 
               <span className="text-gradient"> our team is ready to help</span>.
             </h2>
             <div className="w-16 h-1 bg-gradient-accent rounded-full mx-auto mb-12"></div>
