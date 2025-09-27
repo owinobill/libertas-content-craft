@@ -7,12 +7,22 @@ import './index.css';
 
 // Performance monitoring
 if (typeof window !== 'undefined') {
-  // Report Web Vitals
+  // Web Vitals only in development/staging
   import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
-    onCLS(console.log);
-    onFCP(console.log);
-    onLCP(console.log);
-    onTTFB(console.log);
+    if (process.env.NODE_ENV !== 'production') {
+      onCLS(console.log);
+      onFCP(console.log);
+      onLCP(console.log);
+      onTTFB(console.log);
+    } else {
+      // Production: Only track critical metrics for analytics
+      onLCP((metric) => {
+        if (metric.value > 4000) {
+          // Only log poor performance
+          console.warn('Poor LCP:', Math.round(metric.value));
+        }
+      });
+    }
   });
 }
 

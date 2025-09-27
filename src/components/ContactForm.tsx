@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { contactFormSchema, type ContactFormData, contactFormRateLimit, sanitizeInput } from "@/utils/validation";
+import { logger } from "@/utils/logger";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -61,7 +62,7 @@ const ContactForm = () => {
       }
 
       const result = await response.json();
-      console.log('Form submitted successfully:', result);
+      console.debug('Form submitted successfully:', result); // Debug only
       
       setIsSubmitted(true);
       toast({
@@ -71,7 +72,7 @@ const ContactForm = () => {
       
       reset();
     } catch (error) {
-      console.error('Form submission error:', error);
+      logger.error('Form submission error:', error);
       toast({
         title: "Failed to send message",
         description: "Please try again or contact us directly via email.",

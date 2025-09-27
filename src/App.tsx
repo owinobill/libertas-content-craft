@@ -25,6 +25,12 @@ import { SEOOptimizer } from "@/components/SEOOptimizer";
 import { CrossBrowserSupport } from "@/components/CrossBrowserSupport";
 import { MobileOptimizer } from "@/components/MobileOptimizer";
 import { QualityReport } from "@/components/QualityReport";
+import { SecurityEnforcer } from "@/components/SecurityEnforcer";
+import { ImageOptimizer } from "@/components/ImageOptimizer";
+import { FormValidator } from "@/components/FormValidator";
+import { ContentSecurityPolicy } from "@/components/ContentSecurityPolicy";
+import { BundleOptimizer } from "@/components/BundleOptimizer";
+import { FinalQualityCheck } from "@/components/FinalQualityCheck";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -73,6 +79,11 @@ const AppContent = () => {
         <CrossBrowserSupport />
         <MobileOptimizer />
         <QualityReport />
+        <SecurityEnforcer />
+        <ImageOptimizer />
+        <FormValidator />
+        <BundleOptimizer />
+        <FinalQualityCheck />
       </ErrorBoundary>
     </AnalyticsProvider>
   );
@@ -89,6 +100,7 @@ const App = () => (
       <TooltipProvider>
         <SecurityHeaders />
         <ProductionQuality />
+        <ContentSecurityPolicy />
         <A11ySkipLink />
         <Toaster />
         <Sonner />
