@@ -16,11 +16,10 @@ import { DeferredCSS } from "@/components/DeferredCSS";
 import { Suspense, lazy } from "react";
 import { FastLoadingSpinner } from "./components/FastLoadingSpinner";
 import { MinimalOptimizer } from "./components/MinimalOptimizer";
-import { NavigationOptimizer } from "./components/NavigationOptimizer";
-import { PerformanceValidator } from "./components/PerformanceValidator";
+import { QATestResults } from "./components/QATestResults";
 
-// Lazy load pages for better performance
-const Index = lazy(() => import("./pages/Index"));
+// Optimized lazy-loaded components
+const OptimizedHomepage = lazy(() => import("./components/OptimizedHomepage"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const InsightsHub = lazy(() => import("./pages/InsightsHub"));
 const ArticleDebtSalesAssignments = lazy(() => import("./pages/ArticleDebtSalesAssignments"));
@@ -40,7 +39,7 @@ const AppContent = () => {
         <ScrollToTop />
         <Suspense fallback={<FastLoadingSpinner />}>
           <Routes>
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<OptimizedHomepage />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/solutions/detailed" element={<Solutions />} />
               <Route path="/insights-hub" element={<InsightsHub />} />
@@ -58,9 +57,8 @@ const AppContent = () => {
         <PWAInstallPrompt />
         <MinimalOptimizer />
         <DeferredCSS />
-        <NavigationOptimizer />
-        <PerformanceValidator />
-        {/* Minimal optimizers only for navigation performance */}
+        <QATestResults />
+        {/* Removed performance monitoring components for better performance */}
       </ErrorBoundary>
     </AnalyticsProvider>
   );
