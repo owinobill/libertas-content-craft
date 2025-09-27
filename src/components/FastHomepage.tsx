@@ -36,8 +36,8 @@ const FastHomepage = () => {
       <main role="main">
         {/* Ultra-fast critical hero section - minimal CSS, immediate paint */}
         <section className="relative min-h-screen flex items-center justify-center bg-background">
-          {/* Lazy load animations to avoid blocking FCP */}
-          <Suspense fallback={null}>
+          {/* Lazy load animations to avoid blocking FCP - with invisible fallback to prevent layout shift */}
+          <Suspense fallback={<div className="absolute inset-0" />}>
             <HeroAnimations />
           </Suspense>
           
@@ -87,20 +87,91 @@ const FastHomepage = () => {
           </div>
         </section>
 
-        {/* All other sections lazy loaded */}
-        <Suspense fallback={<div className="h-32 bg-secondary/20 animate-pulse" />}>
+        {/* All other sections lazy loaded with proper skeleton heights */}
+        <Suspense fallback={
+          <div className="py-32 bg-gradient-subtle">
+            <div className="container mx-auto px-6">
+              <div className="max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                  <div className="space-y-8">
+                    <div className="h-4 bg-muted/30 rounded w-24 mb-4"></div>
+                    <div className="h-12 bg-muted/30 rounded w-full mb-4"></div>
+                    <div className="h-12 bg-muted/30 rounded w-4/5 mb-8"></div>
+                    <div className="space-y-4">
+                      <div className="h-4 bg-muted/20 rounded w-full"></div>
+                      <div className="h-4 bg-muted/20 rounded w-full"></div>
+                      <div className="h-4 bg-muted/20 rounded w-3/4"></div>
+                    </div>
+                  </div>
+                  <div className="h-96 bg-muted/20 rounded-2xl"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }>
           <VisionSection />
         </Suspense>
         
-        <Suspense fallback={<div className="h-32 bg-secondary/20 animate-pulse" />}>
+        <Suspense fallback={
+          <div className="py-32">
+            <div className="container mx-auto px-6">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-20">
+                  <div className="h-4 bg-muted/30 rounded w-24 mx-auto mb-4"></div>
+                  <div className="h-12 bg-muted/30 rounded w-3/4 mx-auto mb-6"></div>
+                  <div className="h-12 bg-muted/30 rounded w-2/3 mx-auto mb-8"></div>
+                  <div className="h-6 bg-muted/20 rounded w-full mx-auto"></div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-8 mb-20">
+                  {Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="bg-muted/10 rounded-lg p-6 h-64 animate-pulse"></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        }>
           <SolutionsSection />
         </Suspense>
         
-        <Suspense fallback={<div className="h-32 bg-secondary/20 animate-pulse" />}>
+        <Suspense fallback={
+          <div className="py-32 bg-gradient-subtle">
+            <div className="container mx-auto px-6">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-20">
+                  <div className="h-4 bg-muted/30 rounded w-24 mx-auto mb-4"></div>
+                  <div className="h-12 bg-muted/30 rounded w-3/4 mx-auto mb-6"></div>
+                  <div className="h-1 bg-muted/30 rounded w-16 mx-auto"></div>
+                </div>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <div key={i} className="bg-muted/10 rounded-lg p-6 h-80 animate-pulse"></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        }>
           <CaseStudiesSection />
         </Suspense>
         
-        <Suspense fallback={<div className="h-32 bg-secondary/20 animate-pulse" />}>
+        <Suspense fallback={
+          <div className="py-32">
+            <div className="container mx-auto px-6">
+              <div className="max-w-4xl mx-auto text-center">
+                <div className="h-4 bg-muted/30 rounded w-24 mx-auto mb-4"></div>
+                <div className="h-8 bg-muted/30 rounded w-3/4 mx-auto mb-6"></div>
+                <div className="h-1 bg-muted/30 rounded w-16 mx-auto mb-16"></div>
+                <div className="bg-muted/10 rounded-lg p-8 h-96 animate-pulse mb-20"></div>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {Array.from({ length: 3 }).map((_, i) => (
+                    <div key={i} className="bg-muted/10 rounded-lg p-6 h-32 animate-pulse"></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        }>
           <ContactSection />
         </Suspense>
       </main>
