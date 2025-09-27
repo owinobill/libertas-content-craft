@@ -1,9 +1,8 @@
-const CACHE_NAME = 'libertas-africa-v2';
-const STATIC_CACHE = 'libertas-static-v2';
-const DYNAMIC_CACHE = 'libertas-dynamic-v2';
-const ASSETS_CACHE = 'libertas-assets-v2';
+const CACHE_NAME = 'libertas-africa-v1';
+const STATIC_CACHE = 'libertas-static-v1';
+const DYNAMIC_CACHE = 'libertas-dynamic-v1';
 
-// Static assets to cache immediately with long TTL
+// Static assets to cache immediately
 const STATIC_ASSETS = [
   '/',
   '/manifest.json',
@@ -11,8 +10,15 @@ const STATIC_ASSETS = [
   '/libertas-logo.png'
 ];
 
-// Long-term cacheable assets (1 year TTL simulation)
-const LONG_CACHE_PATTERNS = [
+// Network-first strategy for API calls and dynamic content
+const NETWORK_FIRST = [
+  '/api/',
+  '/insights-hub',
+  '/solutions'
+];
+
+// Cache-first strategy for static assets
+const CACHE_FIRST = [
   '/assets/',
   '/lovable-uploads/',
   '.js',
@@ -25,20 +31,6 @@ const LONG_CACHE_PATTERNS = [
   '.webp',
   '.avif'
 ];
-
-// Network-first strategy for API calls and dynamic content
-const NETWORK_FIRST = [
-  '/api/',
-  '/insights-hub',
-  '/solutions'
-];
-
-// Cache duration constants (in milliseconds)
-const CACHE_DURATIONS = {
-  STATIC_ASSETS: 365 * 24 * 60 * 60 * 1000, // 1 year
-  DYNAMIC_CONTENT: 24 * 60 * 60 * 1000,     // 1 day
-  API_RESPONSES: 5 * 60 * 1000              // 5 minutes
-};
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -56,9 +48,7 @@ self.addEventListener('activate', (event) => {
           cacheNames
             .filter((cacheName) => 
               cacheName !== STATIC_CACHE && 
-              cacheName !== DYNAMIC_CACHE &&
-              cacheName !== ASSETS_CACHE &&
-              cacheName.startsWith('libertas-')
+              cacheName !== DYNAMIC_CACHE
             )
             .map((cacheName) => caches.delete(cacheName))
         );
@@ -83,11 +73,11 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Long-term cache strategy for static assets
-  if (LONG_CACHE_PATTERNS.some(pattern => 
+  // Cache-first strategy
+  if (CACHE_FIRST.some(pattern => 
     url.pathname.includes(pattern) || url.pathname.endsWith(pattern)
   )) {
-    event.respondWith(longTermCacheFirst(request));
+    event.respondWith(cacheFirst(request));
     return;
   }
 
@@ -117,55 +107,6 @@ async function networkFirst(request) {
       return caches.match('/');
     }
     
-    throw error;
-  }
-}
-
-async function longTermCacheFirst(request) {
-  const url = new URL(request.url);
-  const cacheKey = `${request.url}?v=${Date.now()}`;
-  
-  // Check cache first with timestamp validation for long-term assets
-  const cachedResponse = await caches.match(request);
-  
-  if (cachedResponse) {
-    const cachedDate = new Date(cachedResponse.headers.get('sw-cached-date') || 0);
-    const now = new Date();
-    const cacheAge = now.getTime() - cachedDate.getTime();
-    
-    // Use cached version if less than 1 year old
-    if (cacheAge < CACHE_DURATIONS.STATIC_ASSETS) {
-      return cachedResponse;
-    }
-  }
-  
-  try {
-    const networkResponse = await fetch(request);
-    
-    if (networkResponse.ok) {
-      // Clone and add cache metadata
-      const responseToCache = new Response(networkResponse.body, {
-        status: networkResponse.status,
-        statusText: networkResponse.statusText,
-        headers: new Headers({
-          ...Object.fromEntries(networkResponse.headers.entries()),
-          'sw-cached-date': new Date().toISOString(),
-          'cache-control': 'public, max-age=31536000', // 1 year
-        })
-      });
-      
-      const cache = await caches.open(ASSETS_CACHE);
-      cache.put(request, responseToCache.clone());
-      
-      return networkResponse;
-    }
-    
-    return networkResponse;
-  } catch (error) {
-    // Return cached version as fallback
-    if (cachedResponse) {
-      return cachedResponse;
-    }
     throw error;
   }
 }

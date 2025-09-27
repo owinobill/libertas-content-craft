@@ -1,11 +1,7 @@
-import { Suspense } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { DynamicBreadcrumb } from "@/components/DynamicBreadcrumb";
 import { SEOHead } from "@/components/SEOHead";
-import { PerformanceOptimizations } from "@/components/PerformanceOptimizations";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
-import { HeaderSkeleton, FooterSkeleton } from "@/components/ui/skeleton-variants";
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -37,23 +33,18 @@ export const PageLayout = ({
         structuredData={structuredData}
         canonical={canonical}
       />
-      <PerformanceOptimizations />
       
-      <Suspense fallback={<HeaderSkeleton />}>
-        <Header />
-      </Suspense>
+      <Header />
       
       {showBreadcrumb && (
         <DynamicBreadcrumb className={breadcrumbClassName} />
       )}
       
-      <main id="main-content" className="flex-1">
+      <main className="flex-1">
         {children}
       </main>
       
-      <Suspense fallback={<FooterSkeleton />}>
-        <Footer />
-      </Suspense>
+      <Footer />
     </div>
   );
 };
