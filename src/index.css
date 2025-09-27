@@ -285,6 +285,13 @@ All colors MUST be HSL.
     backdrop-filter: none;
   }
 
+  /* Critical anchor scroll margin for sticky header */
+  #about, #solutions, #case-studies, #contact, 
+  #npl-sales-advisory, #npl-investment-advisory, 
+  #project-finance, #policy-advisory {
+    scroll-margin-top: 96px;
+  }
+
   /* Reduced motion support */
   @media (prefers-reduced-motion: reduce) {
     .smooth-transition,

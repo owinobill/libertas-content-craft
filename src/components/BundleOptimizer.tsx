@@ -107,11 +107,21 @@ export const BundleOptimizer = () => {
 
     // Code splitting analysis
     const analyzeCodeSplitting = () => {
-      const chunks = document.querySelectorAll('script[src*="chunk"]');
-      if (chunks.length === 0) {
+      const chunks = document.querySelectorAll('script[src*="chunk"], script[src*="assets"], script[src*="index-"]');
+      
+      // Also check performance entries for JS resources
+      const resources = performance.getEntriesByType('resource') as PerformanceResourceTiming[];
+      const jsChunks = resources.filter(r => 
+        r.name.includes('.js') && 
+        (r.name.includes('chunk') || r.name.includes('assets') || r.name.includes('index-'))
+      );
+      
+      const totalChunks = Math.max(chunks.length, jsChunks.length);
+      
+      if (totalChunks === 0) {
         logger.warn('📦 No code chunks detected - consider implementing code splitting');
       } else {
-        logger.debug(`📦 Code splitting: ${chunks.length} chunks detected`);
+        logger.info(`📦 Code splitting detected: ${totalChunks} chunks found`);
       }
     };
 
