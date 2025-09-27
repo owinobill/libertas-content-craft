@@ -47,8 +47,18 @@ export const OptimizedImage = React.forwardRef<HTMLImageElement, OptimizedImageP
       return null;
     };
 
+    // Get optimal dimensions for logo
+    const getOptimalDimensions = (originalSrc: string) => {
+      if (originalSrc.includes('6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png')) {
+        // Logo should be max 150px wide, 48px height to match h-12 class
+        return { width: 150, height: 48 };
+      }
+      return null;
+    };
+
     const modernSources = generateModernSources(src);
     const responsiveSrcSet = generateResponsiveSrcSet(src);
+    const optimalDimensions = getOptimalDimensions(src);
 
     if (modernSources) {
       return (
@@ -59,6 +69,8 @@ export const OptimizedImage = React.forwardRef<HTMLImageElement, OptimizedImageP
             ref={ref}
             src={hasError ? fallback || src : src}
             alt={alt}
+            width={optimalDimensions?.width}
+            height={optimalDimensions?.height}
             loading={priority ? 'eager' : 'lazy'}
             onLoad={handleLoad}
             onError={handleError}
@@ -79,15 +91,22 @@ export const OptimizedImage = React.forwardRef<HTMLImageElement, OptimizedImageP
         src={hasError ? fallback || src : src}
         srcSet={responsiveSrcSet}
         sizes={sizes || (src.includes('6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png') ? '(max-width: 768px) 120px, 150px' : undefined)}
+        width={optimalDimensions?.width}
+        height={optimalDimensions?.height}
         alt={alt}
         loading={priority ? 'eager' : 'lazy'}
         onLoad={handleLoad}
         onError={handleError}
+        style={optimalDimensions ? { 
+          maxWidth: `${optimalDimensions.width}px`,
+          maxHeight: `${optimalDimensions.height}px`,
+          objectFit: 'contain'
+        } : undefined}
         className={cn(
           'transition-opacity duration-300',
           isLoading ? 'opacity-0' : 'opacity-100',
           // Force appropriate sizing for logo to prevent oversized rendering
-          src.includes('6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png') ? 'max-w-[150px] h-auto' : '',
+          src.includes('6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png') ? 'w-auto h-12 object-contain' : '',
           className
         )}
         {...props}
