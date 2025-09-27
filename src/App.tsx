@@ -12,6 +12,7 @@ import { A11ySkipLink } from "@/components/A11ySkipLink";
 import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { FontLoader } from "@/components/FontLoader";
+import { DeferredCSS } from "@/components/DeferredCSS";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -49,6 +50,7 @@ const AppContent = () => {
         <UpdateNotification />
         <PWAInstallPrompt />
         <FontLoader />
+        <DeferredCSS />
       </ErrorBoundary>
     </AnalyticsProvider>
   );
