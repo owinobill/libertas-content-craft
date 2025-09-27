@@ -35,6 +35,7 @@ import { MemoryOptimizer } from "@/components/MemoryOptimizer";
 import { CriticalPerformance } from "@/components/CriticalPerformance";
 import { NavigationTester } from "@/components/NavigationTester";
 import { ProductionReadinessValidator } from "@/components/ProductionReadinessValidator";
+import { ComprehensiveQA } from "@/components/ComprehensiveQA";
 import { Suspense, lazy } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 
@@ -84,10 +85,10 @@ const AppContent = () => {
         <SEOOptimizer />
         <ImageOptimizer />
         
-        {/* Development-only components */}
+        {/* Development QA Suite */}
         {process.env.NODE_ENV === 'development' && (
           <>
-            <ProductionReadinessValidator />
+            <ComprehensiveQA />
           </>
         )}
         
