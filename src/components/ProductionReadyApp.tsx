@@ -27,8 +27,8 @@ export const ProductionReadyApp = ({ children }: ProductionReadyAppProps) => {
         {/* PWA Manifest */}
         <link rel="manifest" href="/manifest.json" />
         
-        {/* Preload Critical Resources */}
-        <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
+        {/* Preload Critical Resources with size hints */}
+        <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" imageSizes="(max-width: 768px) 120px, 150px" />
         
         {/* Performance and Security */}
         <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https://zznubsevogfqoxgkdnzg.supabase.co https://www.google-analytics.com; frame-ancestors 'none';" />

@@ -11,8 +11,8 @@ export const PerformanceOptimizations = () => {
       <link rel="dns-prefetch" href="https://zznubsevogfqoxgkdnzg.supabase.co" />
       <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
       
-      {/* Preload Critical Resources */}
-      <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
+      {/* Preload Critical Resources with responsive hints */}
+      <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" imageSizes="(max-width: 768px) 120px, 150px" />
       <link rel="preload" href="/libertas-logo.png" as="image" />
       
       {/* Defer non-critical scripts and enable animations after initial paint */}
