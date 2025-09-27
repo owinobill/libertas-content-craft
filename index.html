@@ -160,19 +160,19 @@
             </h1>
           </div>
           
-          <!-- Actual subtitle content for better LCP -->
+          <!-- Exact LCP element content to eliminate render delay -->
           <div style="margin-bottom: 3rem;">
             <p style="
-              font-size: clamp(1.125rem, 3vw, 1.5rem);
+              font-size: 1.25rem;
               line-height: 1.6;
               color: hsl(215, 20%, 65%);
-              margin: 0;
+              margin: 0 0 3rem 0;
               max-width: 64rem;
               margin-left: auto;
               margin-right: auto;
               font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            ">
-              Libertas Africa provides strategic consulting and advisory solutions in the financial sector. This includes advisory to lenders and investors for Non-performing loan portfolio sales, deal origination and investment solutions for private and structured credit transactions.
+            " class="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
+              Libertas Africa provides strategic consulting and advisory solutions in the financial sector. This includes advisory to lenders and investors for Non-performing loan portfolio sales, deal origination and investment solutions for private and structured credit transactions. Leveraging local market insights and global expertise, we bridge strategic investment opportunities with international and regional financiers, driving sustainable financial recovery and growth across key sectors.
             </p>
           </div>
           
@@ -215,43 +215,49 @@
     <div id="root"></div>
     
     <script>
-      // Enhanced LCP optimization script
+      // Aggressive LCP optimization - immediate rendering
       (function() {
-        // Hide skeleton with better timing for LCP
+        // Critical: Ensure LCP element is immediately visible
+        const lcpElement = document.querySelector('p.text-xl');
+        if (lcpElement) {
+          lcpElement.style.opacity = '1';
+          lcpElement.style.visibility = 'visible';
+        }
+
         function hideSkeleton() {
           const skeleton = document.getElementById('fcp-skeleton');
           const root = document.getElementById('root');
-          if (root && root.children.length > 0 && skeleton) {
-            skeleton.style.transition = 'opacity 0.3s ease-out';
-            skeleton.style.opacity = '0';
-            setTimeout(() => {
-              skeleton.style.display = 'none';
-            }, 300);
+          
+          // Only hide skeleton when React content is fully mounted and styled
+          if (root && root.querySelector('section') && skeleton) {
+            // Wait for styles to be applied
+            requestAnimationFrame(() => {
+              skeleton.style.transition = 'opacity 0.2s ease-out';
+              skeleton.style.opacity = '0';
+              setTimeout(() => {
+                skeleton.style.display = 'none';
+              }, 200);
+            });
           }
         }
 
-        // Multiple triggers for optimal LCP timing
+        // Optimized timing for fastest LCP
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(hideSkeleton, 50);
+            // Minimal delay to ensure LCP measurement
+            setTimeout(hideSkeleton, 16); // ~1 frame
           });
         } else {
-          setTimeout(hideSkeleton, 50);
+          setTimeout(hideSkeleton, 16);
         }
 
-        // Backup trigger
-        window.addEventListener('load', () => {
-          setTimeout(hideSkeleton, 100);
-        });
-
-        // Font optimization for LCP text
-        if ('fonts' in document) {
-          const font = new FontFace('Inter', 'url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2)');
-          font.load().then(() => {
-            document.fonts.add(font);
-            document.documentElement.style.fontFamily = 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-          });
-        }
+        // Ensure skeleton never stays visible too long
+        setTimeout(() => {
+          const skeleton = document.getElementById('fcp-skeleton');
+          if (skeleton && skeleton.style.display !== 'none') {
+            hideSkeleton();
+          }
+        }, 1000);
       })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
