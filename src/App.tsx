@@ -15,8 +15,9 @@ import { DeferredCSS } from "@/components/DeferredCSS";
 // Minimal performance optimizations only
 import { Suspense, lazy } from "react";
 import { FastLoadingSpinner } from "./components/FastLoadingSpinner";
-import { ComprehensiveQA } from "./components/ComprehensiveQA";
 import { MinimalOptimizer } from "./components/MinimalOptimizer";
+import { NavigationOptimizer } from "./components/NavigationOptimizer";
+import { PerformanceValidator } from "./components/PerformanceValidator";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -57,7 +58,8 @@ const AppContent = () => {
         <PWAInstallPrompt />
         <MinimalOptimizer />
         <DeferredCSS />
-        <ComprehensiveQA />
+        <NavigationOptimizer />
+        <PerformanceValidator />
         {/* Minimal optimizers only for navigation performance */}
       </ErrorBoundary>
     </AnalyticsProvider>
