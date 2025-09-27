@@ -21,23 +21,46 @@ export const useAnalytics = (trackingId?: string) => {
 
   useEffect(() => {
     if (trackingId && typeof window !== 'undefined') {
-      // Initialize Google Analytics
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
-      document.head.appendChild(script);
+      // Defer analytics loading to prevent forced reflows during critical rendering
+      const loadAnalytics = () => {
+        // Check if already loaded
+        if (window.gtag) return;
 
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function() {
-        window.dataLayer.push(arguments);
+        // Initialize Google Analytics with minimal reflow impact
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+        
+        // Load analytics after critical rendering
+        script.onload = () => {
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function() {
+            window.dataLayer.push(arguments);
+          };
+
+          // Use requestAnimationFrame to avoid blocking critical path
+          requestAnimationFrame(() => {
+            window.gtag('js', new Date());
+            window.gtag('config', trackingId, {
+              page_title: document.title,
+              page_location: window.location.href,
+              page_path: location.pathname,
+              // Disable automatic pageview tracking to prevent forced reflows
+              send_page_view: false,
+            });
+          });
+        };
+
+        document.head.appendChild(script);
       };
 
-      window.gtag('js', new Date());
-      window.gtag('config', trackingId, {
-        page_title: document.title,
-        page_location: window.location.href,
-        page_path: location.pathname,
-      });
+      // Use requestIdleCallback to load analytics when browser is idle
+      if ('requestIdleCallback' in window) {
+        (window as any).requestIdleCallback(loadAnalytics, { timeout: 3000 });
+      } else {
+        // Fallback: load after critical rendering
+        setTimeout(loadAnalytics, 1000);
+      }
     }
   }, [trackingId]);
 
@@ -63,12 +86,16 @@ export const useAnalytics = (trackingId?: string) => {
   }, [location, trackingId]);
 
   const trackEvent = (eventData: AnalyticsEvent) => {
+    // Batch analytics calls to prevent forced reflows
     if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', eventData.event_name, {
-        event_category: eventData.event_category,
-        event_label: eventData.event_label,
-        value: eventData.value,
-        ...eventData.custom_parameters,
+      // Use requestAnimationFrame to batch DOM reads/writes
+      requestAnimationFrame(() => {
+        window.gtag('event', eventData.event_name, {
+          event_category: eventData.event_category,
+          event_label: eventData.event_label,
+          value: eventData.value,
+          ...eventData.custom_parameters,
+        });
       });
     }
 

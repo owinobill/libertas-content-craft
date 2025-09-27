@@ -16,6 +16,7 @@ import { DeferredCSS } from "@/components/DeferredCSS";
 import { FCPOptimizer } from "@/components/FCPOptimizer";
 import { LCPOptimizer } from "@/components/LCPOptimizer";
 import { CSSOptimizer } from "@/components/CSSOptimizer";
+import { ReflowOptimizer } from "@/components/ReflowOptimizer";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -33,6 +34,7 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   return (
     <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
+      <ReflowOptimizer />
       <FCPOptimizer />
       <LCPOptimizer />
       <ErrorBoundary>
