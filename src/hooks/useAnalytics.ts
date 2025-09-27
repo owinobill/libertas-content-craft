@@ -20,38 +20,65 @@ export const useAnalytics = (trackingId?: string) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (trackingId && typeof window !== 'undefined') {
-      // Defer analytics loading to avoid forced reflows
+    // Only load analytics in production and when explicitly enabled
+    if (trackingId && typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
+      // Further defer analytics loading to reduce initial bundle impact
       const loadAnalytics = () => {
-        // Use requestIdleCallback or setTimeout to defer execution
+        // Use multiple deference strategies to minimize impact
         const scheduleLoad = window.requestIdleCallback || 
-          ((callback: () => void) => setTimeout(callback, 1));
+          ((callback: () => void) => setTimeout(callback, 2000)); // Increased delay
         
         scheduleLoad(() => {
-          // Initialize Google Analytics asynchronously
-          const script = document.createElement('script');
-          script.async = true;
-          script.defer = true;
-          script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
-          
-          // Use requestAnimationFrame to batch DOM operations
-          requestAnimationFrame(() => {
-            document.head.appendChild(script);
-          });
-
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function() {
-            window.dataLayer.push(arguments);
+          // Only load if user has interacted with the page
+          const hasUserInteracted = () => {
+            return document.visibilityState === 'visible' || 
+                   document.hasFocus() ||
+                   window.scrollY > 0;
           };
 
-          window.gtag('js', new Date());
-          window.gtag('config', trackingId, {
-            page_title: document.title,
-            page_location: window.location.href,
-            page_path: location.pathname,
-            // Disable automatic page view to prevent forced reflows
-            send_page_view: false,
-          });
+          if (!hasUserInteracted()) {
+            // Wait for first interaction before loading analytics
+            const loadOnInteraction = () => {
+              loadAnalyticsScript();
+              // Remove listeners after first load
+              ['scroll', 'click', 'keydown', 'touchstart'].forEach(event => {
+                window.removeEventListener(event, loadOnInteraction);
+              });
+            };
+
+            ['scroll', 'click', 'keydown', 'touchstart'].forEach(event => {
+              window.addEventListener(event, loadOnInteraction, { passive: true, once: true });
+            });
+          } else {
+            loadAnalyticsScript();
+          }
+        });
+      };
+
+      const loadAnalyticsScript = () => {
+        // Initialize Google Analytics asynchronously
+        const script = document.createElement('script');
+        script.async = true;
+        script.defer = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+        
+        // Use requestAnimationFrame to batch DOM operations
+        requestAnimationFrame(() => {
+          document.head.appendChild(script);
+        });
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() {
+          window.dataLayer.push(arguments);
+        };
+
+        window.gtag('js', new Date());
+        window.gtag('config', trackingId, {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: location.pathname,
+          // Disable automatic page view to prevent forced reflows
+          send_page_view: false,
         });
       };
 
