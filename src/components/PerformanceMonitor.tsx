@@ -75,13 +75,16 @@ export const PerformanceMonitor = () => {
       logger.debug('Performance observers not fully supported');
     }
 
-    // Memory check - less frequent in production
+    // Memory check - much less frequent and only if needed
     const memoryInterval = setInterval(() => {
-      if (!memoryUtils.checkMemory()) {
-        // Try to cleanup memory
-        memoryUtils.cleanup();
+      // Only check memory in development or if performance is degraded
+      if (!isProduction || document.hidden === false) {
+        if (!memoryUtils.checkMemory()) {
+          // Try to cleanup memory
+          memoryUtils.cleanup();
+        }
       }
-    }, isProduction ? 60000 : 30000); // 1 min in prod, 30s in dev
+    }, isProduction ? 300000 : 120000); // 5 min in prod, 2 min in dev
 
     return () => {
       clsObserver.disconnect();

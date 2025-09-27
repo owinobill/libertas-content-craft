@@ -31,6 +31,8 @@ import { FormValidator } from "@/components/FormValidator";
 import { ContentSecurityPolicy } from "@/components/ContentSecurityPolicy";
 import { BundleOptimizer } from "@/components/BundleOptimizer";
 import { FinalQualityCheck } from "@/components/FinalQualityCheck";
+import { MemoryOptimizer } from "@/components/MemoryOptimizer";
+import { CriticalPerformance } from "@/components/CriticalPerformance";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -48,11 +50,11 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   return (
     <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-WSYGGNY21N' : undefined}>
+      {/* Critical performance components only */}
       <NetworkOptimizer />
-      <ReflowOptimizer />
       <FCPOptimizer />
       <LCPOptimizer />
-      <PerformanceMonitor />
+      {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
       <ErrorBoundary>
         <ScrollToTop />
         <Routes>
@@ -73,17 +75,35 @@ const AppContent = () => {
         <PWAInstallPrompt />
         <FontLoader />
         <DeferredCSS />
+        {/* Core optimizers */}
         <CSSOptimizer />
-        <AccessibilityChecker />
         <SEOOptimizer />
-        <CrossBrowserSupport />
         <MobileOptimizer />
-        <QualityReport />
         <SecurityEnforcer />
         <ImageOptimizer />
-        <FormValidator />
-        <BundleOptimizer />
-        <FinalQualityCheck />
+        
+        {/* Development-only components */}
+        {process.env.NODE_ENV === 'development' && (
+          <>
+            <AccessibilityChecker />
+            <QualityReport />
+            <FormValidator />
+            <BundleOptimizer />
+            <FinalQualityCheck />
+          </>
+        )}
+        
+        {/* Production-only components */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <ReflowOptimizer />
+            <CrossBrowserSupport />
+            <CriticalPerformance />
+          </>
+        )}
+        
+        {/* Memory optimization for all environments */}
+        <MemoryOptimizer />
       </ErrorBoundary>
     </AnalyticsProvider>
   );

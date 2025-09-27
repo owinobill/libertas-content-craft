@@ -45,21 +45,29 @@ export const memoryUtils = {
     }
   },
   
-  // Check memory usage
-  checkMemory: () => {
-    if ('memory' in performance) {
-      const memory = (performance as any).memory;
-      const usage = memory.usedJSHeapSize / memory.totalJSHeapSize;
-      
-      if (usage > 0.8) {
-        logger.warn('High memory usage:', {
-          usage: Math.round(usage * 100) + '%',
-          used: Math.round(memory.usedJSHeapSize / 1024 / 1024) + 'MB'
-        });
-        return false;
+  // Check memory usage with throttling
+  checkMemory: (() => {
+    let lastWarning = 0;
+    const THROTTLE_MS = 300000; // 5 minutes between warnings
+    
+    return () => {
+      if ('memory' in performance) {
+        const memory = (performance as any).memory;
+        const usage = memory.usedJSHeapSize / memory.totalJSHeapSize;
+        const now = Date.now();
+        
+        if (usage > 0.85 && (now - lastWarning) > THROTTLE_MS) {
+          logger.warn('High memory usage detected:', {
+            usage: Math.round(usage * 100) + '%',
+            used: Math.round(memory.usedJSHeapSize / 1024 / 1024) + 'MB',
+            total: Math.round(memory.totalJSHeapSize / 1024 / 1024) + 'MB'
+          });
+          lastWarning = now;
+          return false;
+        }
+        return usage < 0.9; // Only return false if critically high
       }
       return true;
-    }
-    return true;
-  }
+    };
+  })()
 };
