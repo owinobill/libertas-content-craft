@@ -17,7 +17,7 @@ export const ComprehensiveQA = () => {
   const [passNumber, setPassNumber] = useState(1);
   
   useEffect(() => {
-    if (process.env.NODE_ENV !== 'development') return;
+    // Run QA in all environments for comprehensive testing
     
     // Run QA immediately
     runComprehensiveQA();

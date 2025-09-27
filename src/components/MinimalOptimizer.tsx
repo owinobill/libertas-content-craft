@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-export const FCPOptimizer = () => {
+export const MinimalOptimizer = () => {
   useEffect(() => {
-    // Hide skeleton as soon as React content is ready
+    // Remove skeleton after React content loads
     const hideSkeleton = () => {
       const skeleton = document.getElementById('fcp-skeleton');
       if (skeleton) {
@@ -10,19 +10,16 @@ export const FCPOptimizer = () => {
       }
     };
 
-    // Hide skeleton immediately when component mounts
+    // Hide skeleton immediately
     hideSkeleton();
-
-    // Also hide on window load as fallback
+    
+    // Fallback on window load
     if (document.readyState === 'complete') {
       hideSkeleton();
     } else {
       window.addEventListener('load', hideSkeleton);
+      return () => window.removeEventListener('load', hideSkeleton);
     }
-
-    return () => {
-      window.removeEventListener('load', hideSkeleton);
-    };
   }, []);
 
   return null;

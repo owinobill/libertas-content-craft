@@ -28,13 +28,8 @@ const Index = () => {
         structuredData={combinedSchema}
         canonical="https://libertasafrica.com/"
       />
-
-      <Header />
-
-      {/* Main content wrapper */}
       <main role="main">
-
-      {/* Hero Section with Geni-inspired design */}
+      {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-hero"></div>

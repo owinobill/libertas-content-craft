@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAnalytics, usePerformanceMonitoring } from '@/hooks/useAnalytics';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface AnalyticsProviderProps {
   measurementId?: string;
@@ -9,9 +9,6 @@ interface AnalyticsProviderProps {
 export const AnalyticsProvider = ({ measurementId, children }: AnalyticsProviderProps) => {
   // Initialize analytics
   useAnalytics(measurementId);
-  
-  // Initialize performance monitoring
-  usePerformanceMonitoring();
 
   // Track Web Vitals with optimized timing to prevent forced reflows
   useEffect(() => {

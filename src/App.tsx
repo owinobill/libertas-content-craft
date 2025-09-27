@@ -11,14 +11,12 @@ import { SecurityHeaders } from "@/components/SecurityHeaders";
 import { A11ySkipLink } from "@/components/A11ySkipLink";
 import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
-import { FontLoader } from "@/components/FontLoader";
 import { DeferredCSS } from "@/components/DeferredCSS";
-import { FCPOptimizer } from "@/components/FCPOptimizer";
-import { LCPOptimizer } from "@/components/LCPOptimizer";
-import { CSSOptimizer } from "@/components/CSSOptimizer";
-// Removed excessive performance imports - they were causing navigation sluggishness
+// Minimal performance optimizations only
 import { Suspense, lazy } from "react";
 import { FastLoadingSpinner } from "./components/FastLoadingSpinner";
+import { ComprehensiveQA } from "./components/ComprehensiveQA";
+import { MinimalOptimizer } from "./components/MinimalOptimizer";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -37,9 +35,6 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   return (
     <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-WSYGGNY21N' : undefined}>
-      {/* Critical performance components only */}
-      <FCPOptimizer />
-      <LCPOptimizer />
       <ErrorBoundary>
         <ScrollToTop />
         <Suspense fallback={<FastLoadingSpinner />}>
@@ -60,8 +55,9 @@ const AppContent = () => {
         </Suspense>
         <UpdateNotification />
         <PWAInstallPrompt />
-        <FontLoader />
+        <MinimalOptimizer />
         <DeferredCSS />
+        <ComprehensiveQA />
         {/* Minimal optimizers only for navigation performance */}
       </ErrorBoundary>
     </AnalyticsProvider>
