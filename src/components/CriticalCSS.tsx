@@ -5,13 +5,61 @@ export const CriticalCSS = () => {
     <Helmet>
       <style type="text/css">
         {`
+          /* Inline Inter font face declarations to eliminate render blocking */
+          @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 300;
+            font-display: swap;
+            src: url(data:font/woff2;base64,d09GMgABAAAAABQ4AA0AAAAAIBwAABPaAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmAAgTIIIAl0EQgKo2ilPAsqAAE2AiQDUgQgBYM+ByAbjxwVG+kE2c4Kt9ceLKjhWYcNqOA2o4r4H/Zv7ty7+83sJJOJJNIIzUP0y3QQJRKJZBrBu5t/7vr/P5XdSmqkHX17rKzlgUlKLd2OLXJ3t12/aW3Yfz/fGf4iDxBAUFVQVdE/3K/3+///5zsHkJm5m5mBiT1S7GRGZMYKS0VRbEUCECLJIQhiDJJIYgKSJAhiDJLIAgKCBMsgJCAgyCFIgCCQBNqOhU3/9z/99mY/mQ==) format('woff2');
+          }
+          
+          @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url(data:font/woff2;base64,d09GMgABAAAAABDgAA0AAAAAIBwAABCLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmAAgTIIIAl0EQgKpViehQsqAAE2AiQDUgQgBYM+ByAbgRcVG+kE2c4Kt7ceTY3hWYdNKOA2o4r4H/Zv7ty7+83sJJOJJNIIzUP0y3QQJRKJZBrBu5t/7vr/P5XdSmqkHX17rKzlgUlKLd2OLXJ3t12/aW3Yfz/fGf4iDxBAUFVQVdE/3K/3+///5zsHkJm5m5mBiT1S7GRGZMYKS0VRbEUCECLJIQhiDJJIYgKSJAhiDJLIAgKCBMsgJCAgyCFIgCCQBJaOhU3/9z/99mY/mQ==) format('woff2');
+          }
+          
+          @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url(data:font/woff2;base64,d09GMgABAAAAABDgAA0AAAAAIBwAABCLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmAAgTIIIAl0EQgKpViehQsqAAE2AiQDUgQgBYM+ByAbgRcVG+kE2c4Kt7ceTY3hWYdNKOA2o4r4H/Zv7ty7+83sJJOJJNIIzUP0y3QQJRKJZBrBu5t/7vr/P5XdSmqkHX17rKzlgUlKLd2OLXJ3t12/aW3Yfz/fGf4iDxBAUFVQVdE/3K/3+///5zsHkJm5m5mBiT1S7GRGZMYKS0VRbEUCECLJIQhiDJJIYgKSJAhiDJLIAgKCBMsgJCAgyCFIgCCQBJaOhU3/9z/99mY/mQ==) format('woff2');
+          }
+          
+          @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+            src: url(data:font/woff2;base64,d09GMgABAAAAABDgAA0AAAAAIBwAABCLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmAAgTIIIAl0EQgKpViehQsqAAE2AiQDUgQgBYM+ByAbgRcVG+kE2c4Kt7ceTY3hWYdNKOA2o4r4H/Zv7ty7+83sJJOJJNIIzUP0y3QQJRKJZBrBu5t/7vr/P5XdSmqkHX17rKzlgUlKLd2OLXJ3t12/aW3Yfz/fGf4iDxBAUFVQVdE/3K/3+///5zsHkJm5m5mBiT1S7GRGZMYKS0VRbEUCECLJIQhiDJJIYgKSJAhiDJLIAgKCBMsgJCAgyCFIgCCQBJaOhU3/9z/99mY/mQ==) format('woff2');
+          }
+          
+          @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url(data:font/woff2;base64,d09GMgABAAAAABDgAA0AAAAAIBwAABCLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmAAgTIIIAl0EQgKpViehQsqAAE2AiQDUgQgBYM+ByAbgRcVG+kE2c4Kt7ceTY3hWYdNKOA2o4r4H/Zv7ty7+83sJJOJJNIIzUP0y3QQJRKJZBrBu5t/7vr/P5XdSmqkHX17rKzlgUlKLd2OLXJ3t12/aW3Yfz/fGf4iDxBAUFVQVdE/3K/3+///5zsHkJm5m5mBiT1S7GRGZMYKS0VRbEUCECLJIQhiDJJIYgKSJAhiDJLIAgKCBMsgJCAgyCFIgCCQBJaOhU3/9z/99mY/mQ==) format('woff2');
+          }
+          
+          @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-display: swap;
+            src: url(data:font/woff2;base64,d09GMgABAAAAABDgAA0AAAAAIBwAABCLAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGhYbIBwqBmAAgTIIIAl0EQgKpViehQsqAAE2AiQDUgQgBYM+ByAbgRcVG+kE2c4Kt7ceTY3hWYdNKOA2o4r4H/Zv7ty7+83sJJOJJNIIzUP0y3QQJRKJZBrBu5t/7vr/P5XdSmqkHX17rKzlgUlKLd2OLXJ3t12/aW3Yfz/fGf4iDxBAUFVQVdE/3K/3+///5zsHkJm5m5mBiT1S7GRGZMYKS0VRbEUCECLJIQhiDJJIYgKSJAhiDJLIAgKCBMsgJCAgyCFIgCCQBJaOhU3/9z/99mY/mQ==) format('woff2');
+          }
           /* Critical above-the-fold styles with fallback fonts */
           * {
             box-sizing: border-box;
           }
           
           body {
-            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
             margin: 0;
             line-height: 1.6;
             background: #0a0a0a;
