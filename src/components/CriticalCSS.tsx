@@ -5,11 +5,12 @@ export const CriticalCSS = () => {
     <Helmet>
       <style type="text/css">
         {`
-          /* Critical above-the-fold styles */
+          /* Critical above-the-fold styles with font fallback */
           body {
-            font-family: Inter, system-ui, -apple-system, sans-serif;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             line-height: 1.6;
+            font-display: swap;
           }
           
           /* Header styles */

@@ -11,6 +11,7 @@ import { SecurityHeaders } from "@/components/SecurityHeaders";
 import { A11ySkipLink } from "@/components/A11ySkipLink";
 import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
+import { FontLoader } from "@/components/FontLoader";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -47,6 +48,7 @@ const AppContent = () => {
           </Routes>
         <UpdateNotification />
         <PWAInstallPrompt />
+        <FontLoader />
       </ErrorBoundary>
     </AnalyticsProvider>
   );
