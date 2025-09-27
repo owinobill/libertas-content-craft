@@ -46,8 +46,8 @@ const Index = () => {
         
         <div className="hero-content container mx-auto px-6 text-center">
           <div className="max-w-5xl mx-auto">
-            <h1 className="hero-title">
-              <span style={{ background: 'linear-gradient(135deg, #60a5fa, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Unchaining Capital.</span>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+              <span className="text-gradient">Unchaining Capital.</span>
               <br />
               Unlocking Potential.
             </h1>
