@@ -27,6 +27,8 @@ if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
   }
 }
 
+console.log('Starting React app render...');
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <HelmetProvider>
@@ -36,3 +38,5 @@ createRoot(document.getElementById("root")!).render(
     </HelmetProvider>
   </StrictMode>
 );
+
+console.log('React app render completed');
