@@ -18,8 +18,8 @@ import { FastLoadingSpinner } from "./components/FastLoadingSpinner";
 import { MinimalOptimizer } from "./components/MinimalOptimizer";
 import { QATestResults } from "./components/QATestResults";
 
-// Optimized lazy-loaded components
-const FastHomepage = lazy(() => import("./components/FastHomepage"));
+// Ultra-fast lazy-loaded components - instant hero rendering
+const InstantHomepage = lazy(() => import("./components/InstantHomepage"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const InsightsHub = lazy(() => import("./pages/InsightsHub"));
 const ArticleDebtSalesAssignments = lazy(() => import("./pages/ArticleDebtSalesAssignments"));
@@ -39,7 +39,7 @@ const AppContent = () => {
         <ScrollToTop />
         <Suspense fallback={<FastLoadingSpinner />}>
           <Routes>
-              <Route path="/" element={<FastHomepage />} />
+              <Route path="/" element={<InstantHomepage />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/solutions/detailed" element={<Solutions />} />
               <Route path="/insights-hub" element={<InsightsHub />} />
