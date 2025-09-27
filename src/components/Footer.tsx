@@ -1,7 +1,32 @@
-import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+import { useCallback } from "react";
 const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleAnchorClick = useCallback((anchor: string) => {
+    if (location.pathname === '/') {
+      // Same page, scroll to anchor
+      const element = document.getElementById(anchor);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Navigate to home with anchor
+      navigate('/');
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const element = document.getElementById(anchor);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 50);
+      });
+    }
+  }, [location.pathname, navigate]);
+
   return <footer className="border-t border-border/20 bg-background">
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -14,14 +39,7 @@ const Footer = () => {
           {/* Navigation Links */}
           <nav className="flex gap-6 text-sm">
             <button 
-              onClick={() => {
-                const aboutSection = document.getElementById('about');
-                if (aboutSection) {
-                  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                  window.location.href = '/#about';
-                }
-              }}
+              onClick={() => handleAnchorClick('about')}
               className="text-muted-foreground hover:text-primary smooth-transition"
             >
               About
@@ -33,14 +51,7 @@ const Footer = () => {
               Insights
             </Link>
             <button 
-              onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else {
-                  window.location.href = '/#contact';
-                }
-              }}
+              onClick={() => handleAnchorClick('contact')}
               className="text-muted-foreground hover:text-primary smooth-transition"
             >
               Contact

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,12 +13,16 @@ const Header = () => {
   const navigate = useNavigate();
   const { trackBusinessEvent } = useAnalytics();
 
-  const handleLogoClick = () => {
+  const handleLogoClick = useCallback(() => {
     trackBusinessEvent('cta_click', { element: 'logo', location: 'header' });
-  };
+  }, [trackBusinessEvent]);
 
-  const handleAnchorClick = (href: string) => {
+  const handleAnchorClick = useCallback((href: string) => {
     const [path, hash] = href.split('#');
+    
+    // Close menu immediately for faster UX
+    setIsMenuOpen(false);
+    setIsMobileSolutionsOpen(false);
     
     if (location.pathname === path || (path === '' && location.pathname === '/')) {
       // Same page, just scroll to anchor
@@ -27,37 +31,36 @@ const Header = () => {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        // Update URL hash
-        window.history.pushState(null, '', href);
+        // Update URL hash without reloading
+        window.history.replaceState(null, '', href);
       }
     } else {
-      // Different page, navigate and then scroll to anchor
+      // Different page, navigate efficiently
       if (hash) {
-        // Navigate to the page first
-        navigate(path || '/');
-        // Use setTimeout to ensure the page loads before scrolling
-        setTimeout(() => {
-          const element = document.getElementById(hash);
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+        navigate(path || '/', { replace: false });
+        // Shorter timeout for better perceived performance
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const element = document.getElementById(hash);
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 50);
+        });
       } else {
-        // Just navigate without anchor
-        navigate(href);
+        navigate(href, { replace: false });
       }
     }
-    closeMenu();
-  };
+  }, [location.pathname, navigate]);
 
-  const toggleMenu = () => {
+  const toggleMenu = useCallback(() => {
     setIsMenuOpen(!isMenuOpen);
-  };
+  }, [isMenuOpen]);
 
-  const closeMenu = () => {
+  const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
     setIsMobileSolutionsOpen(false);
-  };
+  }, []);
 
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";

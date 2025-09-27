@@ -210,7 +210,7 @@ All colors MUST be HSL.
   }
   
   .smooth-transition {
-    transition: var(--transition-smooth);
+    transition: color 200ms ease-out, background-color 200ms ease-out, transform 200ms ease-out;
   }
   
   .bounce-transition {

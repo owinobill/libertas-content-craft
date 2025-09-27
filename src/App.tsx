@@ -16,26 +16,7 @@ import { DeferredCSS } from "@/components/DeferredCSS";
 import { FCPOptimizer } from "@/components/FCPOptimizer";
 import { LCPOptimizer } from "@/components/LCPOptimizer";
 import { CSSOptimizer } from "@/components/CSSOptimizer";
-import { ReflowOptimizer } from "@/components/ReflowOptimizer";
-import { NetworkOptimizer } from "@/components/NetworkOptimizer";
-import { ProductionQuality } from "@/components/ProductionQuality";
-import { PerformanceMonitor } from "@/components/PerformanceMonitor";
-import { AccessibilityChecker } from "@/components/AccessibilityChecker";
-import { SEOOptimizer } from "@/components/SEOOptimizer";
-import { CrossBrowserSupport } from "@/components/CrossBrowserSupport";
-import { MobileOptimizer } from "@/components/MobileOptimizer";
-import { QualityReport } from "@/components/QualityReport";
-import { SecurityEnforcer } from "@/components/SecurityEnforcer";
-import { ImageOptimizer } from "@/components/ImageOptimizer";
-import { FormValidator } from "@/components/FormValidator";
-import { ContentSecurityPolicy } from "@/components/ContentSecurityPolicy";
-import { BundleOptimizer } from "@/components/BundleOptimizer";
-import { FinalQualityCheck } from "@/components/FinalQualityCheck";
-import { MemoryOptimizer } from "@/components/MemoryOptimizer";
-import { CriticalPerformance } from "@/components/CriticalPerformance";
-import { NavigationTester } from "@/components/NavigationTester";
-import { ProductionReadinessValidator } from "@/components/ProductionReadinessValidator";
-import { ComprehensiveQA } from "@/components/ComprehensiveQA";
+// Removed excessive performance imports - they were causing navigation sluggishness
 import { Suspense, lazy } from "react";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 
@@ -81,23 +62,7 @@ const AppContent = () => {
         <PWAInstallPrompt />
         <FontLoader />
         <DeferredCSS />
-        {/* Core optimizers - reduced for performance */}
-        <SEOOptimizer />
-        <ImageOptimizer />
-        
-        {/* Development QA Suite */}
-        {process.env.NODE_ENV === 'development' && (
-          <>
-            <ComprehensiveQA />
-          </>
-        )}
-        
-        {/* Production-only components */}
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <CriticalPerformance />
-          </>
-        )}
+        {/* Minimal optimizers only for navigation performance */}
       </ErrorBoundary>
     </AnalyticsProvider>
   );
@@ -113,8 +78,6 @@ const App = () => (
     >
       <TooltipProvider>
         <SecurityHeaders />
-        <ProductionQuality />
-        <ContentSecurityPolicy />
         <A11ySkipLink />
         <Toaster />
         <Sonner />
