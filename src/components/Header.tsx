@@ -151,9 +151,8 @@ const Header = () => {
               <ThemeToggle />
             </div>
 
-            {/* Mobile Navigation Toggle & Theme */}
-            <div className="flex items-center gap-2 md:hidden">
-              <ThemeToggle />
+            {/* Mobile Navigation Toggle */}
+            <div className="md:hidden">
               <Button
                 variant="ghost"
                 size="icon"
