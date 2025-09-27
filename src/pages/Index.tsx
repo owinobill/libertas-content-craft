@@ -28,6 +28,9 @@ const Index = () => {
         structuredData={combinedSchema}
         canonical="https://libertasafrica.com/"
       />
+      
+      <Header />
+
       <main role="main">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
