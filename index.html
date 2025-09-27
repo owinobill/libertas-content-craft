@@ -17,9 +17,10 @@
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         
-        <!-- Critical Resource Preloads for FCP -->
+        <!-- Critical Resource Preloads for LCP optimization -->
         <link rel="modulepreload" href="/src/main.tsx" />
-        <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" importance="high" />
+        <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" fetchpriority="high" />
+        <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high" />
         <link rel="prefetch" href="/manifest.json" />
         
         <!-- Structured Data -->
@@ -118,7 +119,9 @@
           margin: 0 auto;
           height: 4rem;
         ">
-          <div style="height: 3rem; width: 120px; background: rgba(255,255,255,0.1); border-radius: 8px;"></div>
+          <div style="height: 3rem; display: flex; align-items: center;">
+            <img src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" alt="Libertas Africa" style="height: 3rem; width: auto;" loading="eager" fetchpriority="high" />
+          </div>
           <div style="display: flex; gap: 2rem;">
             <div style="width: 60px; height: 20px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
             <div style="width: 60px; height: 20px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
@@ -139,23 +142,71 @@
         padding: 2rem 1.5rem;
       ">
         <div style="max-width: 80rem; margin: 0 auto;">
-          <!-- Main headline skeleton -->
+          <!-- Actual hero content for immediate LCP -->
           <div style="margin-bottom: 2rem;">
-            <div style="height: 4rem; width: 80%; background: rgba(255,255,255,0.15); border-radius: 8px; margin: 0 auto 1rem;"></div>
-            <div style="height: 4rem; width: 60%; background: rgba(255,255,255,0.15); border-radius: 8px; margin: 0 auto;"></div>
+            <h1 style="
+              font-size: clamp(3rem, 8vw, 4.5rem);
+              font-weight: 700;
+              line-height: 1.1;
+              margin: 0 0 2rem 0;
+              background: linear-gradient(135deg, hsl(142, 76%, 45%) 0%, hsl(178, 84%, 32%) 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            ">
+              <span style="color: transparent; background: linear-gradient(135deg, hsl(142, 76%, 45%) 0%, hsl(178, 84%, 32%) 100%); -webkit-background-clip: text; background-clip: text;">Unchaining Capital.</span><br>
+              <span style="color: hsl(210, 40%, 95%);">Unlocking Potential.</span>
+            </h1>
           </div>
           
-          <!-- Subtitle skeleton -->
+          <!-- Actual subtitle content for better LCP -->
           <div style="margin-bottom: 3rem;">
-            <div style="height: 1.5rem; width: 90%; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 0 auto 0.5rem;"></div>
-            <div style="height: 1.5rem; width: 85%; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 0 auto 0.5rem;"></div>
-            <div style="height: 1.5rem; width: 75%; background: rgba(255,255,255,0.1); border-radius: 4px; margin: 0 auto;"></div>
+            <p style="
+              font-size: clamp(1.125rem, 3vw, 1.5rem);
+              line-height: 1.6;
+              color: hsl(215, 20%, 65%);
+              margin: 0;
+              max-width: 64rem;
+              margin-left: auto;
+              margin-right: auto;
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            ">
+              Libertas Africa provides strategic consulting and advisory solutions in the financial sector. This includes advisory to lenders and investors for Non-performing loan portfolio sales, deal origination and investment solutions for private and structured credit transactions.
+            </p>
           </div>
           
-          <!-- Button skeletons -->
+          <!-- Actual buttons for complete LCP content -->
           <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
-            <div style="width: 160px; height: 48px; background: hsl(142, 76%, 45%); border-radius: 9999px;"></div>
-            <div style="width: 180px; height: 48px; background: transparent; border: 1px solid rgba(255,255,255,0.2); border-radius: 9999px;"></div>
+            <a href="#contact" style="
+              display: inline-flex;
+              align-items: center;
+              padding: 0.75rem 2rem;
+              background: hsl(142, 76%, 45%);
+              color: hsl(220, 30%, 6%);
+              text-decoration: none;
+              border-radius: 9999px;
+              font-weight: 500;
+              font-size: 1.125rem;
+              transition: background-color 0.2s;
+            ">
+              Let's Connect
+            </a>
+            <a href="#solutions" style="
+              display: inline-flex;
+              align-items: center;
+              padding: 0.75rem 2rem;
+              background: transparent;
+              color: hsl(210, 40%, 95%);
+              text-decoration: none;
+              border: 1px solid hsl(220, 15%, 20%);
+              border-radius: 9999px;
+              font-weight: 500;
+              font-size: 1.125rem;
+              transition: background-color 0.2s;
+            ">
+              Explore Our Solutions
+            </a>
           </div>
         </div>
       </section>
@@ -164,16 +215,44 @@
     <div id="root"></div>
     
     <script>
-      // Hide skeleton once React loads
-      document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(function() {
+      // Enhanced LCP optimization script
+      (function() {
+        // Hide skeleton with better timing for LCP
+        function hideSkeleton() {
           const skeleton = document.getElementById('fcp-skeleton');
           const root = document.getElementById('root');
           if (root && root.children.length > 0 && skeleton) {
-            skeleton.style.display = 'none';
+            skeleton.style.transition = 'opacity 0.3s ease-out';
+            skeleton.style.opacity = '0';
+            setTimeout(() => {
+              skeleton.style.display = 'none';
+            }, 300);
           }
-        }, 100);
-      });
+        }
+
+        // Multiple triggers for optimal LCP timing
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(hideSkeleton, 50);
+          });
+        } else {
+          setTimeout(hideSkeleton, 50);
+        }
+
+        // Backup trigger
+        window.addEventListener('load', () => {
+          setTimeout(hideSkeleton, 100);
+        });
+
+        // Font optimization for LCP text
+        if ('fonts' in document) {
+          const font = new FontFace('Inter', 'url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2)');
+          font.load().then(() => {
+            document.fonts.add(font);
+            document.documentElement.style.fontFamily = 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+          });
+        }
+      })();
     </script>
     <script type="module" src="/src/main.tsx"></script>
     
