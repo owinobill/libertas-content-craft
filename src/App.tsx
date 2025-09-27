@@ -18,7 +18,7 @@ import { LCPOptimizer } from "@/components/LCPOptimizer";
 import { CSSOptimizer } from "@/components/CSSOptimizer";
 // Removed excessive performance imports - they were causing navigation sluggishness
 import { Suspense, lazy } from "react";
-import { LoadingSpinner } from "./components/LoadingSpinner";
+import { FastLoadingSpinner } from "./components/FastLoadingSpinner";
 
 // Lazy load pages for better performance
 const Index = lazy(() => import("./pages/Index"));
@@ -42,7 +42,7 @@ const AppContent = () => {
       <LCPOptimizer />
       <ErrorBoundary>
         <ScrollToTop />
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={<FastLoadingSpinner />}>
           <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/solutions" element={<Solutions />} />
