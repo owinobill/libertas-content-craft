@@ -18,6 +18,13 @@ import { LCPOptimizer } from "@/components/LCPOptimizer";
 import { CSSOptimizer } from "@/components/CSSOptimizer";
 import { ReflowOptimizer } from "@/components/ReflowOptimizer";
 import { NetworkOptimizer } from "@/components/NetworkOptimizer";
+import { ProductionQuality } from "@/components/ProductionQuality";
+import { PerformanceMonitor } from "@/components/PerformanceMonitor";
+import { AccessibilityChecker } from "@/components/AccessibilityChecker";
+import { SEOOptimizer } from "@/components/SEOOptimizer";
+import { CrossBrowserSupport } from "@/components/CrossBrowserSupport";
+import { MobileOptimizer } from "@/components/MobileOptimizer";
+import { QualityReport } from "@/components/QualityReport";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -34,16 +41,16 @@ const queryClient = new QueryClient();
 
 const AppContent = () => {
   return (
-    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
+    <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-WSYGGNY21N' : undefined}>
       <NetworkOptimizer />
       <ReflowOptimizer />
       <FCPOptimizer />
       <LCPOptimizer />
+      <PerformanceMonitor />
       <ErrorBoundary>
         <ScrollToTop />
         <Routes>
             <Route path="/" element={<Index />} />
-            
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/detailed" element={<Solutions />} />
             <Route path="/insights-hub" element={<InsightsHub />} />
@@ -61,6 +68,11 @@ const AppContent = () => {
         <FontLoader />
         <DeferredCSS />
         <CSSOptimizer />
+        <AccessibilityChecker />
+        <SEOOptimizer />
+        <CrossBrowserSupport />
+        <MobileOptimizer />
+        <QualityReport />
       </ErrorBoundary>
     </AnalyticsProvider>
   );
@@ -76,10 +88,16 @@ const App = () => (
     >
       <TooltipProvider>
         <SecurityHeaders />
+        <ProductionQuality />
         <A11ySkipLink />
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
           <AppContent />
         </BrowserRouter>
       </TooltipProvider>

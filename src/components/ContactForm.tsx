@@ -9,31 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Send, CheckCircle, Loader2 } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
-
-const contactSchema = z.object({
-  name: z.string()
-    .trim()
-    .min(1, { message: "Name is required" })
-    .max(100, { message: "Name must be less than 100 characters" }),
-  email: z.string()
-    .trim()
-    .email({ message: "Invalid email address" })
-    .max(255, { message: "Email must be less than 255 characters" }),
-  company: z.string()
-    .trim()
-    .max(100, { message: "Company name must be less than 100 characters" })
-    .optional(),
-  subject: z.string()
-    .trim()
-    .min(1, { message: "Subject is required" })
-    .max(200, { message: "Subject must be less than 200 characters" }),
-  message: z.string()
-    .trim()
-    .min(1, { message: "Message is required" })
-    .max(2000, { message: "Message must be less than 2000 characters" })
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
+import { contactFormSchema, type ContactFormData, contactFormRateLimit, sanitizeInput } from "@/utils/validation";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,19 +21,38 @@ const ContactForm = () => {
     formState: { errors },
     reset
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema)
+    resolver: zodResolver(contactFormSchema)
   });
 
   const onSubmit = async (data: ContactFormData) => {
+    // Rate limiting check
+    const clientId = `${data.email}-${Date.now().toString().slice(0, -5)}`;
+    if (!contactFormRateLimit(clientId)) {
+      toast({
+        title: "Too many requests",
+        description: "Please wait before submitting another message.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     
     try {
+      // Sanitize input data
+      const sanitizedData = {
+        name: sanitizeInput(data.name),
+        email: sanitizeInput(data.email),
+        company: data.company ? sanitizeInput(data.company) : undefined,
+        subject: sanitizeInput(data.subject),
+        message: sanitizeInput(data.message)
+      };
       const response = await fetch('https://zznubsevogfqoxgkdnzg.supabase.co/functions/v1/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(sanitizedData),
       });
 
       if (!response.ok) {
