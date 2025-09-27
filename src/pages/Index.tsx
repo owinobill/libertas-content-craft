@@ -31,35 +31,35 @@ const Index = () => {
 
       <Header />
 
-      {/* Hero Section with Geni-inspired design */}
+      {/* Hero Section with optimized LCP */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-hero"></div>
+        <div className="hero-bg"></div>
         
-        {/* Floating gradient orbs */}
-        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-float opacity-60"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl animate-float opacity-40" style={{
-        animationDelay: '2s'
-      }}></div>
+        {/* Floating gradient orbs - deferred for performance */}
+        <div className="absolute top-20 right-20 w-96 h-96 bg-primary/10 rounded-full blur-3xl opacity-30" style={{
+          animation: 'none'
+        }}></div>
+        <div className="absolute bottom-20 left-20 w-80 h-80 bg-accent/10 rounded-full blur-3xl opacity-20" style={{
+          animation: 'none'
+        }}></div>
         
-        <div className="relative z-10 container mx-auto px-6 text-center">
+        <div className="hero-content container mx-auto px-6 text-center">
           <div className="max-w-5xl mx-auto">
-            
-            
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
-              <span className="text-gradient">Unchaining Capital.</span>
+            <h1 className="hero-title">
+              <span style={{ background: 'linear-gradient(135deg, #60a5fa, #3b82f6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Unchaining Capital.</span>
               <br />
               Unlocking Potential.
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
+            <p className="hero-description">
               Libertas Africa provides strategic consulting and advisory solutions in the financial sector. This includes advisory to lenders and investors for Non-performing loan portfolio sales, deal origination and investment solutions for private and structured credit transactions. Leveraging local market insights and global expertise, we bridge strategic investment opportunities with international and regional financiers, driving sustainable financial recovery and growth across key sectors.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="hero-buttons">
               <Button 
                 size="lg" 
-                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground shadow-elegant"
+                className="text-lg px-8 py-4 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground"
                 onClick={() => {
                   analytics.trackBusinessEvent('cta_click', { button_text: 'Let\'s Connect', location: 'hero' });
                   const contactSection = document.getElementById('contact');

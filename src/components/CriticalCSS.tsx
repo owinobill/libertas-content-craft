@@ -116,12 +116,47 @@ export const CriticalCSS = () => {
             background: #1d4ed8;
           }
           
-          /* Hero section styles */
+          /* Hero section styles for faster LCP */
           .hero {
             padding: 4rem 1.5rem;
             text-align: center;
             max-width: 1200px;
             margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          
+          .hero-content {
+            position: relative;
+            z-index: 10;
+          }
+          
+          .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: #fafafa;
+          }
+          
+          .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: #a1a1aa;
+            margin-bottom: 3rem;
+            max-width: 64rem;
+            margin-left: auto;
+            margin-right: auto;
+          }
+          
+          .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
           }
           
           /* Main content area */
@@ -134,6 +169,26 @@ export const CriticalCSS = () => {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
+          }
+          
+          /* Background gradient */
+          .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+          }
+          
+          /* Responsive hero title */
+          @media (min-width: 768px) {
+            .hero-title {
+              font-size: 4.5rem;
+            }
+            .hero-description {
+              font-size: 1.5rem;
+            }
+            .hero-buttons {
+              flex-direction: row;
+            }
           }
           
           /* Skip link styles */
