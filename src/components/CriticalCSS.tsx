@@ -5,6 +5,15 @@ export const CriticalCSS = () => {
     <Helmet>
       <style type="text/css">
         {`
+          /* Hide skeleton once React content loads */
+          #fcp-skeleton {
+            display: none;
+          }
+          
+          #root:empty + #fcp-skeleton {
+            display: block;
+          }
+          
           /* Comprehensive critical above-the-fold styles */
           * {
             box-sizing: border-box;

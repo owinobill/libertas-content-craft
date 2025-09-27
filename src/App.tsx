@@ -13,6 +13,7 @@ import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { FontLoader } from "@/components/FontLoader";
 import { DeferredCSS } from "@/components/DeferredCSS";
+import { FCPOptimizer } from "@/components/FCPOptimizer";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -30,6 +31,7 @@ const queryClient = new QueryClient();
 const AppContent = () => {
   return (
     <AnalyticsProvider measurementId={process.env.NODE_ENV === 'production' ? 'G-XXXXXXXXXX' : undefined}>
+      <FCPOptimizer />
       <ErrorBoundary>
         <ScrollToTop />
         <Routes>
