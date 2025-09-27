@@ -305,7 +305,7 @@ const ArticleDebtSalesDynamics = () => {
                         <p className="text-muted-foreground mb-4 line-clamp-3">
                           Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.
                         </p>
-                        <Link to="/insights-hub/debt-sales-and-assignments">
+                        <Link to="/insights-hub/debt-sales-assignments">
                           <Button variant="outline">
                             Read Article
                           </Button>
