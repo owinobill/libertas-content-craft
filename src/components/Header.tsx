@@ -1,10 +1,9 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { OptimizedImage } from "@/components/ui/optimized-image";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,16 +12,12 @@ const Header = () => {
   const navigate = useNavigate();
   const { trackBusinessEvent } = useAnalytics();
 
-  const handleLogoClick = useCallback(() => {
+  const handleLogoClick = () => {
     trackBusinessEvent('cta_click', { element: 'logo', location: 'header' });
-  }, [trackBusinessEvent]);
+  };
 
-  const handleAnchorClick = useCallback((href: string) => {
+  const handleAnchorClick = (href: string) => {
     const [path, hash] = href.split('#');
-    
-    // Close menu immediately for faster UX
-    setIsMenuOpen(false);
-    setIsMobileSolutionsOpen(false);
     
     if (location.pathname === path || (path === '' && location.pathname === '/')) {
       // Same page, just scroll to anchor
@@ -31,36 +26,37 @@ const Header = () => {
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        // Update URL hash without reloading
-        window.history.replaceState(null, '', href);
+        // Update URL hash
+        window.history.pushState(null, '', href);
       }
     } else {
-      // Different page, navigate efficiently
+      // Different page, navigate and then scroll to anchor
       if (hash) {
-        navigate(path || '/', { replace: false });
-        // Shorter timeout for better perceived performance
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            const element = document.getElementById(hash);
-            if (element) {
-              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-          }, 50);
-        });
+        // Navigate to the page first
+        navigate(path || '/');
+        // Use setTimeout to ensure the page loads before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
       } else {
-        navigate(href, { replace: false });
+        // Just navigate without anchor
+        navigate(href);
       }
     }
-  }, [location.pathname, navigate]);
+    closeMenu();
+  };
 
-  const toggleMenu = useCallback(() => {
+  const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  }, [isMenuOpen]);
+  };
 
-  const closeMenu = useCallback(() => {
+  const closeMenu = () => {
     setIsMenuOpen(false);
     setIsMobileSolutionsOpen(false);
-  }, []);
+  };
 
   const isActive = (path: string) => {
     if (path === "/") return location.pathname === "/";
@@ -148,21 +144,18 @@ const Header = () => {
               >
                 Contact
               </button>
-              <ThemeToggle />
             </div>
 
-            {/* Mobile Navigation Toggle */}
-            <div className="md:hidden">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-10 w-10"
-                onClick={toggleMenu}
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-              >
-                {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </Button>
-            </div>
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden h-10 w-10"
+              onClick={toggleMenu}
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
 

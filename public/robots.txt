@@ -1,27 +1,27 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://libertasafrica.com/sitemap.xml
-
-# Block access to sensitive files
-Disallow: /api/
-Disallow: /*.json$
+# Block access to admin and private areas  
 Disallow: /admin/
 Disallow: /private/
+Disallow: /.well-known/
+Disallow: /api/
 
-# Allow crawling of important content
-Allow: /insights-hub/
-Allow: /solutions/
-Allow: /privacy-policy
-Allow: /terms-of-use
+# Allow access to assets
+Allow: /assets/
+Allow: /lovable-uploads/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.ico
 
-# Block common crawlers that add no value
-User-agent: SemrushBot
-Disallow: /
+# Sitemap location
+Sitemap: https://libertasafrica.com/sitemap.xml
 
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
+# Crawl-delay for better server performance
+Crawl-delay: 1

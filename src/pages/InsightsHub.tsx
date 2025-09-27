@@ -6,16 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { Download, ArrowRight, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
-// Lazy load images to improve initial page load performance
-const getImageSrc = (imageName: string) => {
-  const images: Record<string, string> = {
-    'debt-sales': '/src/assets/debt-sales-hero.jpg',
-    'debt-sales-dynamics': '/src/assets/debt-sales-dynamics-hero.jpg',
-    'npl-ecosystem': '/src/assets/npl-ecosystem-hero.jpg',
-    'npl-ecosystem-part1': '/src/assets/npl-ecosystem-part1-hero.jpg'
-  };
-  return images[imageName] || '';
-};
+import debtSalesHero from "@/assets/debt-sales-hero.jpg";
+import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
+import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
+import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -28,7 +22,7 @@ const InsightsHub = () => {
       excerpt: "Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration.",
       category: "npls",
       date: "September 25, 2025",
-      image: getImageSrc('npl-ecosystem-part1'),
+      image: nplEcosystemPart1Hero,
       readTime: "9 min read",
       slug: "npl-ecosystem-part-1"
     },
@@ -38,7 +32,7 @@ const InsightsHub = () => {
       excerpt: "Four strategic pillars — legal frameworks, market infrastructure, capital mobilization, and collaboration — to create a thriving African NPL ecosystem.",
       category: "npls",
       date: "September 25, 2025",
-      image: getImageSrc('npl-ecosystem'),
+      image: nplEcosystemHero,
       readTime: "10 min read",
       slug: "npl-ecosystem-part-2"
     },
@@ -48,7 +42,7 @@ const InsightsHub = () => {
       excerpt: "A practical guide for East African lenders on navigating debt sales. From regulatory frameworks and synthetic debt sales to valuation, pricing, and reputational risk management — here's how to turn NPL challenges into opportunity.",
       category: "npls",
       date: "June 30, 2025",
-      image: getImageSrc('debt-sales-dynamics'),
+      image: debtSalesDynamicsHero,
       readTime: "12 min read",
       slug: "debt-sales-dynamics"
     },
@@ -58,7 +52,7 @@ const InsightsHub = () => {
       excerpt: "Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.",
       category: "npls",
       date: "May 24, 2025",
-      image: getImageSrc('debt-sales'),
+      image: debtSalesHero,
       readTime: "8 min read",
       slug: "debt-sales-assignments"
     }
@@ -186,7 +180,6 @@ const InsightsHub = () => {
                         alt={`${article.title} - ${article.excerpt.substring(0, 100)}...`}
                         className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
-                        decoding="async"
                       />
                       <div className="absolute top-4 left-4">
                         <Badge variant="secondary" className="bg-background/80 backdrop-blur-sm">

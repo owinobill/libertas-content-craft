@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import { CriticalCSS } from "@/components/CriticalCSS";
+import { EnhancedSEO } from "@/components/EnhancedSEO";
 
 interface ProductionReadyAppProps {
   children: React.ReactNode;
@@ -32,6 +34,9 @@ export const ProductionReadyApp = ({ children }: ProductionReadyAppProps) => {
         {/* Performance and Security */}
         <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://zznubsevogfqoxgkdnzg.supabase.co https://www.google-analytics.com; frame-ancestors 'none';" />
       </Helmet>
+      
+      <CriticalCSS />
+      <EnhancedSEO />
       
       {children}
     </>

@@ -39,8 +39,6 @@ const Solutions = () => {
       canonical="https://libertasafrica.com/solutions"
     >
 
-      <main role="main">
-      
       {/* Back to Home Button */}
       <section className="py-8 bg-gradient-subtle">
         <div className="container mx-auto px-6">
@@ -223,8 +221,6 @@ const Solutions = () => {
           </div>
         </div>
       </section>
-      
-      </main>
       
     </PageLayout>
   );

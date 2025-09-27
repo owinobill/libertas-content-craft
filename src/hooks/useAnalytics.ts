@@ -21,46 +21,23 @@ export const useAnalytics = (trackingId?: string) => {
 
   useEffect(() => {
     if (trackingId && typeof window !== 'undefined') {
-      // Defer analytics loading to prevent forced reflows during critical rendering
-      const loadAnalytics = () => {
-        // Check if already loaded
-        if (window.gtag) return;
+      // Initialize Google Analytics
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+      document.head.appendChild(script);
 
-        // Initialize Google Analytics with minimal reflow impact
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
-        
-        // Load analytics after critical rendering
-        script.onload = () => {
-          window.dataLayer = window.dataLayer || [];
-          window.gtag = function() {
-            window.dataLayer.push(arguments);
-          };
-
-          // Use requestAnimationFrame to avoid blocking critical path
-          requestAnimationFrame(() => {
-            window.gtag('js', new Date());
-            window.gtag('config', trackingId, {
-              page_title: document.title,
-              page_location: window.location.href,
-              page_path: location.pathname,
-              // Disable automatic pageview tracking to prevent forced reflows
-              send_page_view: false,
-            });
-          });
-        };
-
-        document.head.appendChild(script);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function() {
+        window.dataLayer.push(arguments);
       };
 
-      // Use requestIdleCallback to load analytics when browser is idle
-      if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(loadAnalytics, { timeout: 3000 });
-      } else {
-        // Fallback: load after critical rendering
-        setTimeout(loadAnalytics, 1000);
-      }
+      window.gtag('js', new Date());
+      window.gtag('config', trackingId, {
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: location.pathname,
+      });
     }
   }, [trackingId]);
 
@@ -86,16 +63,12 @@ export const useAnalytics = (trackingId?: string) => {
   }, [location, trackingId]);
 
   const trackEvent = (eventData: AnalyticsEvent) => {
-    // Batch analytics calls to prevent forced reflows
     if (typeof window !== 'undefined' && window.gtag) {
-      // Use requestAnimationFrame to batch DOM reads/writes
-      requestAnimationFrame(() => {
-        window.gtag('event', eventData.event_name, {
-          event_category: eventData.event_category,
-          event_label: eventData.event_label,
-          value: eventData.value,
-          ...eventData.custom_parameters,
-        });
+      window.gtag('event', eventData.event_name, {
+        event_category: eventData.event_category,
+        event_label: eventData.event_label,
+        value: eventData.value,
+        ...eventData.custom_parameters,
       });
     }
 
@@ -130,4 +103,34 @@ export const useAnalytics = (trackingId?: string) => {
     trackConversion,
     trackBusinessEvent,
   };
+};
+
+// Hook for performance monitoring
+export const usePerformanceMonitoring = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && 'performance' in window) {
+      // Track Core Web Vitals
+      const observer = new PerformanceObserver((list) => {
+        list.getEntries().forEach((entry: any) => {
+          if (entry.entryType === 'largest-contentful-paint') {
+            console.log('LCP:', entry.startTime);
+          }
+          if (entry.entryType === 'first-input') {
+            console.log('FID:', entry.processingStart - entry.startTime);
+          }
+          if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+            console.log('CLS:', entry.value);
+          }
+        });
+      });
+
+      try {
+        observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+      } catch (e) {
+        // Observer not supported
+      }
+
+      return () => observer.disconnect();
+    }
+  }, []);
 };

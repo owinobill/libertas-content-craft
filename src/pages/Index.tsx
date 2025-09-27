@@ -22,17 +22,16 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEOHead
-        title="Libertas Africa | NPL Advisory & Financial Solutions"
-        description="Strategic consulting in NPL portfolio sales, investment advisory, project finance, and policy advisory across Africa."
+        title="Libertas Africa | Strategic Financial Advisory & NPL Solutions"
+        description="Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa."
         keywords="NPL portfolio sales, investment advisory, project finance, policy advisory, Africa financial services, debt advisory, non-performing loans, structured credit, DFI financing"
         structuredData={combinedSchema}
         canonical="https://libertasafrica.com/"
       />
-      
+
       <Header />
 
-      <main role="main">
-      {/* Hero Section */}
+      {/* Hero Section with Geni-inspired design */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-hero"></div>
@@ -364,8 +363,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      </main>
 
       <Footer />
     </div>

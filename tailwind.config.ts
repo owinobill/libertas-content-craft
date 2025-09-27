@@ -85,15 +85,15 @@ export default {
 				'elegant': 'var(--shadow-elegant)',
 				'elevated': 'var(--shadow-glow)',
 			},
-        animation: {
-          "accordion-down": "accordion-down 0.1s ease-out",
-          "accordion-up": "accordion-up 0.1s ease-out",
-          "fade-in": "fade-in 0.1s ease-out",
-          "fade-in-up": "fade-in-up 0.15s ease-out",
-          "scale-in": "scale-in 0.1s ease-out",
-          "float": "float 6s ease-in-out infinite",
-          "glow-pulse": "glow-pulse 2s ease-in-out infinite alternate",
-        },
+			animation: {
+				'accordion-down': 'accordion-down 0.2s ease-out',
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				"fade-in": "fade-in 0.6s ease-out",
+				"fade-in-up": "fade-in-up 0.8s ease-out",
+				"scale-in": "scale-in 0.4s ease-out",
+				"float": "float 6s ease-in-out infinite",
+				"glow-pulse": "glow-pulse 2s ease-in-out infinite alternate",
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {

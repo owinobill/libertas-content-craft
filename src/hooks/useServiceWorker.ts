@@ -57,28 +57,14 @@ export const useServiceWorker = () => {
     }
   }, []);
 
-  const updateApp = async () => {
-    try {
-      if ('serviceWorker' in navigator) {
-        const registration = await navigator.serviceWorker.getRegistration();
-        
+  const updateApp = () => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistration().then((registration) => {
         if (registration && registration.waiting) {
-          // Send skip waiting message to waiting service worker
           registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-          
-          // Listen for controller change to reload
-          navigator.serviceWorker.addEventListener('controllerchange', () => {
-            window.location.reload();
-          });
-        } else {
-          // If no waiting worker, just reload
           window.location.reload();
         }
-      }
-    } catch (error) {
-      console.error('Error updating app:', error);
-      // Fallback: force reload
-      window.location.reload();
+      });
     }
   };
 
