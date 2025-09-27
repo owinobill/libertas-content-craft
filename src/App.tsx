@@ -19,7 +19,7 @@ import { MinimalOptimizer } from "./components/MinimalOptimizer";
 import { QATestResults } from "./components/QATestResults";
 
 // Ultra-fast lazy-loaded components - instant hero rendering
-const InstantHomepage = lazy(() => import("./components/InstantHomepage"));
+const UltraFastHomepage = lazy(() => import("./components/UltraFastHomepage"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const InsightsHub = lazy(() => import("./pages/InsightsHub"));
 const ArticleDebtSalesAssignments = lazy(() => import("./pages/ArticleDebtSalesAssignments"));
@@ -39,7 +39,7 @@ const AppContent = () => {
         <ScrollToTop />
         <Suspense fallback={<FastLoadingSpinner />}>
           <Routes>
-              <Route path="/" element={<InstantHomepage />} />
+              <Route path="/" element={<UltraFastHomepage />} />
               <Route path="/solutions" element={<Solutions />} />
               <Route path="/solutions/detailed" element={<Solutions />} />
               <Route path="/insights-hub" element={<InsightsHub />} />
