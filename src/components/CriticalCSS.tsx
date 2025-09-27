@@ -5,11 +5,24 @@ export const CriticalCSS = () => {
     <Helmet>
       <style type="text/css">
         {`
-          /* Critical above-the-fold styles */
+          /* Critical above-the-fold styles with fallback fonts */
+          * {
+            box-sizing: border-box;
+          }
+          
           body {
-            font-family: Inter, system-ui, -apple-system, sans-serif;
+            font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
             margin: 0;
             line-height: 1.6;
+            background: #0a0a0a;
+            color: #fafafa;
+          }
+          
+          /* Root container */
+          #root {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
           }
           
           /* Header styles */
@@ -17,9 +30,9 @@ export const CriticalCSS = () => {
             position: sticky;
             top: 0;
             z-index: 50;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
           }
           
           /* Navigation styles */
@@ -36,7 +49,7 @@ export const CriticalCSS = () => {
           .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #1e40af;
+            color: #60a5fa;
           }
           
           /* Primary button styles */
@@ -53,6 +66,26 @@ export const CriticalCSS = () => {
           
           .btn-primary:hover {
             background: #1d4ed8;
+          }
+          
+          /* Hero section styles */
+          .hero {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+          
+          /* Main content area */
+          main {
+            flex: 1;
+          }
+          
+          /* Container styles */
+          .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
           }
           
           /* Skip link styles */

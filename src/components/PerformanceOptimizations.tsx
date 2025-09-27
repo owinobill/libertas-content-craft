@@ -18,13 +18,20 @@ export const PerformanceOptimizations = () => {
       <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
       <link rel="preload" href="/libertas-logo.png" as="image" />
       
-      {/* Critical CSS should be inlined, but we can preload fonts */}
-      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
-      
-      {/* Defer non-critical scripts */}
+      {/* Defer non-critical scripts and load fonts asynchronously */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
+            // Async load Google Fonts to prevent render blocking
+            (function() {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap';
+              link.media = 'print';
+              link.onload = function() { this.media = 'all'; };
+              document.head.appendChild(link);
+            })();
+            
             // Defer non-critical JavaScript
             window.addEventListener('load', function() {
               // Load non-critical scripts here
