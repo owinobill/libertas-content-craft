@@ -1,42 +1,28 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { HelmetProvider } from 'react-helmet-async';
-import { ProductionReadyApp } from '@/components/ProductionReadyApp';
-import App from './App.tsx';
 import './index.css';
 
-// Conditional performance monitoring - only load in production and when needed
-if (typeof window !== 'undefined' && process.env.NODE_ENV === 'production') {
-  // Defer web-vitals loading to reduce initial bundle size
-  const loadWebVitals = () => {
-    import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
-      onCLS(console.log);
-      onFCP(console.log);
-      onLCP(console.log);
-      onTTFB(console.log);
-    }).catch(() => {
-      // web-vitals not available
-    });
-  };
+console.log('main.tsx loaded');
 
-  // Load only after page is fully loaded
-  if (document.readyState === 'complete') {
-    setTimeout(loadWebVitals, 1000);
-  } else {
-    window.addEventListener('load', () => setTimeout(loadWebVitals, 1000), { once: true });
-  }
+// Absolute minimal test
+const TestApp = () => {
+  console.log('TestApp rendering');
+  return <div style={{backgroundColor: 'red', color: 'white', padding: '50px', fontSize: '24px'}}>MINIMAL TEST - IF YOU SEE THIS, REACT WORKS!</div>;
+};
+
+console.log('About to create root');
+const rootElement = document.getElementById("root");
+console.log('Root element:', rootElement);
+
+if (rootElement) {
+  const root = createRoot(rootElement);
+  console.log('Root created, about to render');
+  root.render(
+    <StrictMode>
+      <TestApp />
+    </StrictMode>
+  );
+  console.log('Render called');
+} else {
+  console.error('Root element not found!');
 }
-
-console.log('Starting React app render...');
-
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <HelmetProvider>
-      <ProductionReadyApp>
-        <App />
-      </ProductionReadyApp>
-    </HelmetProvider>
-  </StrictMode>
-);
-
-console.log('React app render completed');
