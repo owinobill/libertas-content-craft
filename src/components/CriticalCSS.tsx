@@ -14,7 +14,8 @@ export const CriticalCSS = () => {
             display: block;
           }
           
-          /* Comprehensive critical above-the-fold styles */
+          /* CRITICAL CSS ONLY - Above-the-fold content */
+          /* Reset and base styles */
           * {
             box-sizing: border-box;
           }
@@ -24,28 +25,15 @@ export const CriticalCSS = () => {
           }
           
           body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            font-display: swap;
             background: hsl(220, 30%, 6%);
             color: hsl(210, 40%, 95%);
-            font-feature-settings: "rlig" 1, "calt" 1;
           }
           
-          /* Critical layout styles */
-          .min-h-screen {
-            min-height: 100vh;
-          }
-          
-          .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-          }
-          
-          /* Header critical styles */
+          /* CRITICAL: Header and navigation only */
           header {
             position: sticky;
             top: 0;
@@ -65,30 +53,7 @@ export const CriticalCSS = () => {
             height: 4rem;
           }
           
-          /* Logo styles */
-          .logo {
-            height: 3rem;
-            width: auto;
-            transition: transform 0.2s;
-          }
-          
-          .logo:hover {
-            transform: scale(1.05);
-          }
-          
-          /* Typography critical styles */
-          h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.2;
-            margin: 0;
-          }
-          
-          h1 {
-            font-size: 3rem;
-            font-weight: 700;
-          }
-          
-          /* Hero section critical styles */
+          /* CRITICAL: Hero section only */
           .hero-section {
             position: relative;
             min-height: 100vh;
@@ -108,113 +73,51 @@ export const CriticalCSS = () => {
             padding: 0 1.5rem;
           }
           
-          /* Button critical styles */
-          .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            border: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-decoration: none;
-            font-size: 1rem;
+          /* CRITICAL: Typography for above-the-fold only */
+          h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0 0 2rem 0;
           }
           
+          p {
+            margin: 0;
+          }
+          
+          .text-xl {
+            font-size: 1.25rem;
+          }
+          
+          .text-muted-foreground {
+            color: hsl(215, 20%, 65%);
+          }
+          
+          /* CRITICAL: Minimal button styles for hero CTAs */
           .btn-primary {
             background: hsl(142, 76%, 45%);
             color: hsl(220, 30%, 6%);
-          }
-          
-          .btn-primary:hover {
-            background: hsl(142, 76%, 40%);
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
           }
           
           .btn-outline {
             background: transparent;
             color: hsl(210, 40%, 95%);
             border: 1px solid hsl(220, 15%, 20%);
-          }
-          
-          .btn-outline:hover {
-            background: hsl(220, 20%, 15%);
-          }
-          
-          /* Skip link critical styles */
-          .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 6px;
-            background: hsl(142, 76%, 45%);
-            color: hsl(220, 30%, 6%);
-            padding: 8px;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
             text-decoration: none;
-            border-radius: 4px;
-            z-index: 100;
+            display: inline-flex;
+            align-items: center;
           }
           
-          .skip-link:focus {
-            top: 6px;
-          }
-          
-          /* Navigation critical styles */
-          .nav-item {
-            position: relative;
-            color: hsl(215, 20%, 65%);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-            transition: color 0.3s;
-          }
-          
-          .nav-item:hover {
-            color: hsl(210, 40%, 95%);
-          }
-          
-          /* Mobile hidden/shown */
-          .md-hidden {
-            display: none;
-          }
-          
-          .md-flex {
-            display: flex;
-          }
-          
-          @media (min-width: 768px) {
-            .md-hidden {
-              display: block;
-            }
-            
-            .md-flex {
-              display: flex;
-            }
-            
-            h1 {
-              font-size: 4.5rem;
-            }
-          }
-          
-          /* Loading animation critical */
-          @keyframes spin {
-            to {
-              transform: rotate(360deg);
-            }
-          }
-          
-          .animate-spin {
-            animation: spin 1s linear infinite;
-          }
-          
-          /* Gradient text critical */
-          .text-gradient {
-            background: linear-gradient(135deg, hsl(142, 76%, 45%) 0%, hsl(178, 84%, 32%) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-          }
-          
-          /* Flex utilities critical */
+          /* CRITICAL: Basic layout utilities for above-the-fold */
           .flex {
             display: flex;
           }
@@ -223,31 +126,48 @@ export const CriticalCSS = () => {
             align-items: center;
           }
           
-          .justify-between {
-            justify-content: space-between;
+          .justify-center {
+            justify-content: center;
           }
           
           .gap-6 {
             gap: 1.5rem;
           }
           
-          /* Spacing utilities critical */
-          .mb-8 {
-            margin-bottom: 2rem;
-          }
-          
           .mb-12 {
             margin-bottom: 3rem;
           }
           
-          .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
+          .max-w-4xl {
+            max-width: 56rem;
           }
           
-          .py-4 {
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+          .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          
+          .leading-relaxed {
+            line-height: 1.625;
+          }
+          
+          /* CRITICAL: Gradient text effect for hero */
+          .text-gradient {
+            background: linear-gradient(135deg, hsl(142, 76%, 45%) 0%, hsl(178, 84%, 32%) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+          
+          /* CRITICAL: Responsive text sizes */
+          @media (min-width: 768px) {
+            h1 {
+              font-size: 4.5rem;
+            }
+            
+            .text-xl {
+              font-size: 1.5rem;
+            }
           }
         `}
       </style>

@@ -15,6 +15,7 @@ import { FontLoader } from "@/components/FontLoader";
 import { DeferredCSS } from "@/components/DeferredCSS";
 import { FCPOptimizer } from "@/components/FCPOptimizer";
 import { LCPOptimizer } from "@/components/LCPOptimizer";
+import { CSSOptimizer } from "@/components/CSSOptimizer";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 
@@ -55,6 +56,7 @@ const AppContent = () => {
         <PWAInstallPrompt />
         <FontLoader />
         <DeferredCSS />
+        <CSSOptimizer />
       </ErrorBoundary>
     </AnalyticsProvider>
   );

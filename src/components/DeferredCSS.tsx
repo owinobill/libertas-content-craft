@@ -2,36 +2,40 @@ import { useEffect } from 'react';
 
 export const DeferredCSS = () => {
   useEffect(() => {
-    // Defer loading of main CSS bundle
-    const loadCSS = () => {
+    // Aggressively defer all non-critical CSS
+    const loadNonCriticalCSS = () => {
+      // Load the main CSS bundle after critical rendering
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = '/src/index.css'; // This will be bundled by Vite
-      (link as any).media = 'print';
+      link.href = '/src/index.css'; // Will be bundled by Vite
+      link.media = 'print';
       link.onload = function() {
         (this as any).media = 'all';
+        // Remove critical CSS once full styles load
+        document.documentElement.classList.add('full-styles-loaded');
       };
-      document.head.appendChild(link);
       
-      // Fallback for older browsers
-      const noscript = document.createElement('noscript');
-      const fallbackLink = document.createElement('link');
-      fallbackLink.rel = 'stylesheet';
-      fallbackLink.href = '/src/index.css';
-      noscript.appendChild(fallbackLink);
-      document.head.appendChild(noscript);
+      // Only load if not already present
+      const existingLink = document.querySelector('link[href*="index"][href*=".css"]');
+      if (!existingLink) {
+        document.head.appendChild(link);
+      }
     };
 
-    // Load CSS after initial render
-    if (document.readyState === 'complete') {
-      loadCSS();
+    // Use requestIdleCallback for minimal performance impact
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(loadNonCriticalCSS, { timeout: 2000 });
     } else {
-      window.addEventListener('load', loadCSS);
+      // Fallback: load after hero is visible
+      setTimeout(loadNonCriticalCSS, 500);
     }
 
-    return () => {
-      window.removeEventListener('load', loadCSS);
-    };
+    // Backup: Ensure styles load within reasonable time
+    setTimeout(() => {
+      if (!document.documentElement.classList.contains('full-styles-loaded')) {
+        loadNonCriticalCSS();
+      }
+    }, 3000);
   }, []);
 
   return null;
