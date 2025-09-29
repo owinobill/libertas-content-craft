@@ -3,10 +3,18 @@ import { ArrowLeft, Briefcase, Target, TrendingUp, Shield } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { PageLayout } from "@/components/PageLayout";
+import { createBreadcrumbSchema } from "@/utils/structuredData";
 
 const Solutions = () => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const breadcrumbs = [
+    { name: "Home", url: "https://libertasafrica.com" },
+    { name: "Solutions", url: "https://libertasafrica.com/solutions" }
+  ];
+
+  const structuredData = [createBreadcrumbSchema(breadcrumbs)];
 
   const handleContactClick = () => {
     navigate('/#contact');
@@ -37,6 +45,7 @@ const Solutions = () => {
       description="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa."
       keywords="NPL advisory, investment advisory, project finance, cross-border credit, policy advisory, financial solutions"
       canonical="https://libertasafrica.com/solutions"
+      structuredData={structuredData}
     >
 
       {/* Back to Home Button */}

@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
+import { createBreadcrumbSchema, createArticleSchema } from "@/utils/structuredData";
 import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
@@ -13,6 +14,24 @@ const ArticleNPLEcosystemPart1 = () => {
   const shareUrl = window.location.href;
   const title = "Part 1: Building a Collaborative NPL Ecosystem in African Countries";
   const date = "September 25, 2025";
+
+  const breadcrumbs = [
+    { name: "Home", url: "https://libertasafrica.com" },
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" },
+    { name: title, url: shareUrl }
+  ];
+
+  const structuredData = [
+    createBreadcrumbSchema(breadcrumbs),
+    createArticleSchema({
+      title,
+      description: "Part 1: Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration.",
+      datePublished: "2025-09-25",
+      dateModified: "2025-09-25",
+      image: nplEcosystemPart1Hero,
+      url: shareUrl
+    })
+  ];
 
   const handleShare = (platform: string) => {
     const encodedTitle = encodeURIComponent(title);
@@ -37,6 +56,7 @@ const ArticleNPLEcosystemPart1 = () => {
       description="Part 1: Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration."
       keywords="NPL ecosystem, African banking, non-performing loans, collaboration, financial recovery"
       canonical="https://libertasafrica.com/insights-hub/npl-ecosystem-part-1"
+      structuredData={structuredData}
     >
       
       <main className="pt-20">
@@ -96,7 +116,7 @@ const ArticleNPLEcosystemPart1 = () => {
               </div>
 
               {/* Article Content */}
-              <div className="prose prose-lg max-w-none">
+              <article className="prose prose-lg max-w-none">
                 <h2 className="text-2xl font-bold mb-6 mt-8">Introduction: Why Non-Performing Loans Matter</h2>
                 
                 <p className="mb-6">
@@ -221,7 +241,7 @@ const ArticleNPLEcosystemPart1 = () => {
                     Email
                   </Button>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>

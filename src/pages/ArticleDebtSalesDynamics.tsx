@@ -3,12 +3,31 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Share2, Linkedin, Twitter, Mail, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
+import { createBreadcrumbSchema, createArticleSchema } from "@/utils/structuredData";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 
 const ArticleDebtSalesDynamics = () => {
   const shareUrl = window.location.href;
   const title = "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa";
+
+  const breadcrumbs = [
+    { name: "Home", url: "https://libertasafrica.com" },
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" },
+    { name: title, url: shareUrl }
+  ];
+
+  const structuredData = [
+    createBreadcrumbSchema(breadcrumbs),
+    createArticleSchema({
+      title,
+      description: "Understanding the dynamics of debt sales: A guide for lenders in East Africa on optimizing NPL recovery through strategic portfolio sales.",
+      datePublished: "2025-06-30",
+      dateModified: "2025-06-30",
+      image: debtSalesDynamicsHero,
+      url: shareUrl
+    })
+  ];
   
   const shareOnLinkedIn = () => {
     window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, '_blank');
@@ -28,6 +47,7 @@ const ArticleDebtSalesDynamics = () => {
       description="Understanding the dynamics of debt sales: A guide for lenders in East Africa on optimizing NPL recovery through strategic portfolio sales."
       keywords="debt sales dynamics, NPL portfolio, lenders guide, East Africa, debt recovery, banking"
       canonical="https://libertasafrica.com/insights-hub/debt-sales-dynamics"
+      structuredData={structuredData}
     >
       
       <main className="pt-20">
@@ -87,7 +107,7 @@ const ArticleDebtSalesDynamics = () => {
               </div>
 
               {/* Article Content */}
-              <div className="prose prose-lg max-w-none">
+              <article className="prose prose-lg max-w-none">
                 <p className="text-xl leading-relaxed mb-8 text-muted-foreground">
                   In the previous article, we explored the concept of debt sales and debt assignments as financial instruments for managing non-performing loans (NPLs) and distressed loan portfolios in East Africa. We discussed the rising trend of NPLs in the region and the need for lenders to leverage these instruments to manage their distressed assets effectively. We also discussed the role of asset management companies (AMCs) and distressed asset investors in providing expertise and resources for valuing, pricing, and managing distressed assets.
                 </p>
@@ -272,7 +292,7 @@ const ArticleDebtSalesDynamics = () => {
                     Email
                   </Button>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>

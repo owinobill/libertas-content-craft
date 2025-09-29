@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
+import { createBreadcrumbSchema, createArticleSchema } from "@/utils/structuredData";
 import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
@@ -12,6 +13,24 @@ const ArticleNPLEcosystemPart2 = () => {
   const shareUrl = window.location.href;
   const title = "Part 2: Strategies for Building a Collaborative NPL Ecosystem in African Countries";
   const date = "September 25, 2025";
+
+  const breadcrumbs = [
+    { name: "Home", url: "https://libertasafrica.com" },
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" },
+    { name: title, url: shareUrl }
+  ];
+
+  const structuredData = [
+    createBreadcrumbSchema(breadcrumbs),
+    createArticleSchema({
+      title,
+      description: "Part 2: Strategies for building a collaborative NPL ecosystem in African countries - practical approaches and implementation frameworks.",
+      datePublished: "2025-09-25",
+      dateModified: "2025-09-25",
+      image: nplEcosystemHero,
+      url: shareUrl
+    })
+  ];
 
   const handleShare = (platform: string) => {
     const encodedTitle = encodeURIComponent(title);
@@ -36,6 +55,7 @@ const ArticleNPLEcosystemPart2 = () => {
       description="Part 2: Strategies for building a collaborative NPL ecosystem in African countries - practical approaches and implementation frameworks."
       keywords="NPL strategies, collaborative ecosystem, African finance, debt recovery, implementation"
       canonical="https://libertasafrica.com/insights-hub/npl-ecosystem-part-2"
+      structuredData={structuredData}
     >
       
       <main className="pt-20">
@@ -95,7 +115,7 @@ const ArticleNPLEcosystemPart2 = () => {
               </div>
 
               {/* Article Content */}
-              <div className="prose prose-lg max-w-none">
+              <article className="prose prose-lg max-w-none">
                 <h2 className="text-2xl font-bold mb-6 mt-8">Introduction: From Problem to Opportunity</h2>
                 
                 <p className="mb-6">
@@ -236,7 +256,7 @@ const ArticleNPLEcosystemPart2 = () => {
                     Email
                   </Button>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>

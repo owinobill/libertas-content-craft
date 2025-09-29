@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
+import { createBreadcrumbSchema, createArticleSchema } from "@/utils/structuredData";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 
@@ -12,6 +13,25 @@ const ArticleDebtSalesAssignments = () => {
   const title = "How Lenders in East Africa Can Unlock the Benefits of Debt Sales and Debt Assignments for Non-Performing Loan Portfolios";
   const author = "Billy Owino";
   const date = "May 24, 2025";
+
+  const breadcrumbs = [
+    { name: "Home", url: "https://libertasafrica.com" },
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" },
+    { name: title, url: shareUrl }
+  ];
+
+  const structuredData = [
+    createBreadcrumbSchema(breadcrumbs),
+    createArticleSchema({
+      title,
+      description: "How lenders in East Africa can unlock the benefits of debt sales and debt assignments for non-performing loan portfolios.",
+      datePublished: "2025-05-24",
+      dateModified: "2025-05-24",
+      author,
+      image: debtSalesHero,
+      url: shareUrl
+    })
+  ];
 
   const handleShare = (platform: string) => {
     const encodedTitle = encodeURIComponent(title);
@@ -36,6 +56,7 @@ const ArticleDebtSalesAssignments = () => {
       description="How lenders in East Africa can unlock the benefits of debt sales and debt assignments for non-performing loan portfolios."
       keywords="debt sales, debt assignments, NPL, non-performing loans, East Africa, lenders, recovery"
       canonical="https://libertasafrica.com/insights-hub/debt-sales-assignments"
+      structuredData={structuredData}
     >
       
       <main className="pt-20">
@@ -95,7 +116,7 @@ const ArticleDebtSalesAssignments = () => {
               </div>
 
               {/* Article Content */}
-              <div className="prose prose-lg max-w-none">
+              <article className="prose prose-lg max-w-none">
                 <h2 className="text-2xl font-bold mb-6 mt-12">Introduction</h2>
                 
                 <p className="mb-6">
@@ -203,7 +224,7 @@ const ArticleDebtSalesAssignments = () => {
                     Email
                   </Button>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
         </section>
