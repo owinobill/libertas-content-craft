@@ -172,7 +172,7 @@ const InsightsHub = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredArticles.map((article) => (
-                <Card key={article.id} className="group hover:shadow-xl transition-all duration-300 cursor-pointer card-elevated">
+                <Card key={article.id} className="group hover-lift cursor-pointer card-elevated">
                   <CardHeader className="p-0">
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img 
@@ -234,7 +234,7 @@ const InsightsHub = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {filteredResources.map((resource) => (
-                <Card key={resource.id} className="group hover:shadow-lg transition-all duration-300">
+                <Card key={resource.id} className="group hover-lift">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">

@@ -1,3 +1,4 @@
+import { Suspense, lazy } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,10 +6,12 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ContactForm from "@/components/ContactForm";
 import { SEOHead } from "@/components/SEOHead";
 import { createOrganizationSchema, createWebsiteSchema } from "@/utils/structuredData";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { SolutionsGridSkeleton, InsightsGridSkeleton, CaseStudiesSkeleton, ContactSectionSkeleton } from "@/components/ui/content-skeletons";
+
+const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 const Index = () => {
   // Initialize analytics - Add your Google Analytics ID here
@@ -209,16 +212,16 @@ const Index = () => {
               description: "We work with regulators, governments, and development partners to design frameworks that enable NPL sales, strengthen credit infrastructure, and build investor confidence in Africa's financial markets.",
               cta: "Build Better Markets",
               anchor: "#policy-advisory"
-            }].map((service, serviceIndex) => <Card key={serviceIndex} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+            }].map((service, serviceIndex) => <Card key={serviceIndex} className="card-elevated border-border/50 hover-lift group">
                   <CardHeader className="pb-4">
                     <service.icon className="h-12 w-12 text-primary mb-4 group-hover:scale-110 smooth-transition" />
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
+                    <CardTitle className="text-xl group-hover:text-primary smooth-transition">{service.title}</CardTitle>
                     <CardDescription className="text-muted-foreground">
                       {service.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <Button className="text-sm px-6 py-2 rounded-full bg-primary hover:bg-primary/90" asChild>
+                    <Button className="text-sm px-6 py-2 rounded-full bg-primary hover:bg-primary/90 hover:scale-105 smooth-transition" asChild>
                       <Link to={`/solutions/detailed${service.anchor}`}>
                         {service.cta}
                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -264,15 +267,15 @@ const Index = () => {
               description: "The banking industry association needed a structured approach to engage regulators on NPL sales and securitization. Libertas Africa delivered research, data insights, and global benchmarks, enabling evidence-based dialogue. This work shaped draft policy discussions and positioned the sector for a healthier secondary NPL market.",
               category: "Policy",
               impact: "Systemic NPL reduction"
-            }].map((study, studyIndex) => <Card key={studyIndex} className="card-elevated border-border/50 hover:shadow-elevated smooth-transition group">
+            }].map((study, studyIndex) => <Card key={studyIndex} className="card-elevated border-border/50 hover-lift group">
                   <CardHeader>
                     <div className="flex items-center justify-between mb-4">
-                      <Badge variant="outline" className="border-primary/30 text-primary">
+                      <Badge variant="outline" className="border-primary/30 text-primary group-hover:bg-primary/10 smooth-transition">
                         {study.category}
                       </Badge>
                       <div className="text-right">
                         <p className="text-sm text-muted-foreground">Value</p>
-                        <p className="font-semibold text-primary">{study.amount}</p>
+                        <p className="font-semibold text-primary group-hover:scale-110 smooth-transition">{study.amount}</p>
                       </div>
                     </div>
                     <CardTitle className="text-xl group-hover:text-primary smooth-transition">
@@ -306,7 +309,9 @@ const Index = () => {
             
           {/* Contact Form */}
           <div className="mb-20">
-            <ContactForm />
+            <Suspense fallback={<ContactSectionSkeleton />}>
+              <ContactForm />
+            </Suspense>
           </div>
             
             {/* Contact Information */}
@@ -315,7 +320,7 @@ const Index = () => {
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-                <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+              <Card className="card-elevated border-border/50 hover-lift cursor-pointer group">
                   <a 
                     href="mailto:connect@libertasafrica.com?subject=Enquiry%20via%20Libertas%20Africa%20Website" 
                     className="block" 
@@ -330,7 +335,7 @@ const Index = () => {
                 </a>
               </Card>
               
-              <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+              <Card className="card-elevated border-border/50 hover-lift cursor-pointer group">
                 <a href="tel:+254205253963" className="block" aria-label="Call Libertas Africa at +254 20 5253963">
                   <CardContent className="pt-8 text-center">
                     <Phone className="h-12 w-12 text-primary mx-auto mb-4 group-hover:scale-110 smooth-transition" />
@@ -340,7 +345,7 @@ const Index = () => {
                 </a>
               </Card>
               
-              <Card className="card-elevated border-border/50 hover:shadow-elevated smooth-transition cursor-pointer group">
+              <Card className="card-elevated border-border/50 hover-lift cursor-pointer group">
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Eaton+Place%2C+Market+Rd%2C+Gigiri%2C+Nairobi%2C+Kenya" 
                   target="_blank" 
