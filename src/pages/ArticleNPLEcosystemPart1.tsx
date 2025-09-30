@@ -5,7 +5,7 @@ import { ArrowLeft, Share2, Linkedin, Twitter, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
 import { createBreadcrumbSchema, createArticleSchema } from "@/utils/structuredData";
-import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
+import nplEcosystemPart1Hero from "@/assets/nairobi-skyline-hero.jpg";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
@@ -110,7 +110,7 @@ const ArticleNPLEcosystemPart1 = () => {
               <div className="mb-12">
                 <img 
                   src={nplEcosystemPart1Hero} 
-                  alt="African financial district showing collaborative banking systems and NPL ecosystem development"
+                  alt="Nairobi city skyline showing modern African financial district and banking infrastructure"
                   className="w-full h-64 md:h-96 object-cover rounded-lg"
                 />
               </div>
