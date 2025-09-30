@@ -7,7 +7,7 @@ interface SEOHeadProps {
   ogImage?: string;
   ogType?: string;
   canonical?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
   noIndex?: boolean;
 }
 
@@ -63,9 +63,19 @@ export const SEOHead = ({
       
       {/* Structured Data */}
       {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
+        <>
+          {Array.isArray(structuredData) ? (
+            structuredData.map((data, index) => (
+              <script key={index} type="application/ld+json">
+                {JSON.stringify(data)}
+              </script>
+            ))
+          ) : (
+            <script type="application/ld+json">
+              {JSON.stringify(structuredData)}
+            </script>
+          )}
+        </>
       )}
     </Helmet>
   );

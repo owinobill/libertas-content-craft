@@ -7,9 +7,17 @@ import { Download, ArrowRight, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
 import { articles } from "@/data/articles";
+import { createBreadcrumbSchema } from "@/utils/structuredData";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+
+  // Breadcrumb structured data for SEO
+  const breadcrumbs = [
+    { name: "Home", url: "https://libertasafrica.com" },
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" }
+  ];
+  const structuredData = [createBreadcrumbSchema(breadcrumbs)];
 
   // Articles data comes from centralized data file
 
@@ -71,6 +79,7 @@ const InsightsHub = () => {
       description="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond."
       keywords="NPL strategies, debt market analysis, African finance, cross-border financing, debt recovery"
       canonical="https://libertasafrica.com/insights-hub"
+      structuredData={structuredData}
     >
       
       <main className="pt-20">
