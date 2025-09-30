@@ -9,7 +9,7 @@ import { PageLayout } from "@/components/PageLayout";
 import debtSalesHero from "@/assets/debt-sales-hero.jpg";
 import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
 import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
-import nplEcosystemPart1Hero from "@/assets/npl-ecosystem-part1-hero.jpg";
+import nplEcosystemPart1Hero from "@/assets/nairobi-skyline-hero.jpg";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
