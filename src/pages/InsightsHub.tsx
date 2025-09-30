@@ -6,57 +6,12 @@ import { Badge } from "@/components/ui/badge";
 import { Download, ArrowRight, Filter } from "lucide-react";
 import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
-import debtSalesHero from "@/assets/debt-sales-hero.jpg";
-import debtSalesDynamicsHero from "@/assets/debt-sales-dynamics-hero.jpg";
-import nplEcosystemHero from "@/assets/npl-ecosystem-hero.jpg";
-import nplEcosystemPart1Hero from "@/assets/nairobi-skyline-hero.jpg";
+import { articles } from "@/data/articles";
 
 const InsightsHub = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
-  // Articles data - sorted by date (newest first)
-  const articles = [
-    {
-      id: 4,
-      title: "Part 1: Building a Collaborative NPL Ecosystem in African Countries",
-      excerpt: "Why African countries must tackle NPLs head-on and what global and regional lessons reveal about the value of collaboration.",
-      category: "npls",
-      date: "September 25, 2025",
-      image: nplEcosystemPart1Hero,
-      readTime: "9 min read",
-      slug: "npl-ecosystem-part-1"
-    },
-    {
-      id: 3,
-      title: "Part 2: Strategies for Building a Collaborative NPL Ecosystem in African Countries",
-      excerpt: "Four strategic pillars — legal frameworks, market infrastructure, capital mobilization, and collaboration — to create a thriving African NPL ecosystem.",
-      category: "npls",
-      date: "September 25, 2025",
-      image: nplEcosystemHero,
-      readTime: "10 min read",
-      slug: "npl-ecosystem-part-2"
-    },
-    {
-      id: 2,
-      title: "Understanding the Dynamics of Debt Sales: A Guide for Lenders in East Africa",
-      excerpt: "A practical guide for East African lenders on navigating debt sales. From regulatory frameworks and synthetic debt sales to valuation, pricing, and reputational risk management — here's how to turn NPL challenges into opportunity.",
-      category: "npls",
-      date: "June 30, 2025",
-      image: debtSalesDynamicsHero,
-      readTime: "12 min read",
-      slug: "debt-sales-dynamics"
-    },
-    {
-      id: 1,
-      title: "How Lenders in East Africa Can Unlock the Benefits of Debt Sales and Debt Assignments for Non-Performing Loan Portfolios",
-      excerpt: "Non-performing loans (NPLs) continue to weigh on East African banks, but debt sales and assignments offer a powerful alternative. By transferring portfolios to specialized investors, lenders can free up capital, reduce risk, and reallocate resources toward growth.",
-      category: "npls",
-      date: "May 24, 2025",
-      image: debtSalesHero,
-      readTime: "8 min read",
-      slug: "debt-sales-assignments"
-    }
-  ];
+  // Articles data comes from centralized data file
 
   // Mock data for resources
   const resources = [
@@ -92,11 +47,9 @@ const InsightsHub = () => {
 
   const categories = [
     { value: "all", label: "All Categories" },
-    { value: "npls", label: "NPLs" },
-    { value: "project-finance", label: "Project Finance" },
-    { value: "policy-regulation", label: "Policy & Regulation" },
-    { value: "market-trends", label: "Market Trends" },
-    { value: "case-studies", label: "Case Studies" }
+    { value: "Market Insights", label: "Market Insights" },
+    { value: "Case Studies", label: "Case Studies" },
+    { value: "Thought Leadership", label: "Thought Leadership" }
   ];
 
   const filteredArticles = selectedCategory === "all" 
@@ -177,7 +130,7 @@ const InsightsHub = () => {
                     <div className="relative overflow-hidden rounded-t-lg">
                       <img 
                         src={article.image} 
-                        alt={`${article.title} - ${article.excerpt.substring(0, 100)}...`}
+                        alt={article.imageAlt}
                         className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -202,7 +155,7 @@ const InsightsHub = () => {
                       {article.title}
                     </CardTitle>
                     <p className="text-muted-foreground mb-4 line-clamp-3">
-                      {article.excerpt}
+                      {article.description}
                     </p>
                     {article.slug ? (
                       <Link to={`/insights-hub/${article.slug}`} aria-label={`Read full article: ${article.title}`}>
