@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import { OptimizedImage } from "@/components/ui/optimized-image";
+
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   return <footer className="border-t border-border/20 bg-background">
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
@@ -15,11 +18,19 @@ const Footer = () => {
           <nav className="flex gap-6 text-sm">
             <button 
               onClick={() => {
-                const aboutSection = document.getElementById('about');
-                if (aboutSection) {
-                  aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (location.pathname === '/') {
+                  const aboutSection = document.getElementById('about');
+                  if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
                 } else {
-                  window.location.href = '/#about';
+                  navigate('/', { replace: false });
+                  setTimeout(() => {
+                    const aboutSection = document.getElementById('about');
+                    if (aboutSection) {
+                      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 100);
                 }
               }}
               className="text-muted-foreground hover:text-primary smooth-transition"
@@ -34,11 +45,19 @@ const Footer = () => {
             </Link>
             <button 
               onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (location.pathname === '/') {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
                 } else {
-                  window.location.href = '/#contact';
+                  navigate('/', { replace: false });
+                  setTimeout(() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                  }, 100);
                 }
               }}
               className="text-muted-foreground hover:text-primary smooth-transition"

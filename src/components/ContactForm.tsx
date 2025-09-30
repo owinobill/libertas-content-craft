@@ -66,7 +66,7 @@ const ContactForm = () => {
       }
 
       const result = await response.json();
-      console.log('Form submitted successfully:', result);
+      // Successfully submitted
       
       setIsSubmitted(true);
       toast({
