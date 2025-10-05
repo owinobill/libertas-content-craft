@@ -9,64 +9,64 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Enhanced color palette inspired by Geni */
-    --background: 220 30% 6%;
-    --foreground: 210 40% 95%;
+    /* Light theme - sleek and modern */
+    --background: 0 0% 100%;
+    --foreground: 220 20% 15%;
     
-    --card: 220 25% 10%;
-    --card-foreground: 210 40% 95%;
+    --card: 0 0% 98%;
+    --card-foreground: 220 20% 15%;
     
-    --popover: 220 25% 10%;
-    --popover-foreground: 210 40% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
     
-    --primary: 200 100% 50%;
-    --primary-foreground: 220 30% 6%;
+    --primary: 200 100% 45%;
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 220 20% 15%;
-    --secondary-foreground: 210 40% 95%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 20% 20%;
     
-    --muted: 220 15% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 15% 40%;
     
-    --accent: 195 85% 65%;
-    --accent-foreground: 220 30% 6%;
+    --accent: 195 85% 55%;
+    --accent-foreground: 0 0% 100%;
     
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 95%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 220 15% 20%;
-    --input: 220 15% 18%;
-    --ring: 200 100% 50%;
+    --border: 220 15% 88%;
+    --input: 220 15% 92%;
+    --ring: 200 100% 45%;
     
     --radius: 0.75rem;
     
-    /* Gradient variables */
-    --gradient-primary: linear-gradient(135deg, hsl(220 30% 6%) 0%, hsl(220 25% 15%) 50%, hsl(200 60% 30%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(220 30% 6%) 0%, hsl(210 40% 15%) 40%, hsl(200 70% 25%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(200 100% 50%) 0%, hsl(195 85% 65%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(220 25% 10%) 0%, hsl(220 20% 8%) 100%);
+    /* Light theme gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 30% 98%) 50%, hsl(200 60% 96%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(210 30% 98%) 0%, hsl(200 40% 96%) 40%, hsl(195 50% 94%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(200 100% 45%) 0%, hsl(195 85% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 20% 98%) 100%);
     
-    /* Glow effects */
-    --glow-primary: 0 0 60px hsl(200 100% 50% / 0.3);
-    --glow-accent: 0 0 40px hsl(195 85% 65% / 0.2);
-    --glow-subtle: 0 0 30px hsl(220 30% 6% / 0.8);
+    /* Light theme glows */
+    --glow-primary: 0 0 40px hsl(200 100% 45% / 0.15);
+    --glow-accent: 0 0 30px hsl(195 85% 55% / 0.15);
+    --glow-subtle: 0 0 20px hsl(220 15% 85% / 0.3);
     
-    /* Advanced shadows */
-    --shadow-elegant: 0 25px 50px -12px hsl(220 30% 6% / 0.6);
-    --shadow-glow: 0 0 0 1px hsl(200 100% 50% / 0.1), 0 10px 30px -5px hsl(200 100% 50% / 0.3);
+    /* Light theme shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(220 20% 50% / 0.12);
+    --shadow-glow: 0 0 0 1px hsl(200 100% 45% / 0.08), 0 8px 24px -4px hsl(200 100% 45% / 0.15);
     
     /* Smooth transitions */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --sidebar-background: 220 25% 10%;
-    --sidebar-foreground: 210 40% 95%;
-    --sidebar-primary: 200 100% 50%;
-    --sidebar-primary-foreground: 220 30% 6%;
-    --sidebar-accent: 220 20% 15%;
-    --sidebar-accent-foreground: 210 40% 95%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 200 100% 50%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 220 20% 15%;
+    --sidebar-primary: 200 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 220 20% 20%;
+    --sidebar-border: 220 15% 88%;
+    --sidebar-ring: 200 100% 45%;
   }
 
   .dark {
