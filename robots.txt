@@ -4,7 +4,6 @@ Allow: /
 # Block access to admin and private areas  
 Disallow: /admin/
 Disallow: /private/
-Disallow: /.well-known/
 Disallow: /api/
 
 # Allow access to assets
