@@ -33,14 +33,17 @@ const CACHE_FIRST = [
 ];
 
 self.addEventListener('install', (event) => {
+  // Skip waiting to activate immediately
+  self.skipWaiting();
+  
   event.waitUntil(
     caches.open(STATIC_CACHE)
       .then((cache) => cache.addAll(STATIC_ASSETS))
-      .then(() => self.skipWaiting())
   );
 });
 
 self.addEventListener('activate', (event) => {
+  // Take control of all clients immediately
   event.waitUntil(
     caches.keys()
       .then((cacheNames) => {
@@ -54,6 +57,15 @@ self.addEventListener('activate', (event) => {
         );
       })
       .then(() => self.clients.claim())
+      .then(() => {
+        // Notify all clients to reload for the update
+        return self.clients.matchAll({ type: 'window' });
+      })
+      .then((clients) => {
+        clients.forEach((client) => {
+          client.postMessage({ type: 'SW_UPDATED' });
+        });
+      })
   );
 });
 
@@ -143,3 +155,10 @@ async function handleContactFormSync() {
   // Handle any queued contact form submissions when back online
   console.log('Syncing contact form submissions...');
 }
+
+// Handle SKIP_WAITING message for silent updates
+self.addEventListener('message', (event) => {
+  if (event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
