@@ -19,7 +19,7 @@ export const EnhancedSEO = ({
   title = "Libertas Africa | Strategic Financial Advisory & NPL Solutions",
   description = "Strategic consulting and advisory solutions in the financial sector - NPL portfolio sales, investment advisory, project finance, and policy & regulatory advisory across Africa.",
   keywords = "NPL portfolio sales, investment advisory, project finance, policy advisory, Africa financial services, debt advisory, non-performing loans, structured credit, DFI financing",
-  ogImage = "/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png",
+  ogImage = "/icon-512.png",
   canonical,
   structuredData = [],
   pageType = 'website',

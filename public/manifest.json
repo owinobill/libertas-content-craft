@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#1e40af",
+  "theme_color": "#0B1E2D",
   "orientation": "portrait-primary",
   "categories": ["finance", "business", "consulting"],
   "lang": "en",
@@ -26,7 +26,7 @@
   ],
   "screenshots": [
     {
-      "src": "/lovable-uploads/d0894c83-3078-4a90-aa7b-a2370f4741e9.png",
+      "src": "/icon-512.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"

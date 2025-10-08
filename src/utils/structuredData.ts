@@ -6,7 +6,7 @@ export const createOrganizationSchema = () => ({
   "name": "Libertas Africa",
   "alternateName": "Libertas Advisory Ltd",
   "url": "https://libertasafrica.com",
-  "logo": "https://libertasafrica.com/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png",
+  "logo": "https://libertasafrica.com/icon-512.png",
   "description": "Strategic consulting and advisory solutions in the financial sector across Africa",
   "foundingDate": "2020",
   "founders": [
@@ -95,7 +95,7 @@ export const createArticleSchema = (article: {
   "@type": "Article",
   "headline": article.title,
   "description": article.description,
-  "image": article.image || "/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png",
+  "image": article.image || "/icon-512.png",
   "datePublished": article.datePublished,
   "dateModified": article.dateModified || article.datePublished,
   "author": {
@@ -107,7 +107,7 @@ export const createArticleSchema = (article: {
     "name": "Libertas Africa",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://libertasafrica.com/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png"
+      "url": "https://libertasafrica.com/icon-512.png"
     }
   },
   "mainEntityOfPage": {

@@ -15,7 +15,7 @@ export const PerformanceOptimizations = () => {
       <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
       
       {/* Preload Critical Resources */}
-      <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
+      <link rel="preload" href="/icon-512.png" as="image" />
       <link rel="preload" href="/libertas-logo.png" as="image" />
       
       {/* Critical CSS should be inlined, but we can preload fonts */}

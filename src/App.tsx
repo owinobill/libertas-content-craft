@@ -72,15 +72,15 @@ const App = () => (
           <link rel="dns-prefetch" href="//zznubsevogfqoxgkdnzg.supabase.co" />
           
           {/* Favicon and Icons */}
-          <link rel="icon" href="/favicon.ico" sizes="32x32" />
-          <link rel="icon" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" type="image/png" />
-          <link rel="apple-touch-icon" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
           
           {/* PWA Manifest */}
           <link rel="manifest" href="/manifest.json" />
           
           {/* Preload Critical Resources */}
-          <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
+          <link rel="preload" href="/icon-512.png" as="image" />
           
           {/* Performance and Security */}
           <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://zznubsevogfqoxgkdnzg.supabase.co https://www.google-analytics.com; frame-ancestors 'none';" />
