@@ -70,11 +70,16 @@ const Header = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <Link to="/" onClick={() => { closeMenu(); handleLogoClick(); }} className="flex items-center">
+              <Link 
+                to="/" 
+                onClick={() => { closeMenu(); handleLogoClick(); }} 
+                className="flex items-center cursor-pointer group"
+                aria-label="Libertas Africa - Return to homepage"
+              >
                 <OptimizedImage 
                   src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" 
                   alt="Libertas Africa" 
-                  className="h-12 w-auto transition-transform duration-200 hover:scale-105" 
+                  className="h-12 w-auto transition-all duration-300 group-hover:scale-105 group-active:scale-95" 
                   priority={true}
                 />
               </Link>
