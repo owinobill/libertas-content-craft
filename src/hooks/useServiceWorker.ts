@@ -25,25 +25,24 @@ export const useServiceWorker = () => {
           
           setState(prev => ({ ...prev, isRegistered: true }));
 
-          // Check for updates
+          // Silently handle updates - no user notification
           registration.addEventListener('updatefound', () => {
             const newWorker = registration.installing;
             
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  setState(prev => ({ ...prev, updateAvailable: true }));
+                  // Silently activate the new service worker
+                  newWorker.postMessage({ type: 'SKIP_WAITING' });
                 }
               });
             }
           });
 
-          // Handle messages from service worker
-          navigator.serviceWorker.addEventListener('message', (event) => {
-            if (event.data && event.data.type === 'UPDATE_AVAILABLE') {
-              setState(prev => ({ ...prev, updateAvailable: true }));
-            }
-          });
+          // Check for updates periodically (every 5 minutes)
+          setInterval(() => {
+            registration.update();
+          }, 300000);
 
         } catch (error) {
           setState(prev => ({ 
@@ -58,14 +57,7 @@ export const useServiceWorker = () => {
   }, []);
 
   const updateApp = () => {
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistration().then((registration) => {
-        if (registration && registration.waiting) {
-          registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-          window.location.reload();
-        }
-      });
-    }
+    // Silent updates - no manual update needed
   };
 
   return { ...state, updateApp };

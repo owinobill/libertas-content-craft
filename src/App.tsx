@@ -9,7 +9,6 @@ import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { AnalyticsProvider } from "@/components/Analytics";
 import { SecurityHeaders } from "@/components/SecurityHeaders";
 import { A11ySkipLink } from "@/components/A11ySkipLink";
-import { UpdateNotification } from "@/components/UpdateNotification";
 import { PWAInstallPrompt } from "@/components/PWAInstallPrompt";
 import { CriticalCSS } from "@/components/CriticalCSS";
 import { EnhancedSEO } from "@/components/EnhancedSEO";
@@ -49,7 +48,6 @@ const AppContent = () => {
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-        <UpdateNotification />
         <PWAInstallPrompt />
       </ErrorBoundary>
     </AnalyticsProvider>
