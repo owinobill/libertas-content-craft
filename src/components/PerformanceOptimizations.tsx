@@ -16,7 +16,7 @@ export const PerformanceOptimizations = () => {
       
       {/* Preload Critical Resources */}
       <link rel="preload" href="/icon-512.png" as="image" />
-      <link rel="preload" href="/libertas-logo.png" as="image" />
+      <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
       
       {/* Critical CSS should be inlined, but we can preload fonts */}
       <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" />

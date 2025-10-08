@@ -57,8 +57,8 @@ export const SEOHead = ({
       <meta name="twitter:image:alt" content="Libertas Africa - Strategic Financial Advisory" />
       
       {/* Additional SEO Meta Tags */}
-      <meta name="theme-color" content="#1e40af" />
-      <meta name="msapplication-TileColor" content="#1e40af" />
+      <meta name="theme-color" content="#0B1E2D" />
+      <meta name="msapplication-TileColor" content="#0B1E2D" />
       <meta name="application-name" content="Libertas Africa" />
       
       {/* Structured Data */}

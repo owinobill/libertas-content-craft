@@ -106,8 +106,8 @@ export const EnhancedSEO = ({
       <meta name="business:contact_data:phone_number" content="+254-20-5253963" />
       
       {/* PWA and Mobile */}
-      <meta name="theme-color" content="#1e40af" />
-      <meta name="msapplication-TileColor" content="#1e40af" />
+      <meta name="theme-color" content="#0B1E2D" />
+      <meta name="msapplication-TileColor" content="#0B1E2D" />
       <meta name="msapplication-config" content="/browserconfig.xml" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
