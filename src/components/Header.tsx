@@ -72,7 +72,7 @@ const Header = () => {
             <div className="flex items-center">
               <Link to="/" onClick={() => { closeMenu(); handleLogoClick(); }} className="flex items-center">
                 <OptimizedImage 
-                  src="/icon-512.png" 
+                  src="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" 
                   alt="Libertas Africa" 
                   className="h-12 w-auto transition-transform duration-200 hover:scale-105" 
                   priority={true}
