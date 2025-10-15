@@ -45,7 +45,7 @@ const PerformanceTestSuite = () => {
           const img = new Image();
           img.onload = resolve;
           img.onerror = resolve;
-          img.src = window.location.origin + '/libertas-logo.png?' + Date.now();
+          img.src = window.location.origin + '/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png?' + Date.now();
         });
         
         const duration = performance.now() - startTime;
