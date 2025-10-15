@@ -28,7 +28,10 @@ export const EnhancedSEO = ({
   author,
   section
 }: EnhancedSEOProps) => {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  // Build clean canonical URL from window.location without query params or hash
+  const currentUrl = typeof window !== 'undefined' 
+    ? `${window.location.protocol}//${window.location.host}${window.location.pathname}`
+    : '';
   const canonicalUrl = canonical || currentUrl;
   const fullImageUrl = ogImage.startsWith('http') ? ogImage : `https://libertasafrica.com${ogImage}`;
 

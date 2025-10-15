@@ -21,7 +21,10 @@ export const SEOHead = ({
   structuredData,
   noIndex = false,
 }: SEOHeadProps) => {
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+  // Build clean canonical URL from window.location without query params or hash
+  const currentUrl = typeof window !== 'undefined' 
+    ? `${window.location.protocol}//${window.location.host}${window.location.pathname}`
+    : '';
   const canonicalUrl = canonical || currentUrl;
 
   return (
