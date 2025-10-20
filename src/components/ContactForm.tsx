@@ -52,20 +52,32 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
+      console.log('[ContactForm] Submitting form data:', { 
+        name: data.name, 
+        email: data.email, 
+        subject: data.subject 
+      });
+
       const response = await fetch('https://zznubsevogfqoxgkdnzg.supabase.co/functions/v1/contact-form', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6bnVic2V2b2dmcW94Z2tkbnpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDIxNjIsImV4cCI6MjA3NDQ3ODE2Mn0.wm79eU6XlH-gniv6YYpkFTR9WVtw2vmgQbbmLOm9HT8`,
         },
         body: JSON.stringify(data),
       });
 
+      console.log('[ContactForm] Response status:', response.status);
+      console.log('[ContactForm] Response ok:', response.ok);
+
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.details || 'Failed to send message');
+        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+        console.error('[ContactForm] Error response:', errorData);
+        throw new Error(errorData.error || errorData.details || `Server error: ${response.status}`);
       }
 
       const result = await response.json();
+      console.log('[ContactForm] Success response:', result);
       // Successfully submitted
       
       setIsSubmitted(true);

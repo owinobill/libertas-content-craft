@@ -18,12 +18,16 @@ interface ContactFormData {
 }
 
 const handler = async (req: Request): Promise<Response> => {
+  console.log("[contact-form] Function invoked, method:", req.method);
+  
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
+    console.log("[contact-form] Handling OPTIONS request");
     return new Response(null, { headers: corsHeaders });
   }
 
   if (req.method !== "POST") {
+    console.error("[contact-form] Invalid method:", req.method);
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
       status: 405,
       headers: { "Content-Type": "application/json", ...corsHeaders },
@@ -31,6 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    console.log("[contact-form] Processing POST request");
     const supabase = createClient(
       Deno.env.get("SUPABASE_URL") ?? "",
       Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
@@ -64,11 +69,21 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error(`Database error: ${dbError.message}`);
     }
 
-    console.log("Contact saved to database:", data.id);
+    console.log("[contact-form] Contact saved to database with ID:", data.id);
+
+    // Verify Resend API key is present
+    const resendApiKey = Deno.env.get("RESEND_API_KEY");
+    if (!resendApiKey) {
+      console.error("[contact-form] CRITICAL: RESEND_API_KEY is not set!");
+      throw new Error("Email service not configured");
+    }
+    console.log("[contact-form] Resend API key present, length:", resendApiKey.length);
 
     // Send notification email to connect@libertasafrica.com
+    console.log("[contact-form] Attempting to send notification email to connect@libertasafrica.com");
     const emailResponse = await resend.emails.send({
-      from: "Libertas Africa <connect@libertasafrica.com>",
+      from: "Libertas Africa Contact Form <onboarding@resend.dev>",
+      reply_to: formData.email,
       to: ["connect@libertasafrica.com"],
       subject: `New Contact Form Submission: ${formData.subject}`,
       html: `
@@ -90,14 +105,17 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     if (emailResponse.error) {
-      console.error("Failed to send notification email:", emailResponse.error);
+      console.error("[contact-form] FAILED to send notification email:", JSON.stringify(emailResponse.error));
+      // Don't throw - continue to send confirmation email
     } else {
-      console.log("Notification email sent successfully:", emailResponse.data?.id);
+      console.log("[contact-form] ✓ Notification email sent successfully, ID:", emailResponse.data?.id);
     }
 
     // Send confirmation email to the user
+    console.log("[contact-form] Attempting to send confirmation email to:", formData.email);
     const confirmationResponse = await resend.emails.send({
-      from: "Libertas Africa <noreply@libertasafrica.com>",
+      from: "Libertas Africa <onboarding@resend.dev>",
+      reply_to: "connect@libertasafrica.com",
       to: [formData.email],
       subject: "Thank you for contacting Libertas Africa",
       html: `
@@ -124,10 +142,13 @@ const handler = async (req: Request): Promise<Response> => {
     });
 
     if (confirmationResponse.error) {
-      console.error("Failed to send confirmation email:", confirmationResponse.error);
+      console.error("[contact-form] FAILED to send confirmation email:", JSON.stringify(confirmationResponse.error));
+      // Don't throw - the submission was still successful
     } else {
-      console.log("Confirmation email sent successfully:", confirmationResponse.data?.id);
+      console.log("[contact-form] ✓ Confirmation email sent successfully, ID:", confirmationResponse.data?.id);
     }
+
+    console.log("[contact-form] Contact form processing complete, returning success response");
 
     return new Response(
       JSON.stringify({ 
@@ -141,11 +162,13 @@ const handler = async (req: Request): Promise<Response> => {
       }
     );
   } catch (error: any) {
-    console.error("Error in contact-form function:", error);
+    console.error("[contact-form] CRITICAL ERROR:", error);
+    console.error("[contact-form] Error stack:", error.stack);
     return new Response(
       JSON.stringify({ 
         error: "Failed to process contact form", 
-        details: error.message 
+        details: error.message,
+        timestamp: new Date().toISOString()
       }),
       {
         status: 500,

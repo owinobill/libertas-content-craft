@@ -15,6 +15,7 @@ import { EnhancedSEO } from "@/components/EnhancedSEO";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
 import DevTools from "./pages/DevTools";
+import ContactFormDiagnostics from "./pages/ContactFormDiagnostics";
 
 import InsightsHub from "./pages/InsightsHub";
 import ArticleDebtSalesAssignments from "./pages/ArticleDebtSalesAssignments";
@@ -45,6 +46,7 @@ const AppContent = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="/dev-tools" element={<DevTools />} />
+            <Route path="/contact-form-diagnostics" element={<ContactFormDiagnostics />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
