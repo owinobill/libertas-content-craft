@@ -81,6 +81,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to connect@libertasafrica.com
     console.log("[contact-form] Attempting to send notification email to connect@libertasafrica.com");
+    console.log("[contact-form] Email config - From: Libertas Africa <connect@libertasafrica.com>, Reply-To:", formData.email);
+    
     const emailResponse = await resend.emails.send({
       from: "Libertas Africa <connect@libertasafrica.com>",
       reply_to: formData.email,
@@ -106,9 +108,17 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (emailResponse.error) {
       console.error("[contact-form] FAILED to send notification email:", JSON.stringify(emailResponse.error));
+      console.error("[contact-form] Resend error details:", {
+        name: emailResponse.error.name,
+        message: emailResponse.error.message,
+        statusCode: (emailResponse.error as any).statusCode
+      });
       // Don't throw - continue to send confirmation email
     } else {
-      console.log("[contact-form] ✓ Notification email sent successfully, ID:", emailResponse.data?.id);
+      console.log("[contact-form] ✓ Notification email sent successfully");
+      console.log("[contact-form] Resend email ID:", emailResponse.data?.id);
+      console.log("[contact-form] Email sent from: Libertas Africa <connect@libertasafrica.com>");
+      console.log("[contact-form] Email sent to:", ["connect@libertasafrica.com"]);
     }
 
     // Send confirmation email to the user
@@ -143,9 +153,17 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (confirmationResponse.error) {
       console.error("[contact-form] FAILED to send confirmation email:", JSON.stringify(confirmationResponse.error));
+      console.error("[contact-form] Resend error details:", {
+        name: confirmationResponse.error.name,
+        message: confirmationResponse.error.message,
+        statusCode: (confirmationResponse.error as any).statusCode
+      });
       // Don't throw - the submission was still successful
     } else {
-      console.log("[contact-form] ✓ Confirmation email sent successfully, ID:", confirmationResponse.data?.id);
+      console.log("[contact-form] ✓ Confirmation email sent successfully");
+      console.log("[contact-form] Resend email ID:", confirmationResponse.data?.id);
+      console.log("[contact-form] Email sent from: Libertas Africa <connect@libertasafrica.com>");
+      console.log("[contact-form] Email sent to:", [formData.email]);
     }
 
     console.log("[contact-form] Contact form processing complete, returning success response");

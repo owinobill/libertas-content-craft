@@ -40,6 +40,7 @@ const ContactFormTester = () => {
               method: 'OPTIONS',
               headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6bnVic2V2b2dmcW94Z2tkbnpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDIxNjIsImV4cCI6MjA3NDQ3ODE2Mn0.wm79eU6XlH-gniv6YYpkFTR9WVtw2vmgQbbmLOm9HT8',
               },
             });
             
@@ -68,6 +69,7 @@ const ContactFormTester = () => {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6bnVic2V2b2dmcW94Z2tkbnpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDIxNjIsImV4cCI6MjA3NDQ3ODE2Mn0.wm79eU6XlH-gniv6YYpkFTR9WVtw2vmgQbbmLOm9HT8',
               },
               body: JSON.stringify({
                 name: '',
@@ -113,6 +115,7 @@ const ContactFormTester = () => {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp6bnVic2V2b2dmcW94Z2tkbnpnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg5MDIxNjIsImV4cCI6MjA3NDQ3ODE2Mn0.wm79eU6XlH-gniv6YYpkFTR9WVtw2vmgQbbmLOm9HT8',
               },
               body: JSON.stringify(testData),
             });
