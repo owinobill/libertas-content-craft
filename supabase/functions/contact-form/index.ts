@@ -82,7 +82,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to connect@libertasafrica.com
     console.log("[contact-form] Attempting to send notification email to connect@libertasafrica.com");
     const emailResponse = await resend.emails.send({
-      from: "Libertas Africa Contact Form <onboarding@resend.dev>",
+      from: "Libertas Africa <connect@libertasafrica.com>",
       reply_to: formData.email,
       to: ["connect@libertasafrica.com"],
       subject: `New Contact Form Submission: ${formData.subject}`,
@@ -114,7 +114,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send confirmation email to the user
     console.log("[contact-form] Attempting to send confirmation email to:", formData.email);
     const confirmationResponse = await resend.emails.send({
-      from: "Libertas Africa <onboarding@resend.dev>",
+      from: "Libertas Africa <connect@libertasafrica.com>",
       reply_to: "connect@libertasafrica.com",
       to: [formData.email],
       subject: "Thank you for contacting Libertas Africa",
