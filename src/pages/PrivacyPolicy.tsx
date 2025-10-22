@@ -118,7 +118,7 @@ const PrivacyPolicy = () => {
                 <p><strong className="text-foreground">Libertas Africa</strong></p>
                 <p>Email: connect@libertasafrica.com</p>
                 <p>Phone: +254 20 5253963</p>
-                <p>Office: Eaton Place, Market Rd, Gigiri, Nairobi, Kenya</p>
+                <p>Office: Eaton Place, United Nations Crescent, Nairobi, Kenya</p>
               </div>
             </div>
           </div>

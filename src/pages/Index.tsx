@@ -347,7 +347,7 @@ const Index = () => {
               
               <Card className="card-elevated border-border/50 hover-lift cursor-pointer group">
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=Eaton+Place%2C+Market+Rd%2C+Gigiri%2C+Nairobi%2C+Kenya" 
+                  href="https://www.google.com/maps/search/?api=1&query=Eaton+Place%2C+United+Nations+Crescent%2C+Nairobi%2C+Kenya"
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="block"
@@ -358,7 +358,7 @@ const Index = () => {
                     <h3 className="font-semibold mb-2 group-hover:text-primary smooth-transition">Office</h3>
                     <div className="text-muted-foreground group-hover:text-foreground smooth-transition">
                       Eaton Place<br />
-                      Market Rd Gigiri<br />
+                      United Nations Crescent<br />
                       Nairobi, Kenya
                     </div>
                   </CardContent>

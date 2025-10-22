@@ -101,7 +101,7 @@ export const EnhancedSEO = ({
       <meta name="twitter:image:alt" content="Libertas Africa - Strategic Financial Advisory" />
       
       {/* Business Information */}
-      <meta name="business:contact_data:street_address" content="Nairobi, Kenya" />
+      <meta name="business:contact_data:street_address" content="Eaton Place, United Nations Crescent" />
       <meta name="business:contact_data:locality" content="Nairobi" />
       <meta name="business:contact_data:region" content="Kenya" />
       <meta name="business:contact_data:country_name" content="Kenya" />
