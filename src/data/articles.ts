@@ -21,6 +21,20 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    id: "debt-collection-regulation",
+    title: "Why Regulation Of Kenya's Debt Collection Industry Is Now A Market Imperative",
+    slug: "debt-collection-regulation",
+    description: "Kenya has built a modern financial system, but unregulated debt collection practices are damaging trust. It's time for comprehensive regulation to protect consumers and unlock capital.",
+    date: "November 5, 2025",
+    readTime: "14 min read",
+    category: "Market Insights",
+    image: debtCollectionRegulationHero,
+    imageAlt: "Kenya's financial district highlighting regulatory oversight and debt collection governance",
+    keywords: "debt collection regulation, Kenya, consumer protection, NPL investors, financial markets, ADRA Kenya, data protection, CBK",
+    datePublished: "2025-11-05",
+    dateModified: "2025-11-05",
+  },
+  {
     id: "npl-ecosystem-part-1",
     title: "Part 1: Building a Collaborative NPL Ecosystem in African Countries",
     slug: "npl-ecosystem-part-1",
@@ -75,20 +89,6 @@ export const articles: Article[] = [
     keywords: "debt sales, Kenya, NPL market, banking sector, investment opportunities",
     datePublished: "2025-06-15",
     dateModified: "2025-06-15",
-  },
-  {
-    id: "debt-collection-regulation",
-    title: "Why Regulation Of Kenya's Debt Collection Industry Is Now A Market Imperative",
-    slug: "debt-collection-regulation",
-    description: "Kenya has built a modern financial system, but unregulated debt collection practices are damaging trust. It's time for comprehensive regulation to protect consumers and unlock capital.",
-    date: "November 5, 2025",
-    readTime: "14 min read",
-    category: "Market Insights",
-    image: debtCollectionRegulationHero,
-    imageAlt: "Kenya's financial district highlighting regulatory oversight and debt collection governance",
-    keywords: "debt collection regulation, Kenya, consumer protection, NPL investors, financial markets, ADRA Kenya, data protection, CBK",
-    datePublished: "2025-11-05",
-    dateModified: "2025-11-05",
   },
 ];
 
