@@ -1,5 +1,7 @@
 import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { getArticleBySlug } from "@/data/articles";
+import { Button } from "@/components/ui/button";
+import { Linkedin } from "lucide-react";
 const ArticleDebtCollectionRegulation = () => {
   const article = getArticleBySlug("debt-collection-regulation");
   if (!article) {
@@ -185,6 +187,23 @@ const ArticleDebtCollectionRegulation = () => {
       <p className="mb-12">
         That's the reckoning — and the opportunity.
       </p>
+
+      <div className="mt-16 p-8 bg-accent/50 rounded-lg border border-border text-center">
+        <p className="text-lg font-medium mb-4">
+          Follow us on LinkedIn for more insights.
+        </p>
+        <Button asChild size="lg">
+          <a 
+            href="https://www.linkedin.com/company/libertas-africa/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2"
+          >
+            <Linkedin className="h-5 w-5" />
+            Visit our LinkedIn page
+          </a>
+        </Button>
+      </div>
     </ArticleTemplate>;
 };
 export default ArticleDebtCollectionRegulation;
