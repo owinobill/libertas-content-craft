@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { PageLayout } from "@/components/PageLayout";
 import { createBreadcrumbSchema, createArticleSchema } from "@/utils/structuredData";
 import { Article, getRelatedArticles } from "@/data/articles";
+import { LinkedInCTA } from "@/components/LinkedInCTA";
 
 interface ArticleTemplateProps {
   article: Article;
@@ -118,24 +119,27 @@ export const ArticleTemplate = ({ article, children }: ArticleTemplateProps) => 
               {/* Article Content */}
               <article className="prose prose-lg max-w-none">
                 {children}
-
-                {/* Social Share Buttons - Bottom */}
-                <div className="flex items-center gap-3 py-8 border-t border-border/20">
-                  <span className="text-sm font-medium text-muted-foreground">Share this article:</span>
-                  <Button variant="outline" size="sm" onClick={() => handleShare('linkedin')}>
-                    <Linkedin className="h-4 w-4 mr-2" />
-                    LinkedIn
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => handleShare('twitter')}>
-                    <Twitter className="h-4 w-4 mr-2" />
-                    Twitter
-                  </Button>
-                  <Button variant="outline" size="sm" onClick={() => handleShare('email')}>
-                    <Mail className="h-4 w-4 mr-2" />
-                    Email
-                  </Button>
-                </div>
               </article>
+
+              {/* LinkedIn CTA */}
+              <LinkedInCTA />
+
+              {/* Social Share Buttons - Bottom */}
+              <div className="flex items-center gap-3 py-8 border-t border-border/20 mt-8">
+                <span className="text-sm font-medium text-muted-foreground">Share this article:</span>
+                <Button variant="outline" size="sm" onClick={() => handleShare('linkedin')}>
+                  <Linkedin className="h-4 w-4 mr-2" />
+                  LinkedIn
+                </Button>
+                <Button variant="outline" size="sm" onClick={() => handleShare('twitter')}>
+                  <Twitter className="h-4 w-4 mr-2" />
+                  Twitter
+                </Button>
+                <Button variant="outline" size="sm" onClick={() => handleShare('email')}>
+                  <Mail className="h-4 w-4 mr-2" />
+                  Email
+                </Button>
+              </div>
             </div>
           </div>
         </section>
