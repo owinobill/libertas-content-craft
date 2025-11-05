@@ -53,11 +53,18 @@ const InsightsHub = () => {
     }
   ];
 
+  // Count articles per category
+  const getCategoryCount = (category: string) => {
+    if (category === "all") return articles.length;
+    return articles.filter(article => article.category === category).length;
+  };
+
   const categories = [
-    { value: "all", label: "All Categories" },
-    { value: "Market Insights", label: "Market Insights" },
-    { value: "Case Studies", label: "Case Studies" },
-    { value: "Thought Leadership", label: "Thought Leadership" }
+    { value: "all", label: "All Categories", count: articles.length },
+    { value: "NPL", label: "NPL", count: getCategoryCount("NPL") },
+    { value: "Thought Leadership", label: "Thought Leadership", count: getCategoryCount("Thought Leadership") },
+    { value: "Case Studies", label: "Case Studies", count: getCategoryCount("Case Studies") },
+    { value: "Market Insights", label: "Market Insights", count: getCategoryCount("Market Insights") }
   ];
 
   const filteredArticles = selectedCategory === "all" 
@@ -113,7 +120,7 @@ const InsightsHub = () => {
                 <SelectContent>
                   {categories.map((category) => (
                     <SelectItem key={category.value} value={category.value}>
-                      {category.label}
+                      {category.label} ({category.count})
                     </SelectItem>
                   ))}
                 </SelectContent>
