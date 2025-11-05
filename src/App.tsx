@@ -22,6 +22,7 @@ import ArticleDebtSalesAssignments from "./pages/ArticleDebtSalesAssignments";
 import ArticleDebtSalesDynamics from "./pages/ArticleDebtSalesDynamics";
 import ArticleNPLEcosystemPart1 from "./pages/ArticleNPLEcosystemPart1";
 import ArticleNPLEcosystemPart2 from "./pages/ArticleNPLEcosystemPart2";
+import ArticleDebtCollectionRegulation from "./pages/ArticleDebtCollectionRegulation";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import NotFound from "./pages/NotFound";
@@ -43,6 +44,7 @@ const AppContent = () => {
             <Route path="/insights-hub/debt-sales-dynamics" element={<ArticleDebtSalesDynamics />} />
             <Route path="/insights-hub/npl-ecosystem-part-1" element={<ArticleNPLEcosystemPart1 />} />
             <Route path="/insights-hub/npl-ecosystem-part-2" element={<ArticleNPLEcosystemPart2 />} />
+            <Route path="/insights-hub/debt-collection-regulation" element={<ArticleDebtCollectionRegulation />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="/dev-tools" element={<DevTools />} />
