@@ -1,15 +1,11 @@
 import { ArticleTemplate } from "@/components/ArticleTemplate";
 import { getArticleBySlug } from "@/data/articles";
-
 const ArticleDebtCollectionRegulation = () => {
   const article = getArticleBySlug("debt-collection-regulation");
-  
   if (!article) {
     return <div>Article not found</div>;
   }
-
-  return (
-    <ArticleTemplate article={article}>
+  return <ArticleTemplate article={article}>
       <p className="text-xl leading-relaxed mb-8 text-muted-foreground">
         Kenya has come a long way in building a modern financial system. Banks have digitised, SACCOs are more sophisticated, digital credit has expanded access, and even conversations about NPL sales and secondary markets are starting to happen in boardrooms. But there's a weak link we've allowed to linger for too long: how we collect debt.
       </p>
@@ -72,7 +68,7 @@ const ArticleDebtCollectionRegulation = () => {
         So regulation is not a cost. It is a market enabler. It makes our recovery ecosystem easier to model. It makes our debt portfolios investible. It makes our credit system more resilient and more grown-up.
       </p>
 
-      <h2 className="text-2xl font-bold mb-6 mt-12">Fix The Data Problem The Right Way</h2>
+      <h2 className="text-2xl font-bold mb-6 mt-12">Fix the Data Problem the Right Way</h2>
       
       <p className="mb-6">
         Most of the ugliest collection stories in Kenya start with data. Where did they get my number? How did they find my sister? Why did they text my colleague? That is usually a sign that the collector did not have a proper, lawful source of information and went looking elsewhere.
@@ -106,10 +102,10 @@ const ArticleDebtCollectionRegulation = () => {
         That approach makes collections more effective because you reach the right person. It makes it more ethical because you do not drag in third parties unlawfully. And it makes it more investible because outside capital can see that Kenya does not tolerate data abuse.
       </p>
 
-      <h2 className="text-2xl font-bold mb-6 mt-12">A Practical Playbook For Establishing A Regulatory Framework</h2>
+      <h2 className="text-2xl font-bold mb-6 mt-12">A Practical Playbook For Establishing a Regulatory Framework</h2>
 
       <p className="mb-6">
-        <strong>Step 1: Start With A Proper Industry Map</strong><br />
+        <strong>Step 1: Start With a Proper Industry Map</strong><br />
         Before writing rules, know who is collecting in Kenya today. List bank panel agencies, law firms doing collections, SACCO-commissioned collectors, digital-lender collectors, even small "skip trace" outfits. Capture the common complaints at ODPC, CBK and in the courts. This gives regulators evidence of harm and shows where the real risks are. South Africa did this diagnostic work before tightening its regime under the Council for Debt Collectors, and it made their rules better targeted.
       </p>
 
@@ -124,41 +120,41 @@ const ArticleDebtCollectionRegulation = () => {
       </ul>
 
       <p className="mb-6">
-        <strong>Step 2: Establish A Licensing And National Registry</strong><br />
+        <strong>Step 2: Establish a Licensing and National Registry</strong><br />
         Kenya should ensure only registered agencies and accredited individuals operate in collections. Both must be listed in a public registry for easy verification by borrowers and courts before proceeding with cases. This one move alone eliminates a lot of shadow operators.
       </p>
 
       <p className="mb-6">
-        <strong>Step 3: Require Certification And Ongoing Training For Agents</strong><br />
+        <strong>Step 3: Require Certification and Ongoing Training for Agents</strong><br />
         Collection agents should be certified, as is common in markets like South Africa, India and parts of Europe. Kenya can adopt a similar approach by involving ADRA Kenya and establishing a core curriculum covering debt collection law, data protection, communication skills, vulnerability and hardship, and sector ethics. Ongoing CPD hours should be required. Certification promotes better conduct and assures lenders of agent competency.
       </p>
 
       <p className="mb-6">
-        <strong>Step 4: Issue A Binding Kenyan Code Of Collection Conduct</strong><br />
+        <strong>Step 4: Issue a Binding Kenyan Code of Collection Conduct</strong><br />
         Borrow from places that have done this well. Be respectful, contact at reasonable times, do not mislead, do not contact third parties except in narrow circumstances, validate the debt when asked, and do not harass. Kenya doesn't have to reinvent the wheel. Localise it to our laws — especially the Data Protection Act — and make it enforceable. This turns "good practice" into "required practice."
       </p>
 
       <p className="mb-6">
-        <strong>Step 5: Build A Lawful Data-Access Model So Collectors Don't Have To Break The Law</strong><br />
+        <strong>Step 5: Build a Lawful Data-Access Model So Collectors Don't Have to Break The Law</strong><br />
         One reason debt collectors in Kenya resort to dodgy data access for skip tracing is because they don't have a formal way to update contact details. Regulators can fix that. Allow licensed collectors controlled, audited access to data sources like credit bureau records and approved alternative data sources. Tie every access to a purpose and log it. At the same time, outlaw and penalise the current practice of unlawful access to consumer data for skip tracing. This is how you move the industry from "use whatever you can find" to "use what you are allowed to."
       </p>
 
       <p className="mb-6">
-        <strong>Step 6: Bring ADRA Kenya In As A Supervised Self-Regulator</strong><br />
+        <strong>Step 6: Bring ADRA Kenya In as a Supervised Self-Regulator</strong><br />
         Kenya already has an industry association. Give ADRA a formal role to run the certification courses for agents, host the code of conduct, take first-line complaints and recommend disciplinary measures. Regulators in other markets do this to good effect. It keeps the regulator at the steering wheel but lets the industry do some of the pedalling. CBK and the Data Commissioner can retain the power to suspend or delist actors, while ADRA handles training and day-to-day standards.
       </p>
 
       <p className="mb-6">
-        <strong>Step 7: Create An Enforcement Ladder That Actually Bites</strong><br />
+        <strong>Step 7: Create an Enforcement Ladder That Actually Bites</strong><br />
         Look at how South Africa's Council for Debt Collectors publishes sanctions. Kenya can do the same. Start with warnings for minor breaches, then fines, then licence suspension, then striking off for repeat or serious misconduct. Importantly, publish the names. Public sanctioning will make lenders think twice before hiring a non-compliant agency and will give borrowers confidence that complaining leads somewhere.
       </p>
 
       <p className="mb-12">
-        <strong>Step 8: Monitor And Report Outcomes</strong><br />
+        <strong>Step 8: Monitor and Report Outcomes</strong><br />
         Whatever we set up should be measured. Number of licensed agencies. Number of accredited agents. Complaints by category (harassment, data misuse, mis-identification). Cases diverted to ADR. Small-claims cases involving unlicensed collectors. Publishing this quarterly sends two messages. To Kenyans: the space is finally being cleaned up. To NPL investors: the space is visible and predictable.
       </p>
 
-      <h2 className="text-2xl font-bold mb-6 mt-12">Why This Also Speaks To International NPL Investors</h2>
+      <h2 className="text-2xl font-bold mb-6 mt-12">Why This Also Speaks to International NPL Investors</h2>
       
       <p className="mb-6">
         International buyers of distressed loans want two things: predictability and professionalism. They want to know that if they buy a portfolio from a Kenyan bank, they can hand it to a licensed servicer who will collect in a lawful, reputationally safe way. They want to know that data access is legal, that consumers have rights, and that the regulator is awake.
@@ -189,8 +185,6 @@ const ArticleDebtCollectionRegulation = () => {
       <p className="mb-12">
         That's the reckoning — and the opportunity.
       </p>
-    </ArticleTemplate>
-  );
+    </ArticleTemplate>;
 };
-
 export default ArticleDebtCollectionRegulation;
