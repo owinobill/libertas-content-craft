@@ -157,11 +157,15 @@ const ArticleDebtCollectionRegulation = () => {
       <h2 className="text-2xl font-bold mb-6 mt-12">Why This Also Speaks to International NPL Investors</h2>
       
       <p className="mb-6">
+        The secondary market for non-performing loans is a multi-billion-dollar global engine that helps keep banking systems healthy. Each year, large portfolios change hands across North America, Europe, Asia, and Latin America as banks sell bad loans to specialist investors who buy at a discount and work them out over time. Recent deal flow has been substantial, estimated at $300 billion in 2023 in face value globally, and the stock now held by non-bank investors runs into the hundreds of billions accumulated over past cycles. Africa's participation is still small by comparison, despite having a significant NPL problem estimated at $60 billion on banks' books. As regulatory reforms deepen and more successful transactions are completed, Africa's secondary market can scale from "nascent" to "active," especially in periods when macro conditions produce new waves of NPL formation.
+      </p>
+
+      <p className="mb-6">
         International buyers of distressed loans want two things: predictability and professionalism. They want to know that if they buy a portfolio from a Kenyan bank, they can hand it to a licensed servicer who will collect in a lawful, reputationally safe way. They want to know that data access is legal, that consumers have rights, and that the regulator is awake.
       </p>
 
       <p className="mb-12">
-        When that exists, they can price Kenyan portfolios more accurately. That means banks get better execution on NPL sales. That, in turn, frees up capital for new lending. So regulation here is not a cost — it's an enabler.
+        When that exists, they can price Kenyan portfolios more accurately. That means banks get better execution and value on NPL sales. That, in turn, frees up capital for new lending. So, regulation here is not a cost — it's an enabler.
       </p>
 
       <h2 className="text-2xl font-bold mb-6 mt-12">A Credible Market That Benefits All</h2>
