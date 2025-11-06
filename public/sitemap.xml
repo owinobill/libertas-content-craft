@@ -19,36 +19,43 @@
   <!-- Insights Hub -->
   <url>
     <loc>https://libertasafrica.com/insights-hub</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <!-- Articles -->
   <url>
-    <loc>https://libertasafrica.com/insights-hub/debt-sales-dynamics</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://libertasafrica.com/insights-hub/debt-sales-assignments</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://libertasafrica.com/insights-hub/npl-ecosystem-part-1</loc>
-    <lastmod>2025-10-08</lastmod>
+    <loc>https://libertasafrica.com/insights-hub/debt-collection-regulation</loc>
+    <lastmod>2025-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>https://libertasafrica.com/insights-hub/npl-ecosystem-part-2</loc>
-    <lastmod>2025-10-08</lastmod>
+    <lastmod>2025-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://libertasafrica.com/insights-hub/npl-ecosystem-part-1</loc>
+    <lastmod>2025-09-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://libertasafrica.com/insights-hub/debt-sales-dynamics</loc>
+    <lastmod>2025-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://libertasafrica.com/insights-hub/debt-sales-assignments</loc>
+    <lastmod>2025-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
