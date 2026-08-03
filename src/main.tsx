@@ -5,9 +5,10 @@ import { ProductionReadyApp } from '@/components/ProductionReadyApp';
 import App from './App.tsx';
 import './index.css';
 
-// Performance monitoring (skipped during react-snap prerendering)
+// Performance monitoring (skipped during the Playwright prerender crawl)
 const isPrerendering =
-  typeof navigator !== 'undefined' && /ReactSnap/i.test(navigator.userAgent);
+  typeof window !== 'undefined' &&
+  Boolean((window as unknown as { __PRERENDERING__?: boolean }).__PRERENDERING__);
 
 if (typeof window !== 'undefined' && !isPrerendering) {
   // Report Web Vitals

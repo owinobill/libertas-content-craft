@@ -9,7 +9,7 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "react-snap"
+    "postbuild": "node scripts/prerender.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -78,37 +78,9 @@
     "globals": "^15.15.0",
     "lovable-tagger": "^1.1.8",
     "postcss": "^8.5.6",
-    "react-snap": "^1.23.0",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
     "vite": "^5.4.19"
-  },
-  "reactSnap": {
-    "source": "dist",
-    "destination": "dist",
-    "include": [
-      "/",
-      "/solutions",
-      "/solutions/detailed",
-      "/insights-hub",
-      "/insights-hub/debt-sales-assignments",
-      "/insights-hub/debt-sales-dynamics",
-      "/insights-hub/npl-ecosystem-part-1",
-      "/insights-hub/npl-ecosystem-part-2",
-      "/insights-hub/debt-collection-regulation",
-      "/privacy-policy",
-      "/terms-of-use"
-    ],
-    "puppeteerArgs": [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-background-timer-throttling",
-      "--disable-renderer-backgrounding",
-      "--disable-backgrounding-occluded-windows"
-    ],
-    "skipThirdPartyRequests": true,
-    "waitFor": 2000,
-    "concurrency": 1
   }
 }
