@@ -5,8 +5,11 @@ import { ProductionReadyApp } from '@/components/ProductionReadyApp';
 import App from './App.tsx';
 import './index.css';
 
-// Performance monitoring
-if (typeof window !== 'undefined') {
+// Performance monitoring (skipped during react-snap prerendering)
+const isPrerendering =
+  typeof navigator !== 'undefined' && /ReactSnap/i.test(navigator.userAgent);
+
+if (typeof window !== 'undefined' && !isPrerendering) {
   // Report Web Vitals
   import('web-vitals').then(({ onCLS, onFCP, onLCP, onTTFB }) => {
     onCLS(console.log);
