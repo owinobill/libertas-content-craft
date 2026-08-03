@@ -1,0 +1,22 @@
+import { chromium } from 'playwright-chromium';
+import http from 'http'; import fs from 'fs'; import path from 'path';
+const distDir = path.resolve('dist-debug'); const PORT=4199;
+const MIME={'.html':'text/html','.js':'application/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon'};
+const server=http.createServer((req,res)=>{const u=decodeURIComponent(req.url.split('?')[0]);let f=path.join(distDir,u);
+if(!fs.existsSync(f)||fs.statSync(f).isDirectory()){if(!path.extname(u)){f=path.join(distDir,u,'index.html');if(!fs.existsSync(f))f=path.join(distDir,'index.html');}}
+fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);res.end('nf');return;}res.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'application/octet-stream'});res.end(d);});});
+await new Promise(r=>server.listen(PORT,r));
+const b=await chromium.launch({args:['--no-sandbox','--disable-setuid-sandbox']});
+const p1=await b.newPage();
+await p1.addInitScript(()=>{window.__PRERENDERING__=true;});
+await p1.goto(`http://localhost:${PORT}/insights-hub`,{waitUntil:'domcontentloaded'});
+await p1.waitForTimeout(1500);
+const html=await p1.content(); await p1.close();
+fs.mkdirSync(path.join(distDir,'insights-hub'),{recursive:true});
+fs.writeFileSync(path.join(distDir,'insights-hub','index.html'),html);
+const p2=await b.newPage();
+p2.on('console',m=>{if(m.type()==='error'||m.type()==='warning')console.log('['+m.type()+']',m.text().slice(0,2000));});
+p2.on('pageerror',e=>console.log('[pageerror]',e.message.slice(0,2000)));
+await p2.goto(`http://localhost:${PORT}/insights-hub`,{waitUntil:'load'});
+await p2.waitForTimeout(3000);
+await b.close(); server.close();

@@ -113,18 +113,18 @@ const InsightsHub = () => {
                 <Filter className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm font-medium text-muted-foreground">Filter by category:</span>
               </div>
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                <SelectTrigger className="w-full sm:w-[240px]">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {categories.map((category) => (
-                    <SelectItem key={category.value} value={category.value}>
-                      {category.label} ({category.count})
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <select
+                aria-label="Filter articles by category"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+                className="w-full sm:w-[240px] h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+              >
+                {categories.map((category) => (
+                  <option key={category.value} value={category.value}>
+                    {`${category.label} (${category.count})`}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </section>
@@ -219,7 +219,7 @@ const InsightsHub = () => {
                           {resource.description}
                         </p>
                         <span className="text-xs text-muted-foreground">
-                          PDF • {resource.fileSize}
+                          {`PDF • ${resource.fileSize}`}
                         </span>
                       </div>
                       <Button size="sm" className="shrink-0">

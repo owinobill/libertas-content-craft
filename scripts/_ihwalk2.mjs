@@ -1,0 +1,22 @@
+import { chromium } from 'playwright-chromium';
+import http from 'http'; import fs from 'fs'; import path from 'path';
+const distDir=path.resolve('dist'); const PORT=4205;
+const MIME={'.html':'text/html','.js':'application/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.svg':'image/svg+xml','.ico':'image/x-icon'};
+const server=http.createServer((req,res)=>{const u=decodeURIComponent(req.url.split('?')[0]);let f=path.join(distDir,u);
+if(!fs.existsSync(f)||fs.statSync(f).isDirectory()){if(!path.extname(u)){f=path.join(distDir,u,'index.html');if(!fs.existsSync(f))f=path.join(distDir,'index.html');}}
+fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);res.end('nf');return;}res.writeHead(200,{'Content-Type':MIME[path.extname(f)]||'application/octet-stream'});res.end(d);});});
+await new Promise(r=>server.listen(PORT,r));
+const walk=`(()=>{const out=[];const rec=(n,p)=>{let i=0;for(const c of n.childNodes){const tag=c.nodeType===3?'#text:'+JSON.stringify(c.nodeValue):c.nodeType===8?'#comment':c.nodeName+'['+[...c.attributes].map(a=>a.name+'='+a.value).sort().join(',')+']';out.push(p+'/'+i+' '+tag);if(c.nodeType===1)rec(c,p+'/'+i+':'+c.nodeName);i++;}};rec(document.getElementById('root'),'');return out.join('\\n');})()`;
+const b=await chromium.launch({args:['--no-sandbox','--disable-setuid-sandbox']});
+const html=fs.readFileSync(path.join(distDir,'insights-hub','index.html'),'utf8');
+const shell=html.replace(/(<div id="root">)[\s\S]*?(<\/div>\s*\n?\s*<!-- Service Worker)/, '$1$2');
+const p=await b.newPage();
+await p.route('**/insights-hub', r=>r.fulfill({contentType:'text/html', body: shell}));
+await p.goto(`http://localhost:${PORT}/insights-hub`,{waitUntil:'load'});
+await p.waitForTimeout(2500);
+fs.writeFileSync('/tmp/client2.txt', await p.evaluate(walk));
+const p2=await b.newContext({javaScriptEnabled:false}).then(c=>c.newPage());
+await p2.goto(`http://localhost:${PORT}/insights-hub`,{waitUntil:'domcontentloaded'});
+fs.writeFileSync('/tmp/static2.txt', await p2.evaluate(walk));
+await b.close(); server.close();
+console.log('shellStripped', shell.includes('<div id="root"></div>'));
