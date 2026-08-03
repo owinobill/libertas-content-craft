@@ -1,4 +1,3 @@
-import { Suspense, lazy } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -6,12 +5,12 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, TrendingUp, Shield, Users, Target, Briefcase, PieChart, FileText, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ContactForm from "@/components/ContactForm";
 import { SEOHead } from "@/components/SEOHead";
 import { createOrganizationSchema, createWebsiteSchema } from "@/utils/structuredData";
 import { useAnalytics } from "@/hooks/useAnalytics";
-import { SolutionsGridSkeleton, InsightsGridSkeleton, CaseStudiesSkeleton, ContactSectionSkeleton } from "@/components/ui/content-skeletons";
+import { SolutionsGridSkeleton, InsightsGridSkeleton, CaseStudiesSkeleton } from "@/components/ui/content-skeletons";
 
-const ContactForm = lazy(() => import("@/components/ContactForm"));
 
 const Index = () => {
   // Initialize analytics - Add your Google Analytics ID here
@@ -309,9 +308,7 @@ const Index = () => {
             
           {/* Contact Form */}
           <div className="mb-20">
-            <Suspense fallback={<ContactSectionSkeleton />}>
               <ContactForm />
-            </Suspense>
           </div>
             
             {/* Contact Information */}

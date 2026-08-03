@@ -164,7 +164,7 @@ export const ArticleTemplate = ({ article, children }: ArticleTemplateProps) => 
                         <div className="p-6">
                           <div className="mb-2">
                             <span className="text-sm text-muted-foreground">
-                              {relatedArticle.date} • {relatedArticle.readTime}
+                              {`${relatedArticle.date} • ${relatedArticle.readTime}`}
                             </span>
                           </div>
                           <h3 className="text-lg font-semibold mb-3 group-hover:text-primary transition-colors">
