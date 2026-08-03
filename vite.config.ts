@@ -14,9 +14,6 @@ export default defineConfig(({ mode }) => ({
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
-  build: {
-    target: "es2017",
-  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
