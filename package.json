@@ -104,6 +104,7 @@
       "--no-sandbox",
       "--disable-setuid-sandbox"
     ],
-    "skipThirdPartyRequests": true
+    "skipThirdPartyRequests": true,
+    "waitFor": 2000
   }
 }
