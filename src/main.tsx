@@ -33,7 +33,7 @@ const tree = (
 );
 
 if (rootElement.hasChildNodes()) {
-  // Prerendered by react-snap — hydrate instead of re-rendering
+  // Prerendered by scripts/prerender.mjs — hydrate instead of re-rendering
   hydrateRoot(rootElement, tree);
 } else {
   createRoot(rootElement).render(tree);
