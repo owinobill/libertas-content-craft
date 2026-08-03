@@ -10,7 +10,6 @@ export const PerformanceOptimizations = () => {
       <link rel="preconnect" href="https://www.google-analytics.com" />
       
       {/* DNS Prefetch */}
-      <link rel="dns-prefetch" href="https://zznubsevogfqoxgkdnzg.supabase.co" />
       <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
       <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
       

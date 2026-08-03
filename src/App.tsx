@@ -14,8 +14,6 @@ import { CriticalCSS } from "@/components/CriticalCSS";
 import { EnhancedSEO } from "@/components/EnhancedSEO";
 import Index from "./pages/Index";
 import Solutions from "./pages/Solutions";
-import DevTools from "./pages/DevTools";
-import ContactFormDiagnostics from "./pages/ContactFormDiagnostics";
 
 import InsightsHub from "./pages/InsightsHub";
 import ArticleDebtSalesAssignments from "./pages/ArticleDebtSalesAssignments";
@@ -47,8 +45,6 @@ const AppContent = () => {
             <Route path="/insights-hub/debt-collection-regulation" element={<ArticleDebtCollectionRegulation />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use" element={<TermsOfUse />} />
-            <Route path="/dev-tools" element={<DevTools />} />
-            <Route path="/contact-form-diagnostics" element={<ContactFormDiagnostics />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
@@ -71,14 +67,13 @@ const App = () => (
           {/* DNS Prefetch for Performance */}
           <link rel="dns-prefetch" href="//fonts.googleapis.com" />
           <link rel="dns-prefetch" href="//www.googletagmanager.com" />
-          <link rel="dns-prefetch" href="//zznubsevogfqoxgkdnzg.supabase.co" />
           
           {/* Preload Critical Resources */}
           <link rel="preload" href="/icon-512.png" as="image" />
           <link rel="preload" href="/lovable-uploads/6eeb5f85-9110-4fdb-bd6d-a88591d80ddd.png" as="image" />
           
           {/* Performance and Security */}
-          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://zznubsevogfqoxgkdnzg.supabase.co https://www.google-analytics.com; frame-ancestors 'none';" />
+          <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com;" />
         </Helmet>
         
         <CriticalCSS />

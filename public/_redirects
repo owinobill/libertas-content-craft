@@ -1,9 +1,0 @@
-# SPA Routing Configuration for Lovable/Netlify
-# Serve index.html with 200 status for all routes (no redirects!)
-# This ensures Google Search Console sees 200 OK, not redirects
-
-# Redirect www to non-www (if applicable)
-https://www.libertasafrica.com/* https://libertasafrica.com/:splat 301!
-
-# SPA fallback - serve index.html for all routes with 200 status
-/*    /index.html   200
