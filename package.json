@@ -102,7 +102,10 @@
     ],
     "puppeteerArgs": [
       "--no-sandbox",
-      "--disable-setuid-sandbox"
+      "--disable-setuid-sandbox",
+      "--disable-background-timer-throttling",
+      "--disable-renderer-backgrounding",
+      "--disable-backgrounding-occluded-windows"
     ],
     "skipThirdPartyRequests": true,
     "waitFor": 2000
