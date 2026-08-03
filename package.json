@@ -108,6 +108,7 @@
       "--disable-backgrounding-occluded-windows"
     ],
     "skipThirdPartyRequests": true,
-    "waitFor": 2000
+    "waitFor": 2000,
+    "concurrency": 1
   }
 }
