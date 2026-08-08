@@ -14,7 +14,7 @@ const InsightsHub = () => {
   // Breadcrumb structured data for SEO
   const breadcrumbs = [
     { name: "Home", url: "https://libertasafrica.com" },
-    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" }
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub/" }
   ];
   const structuredData = [createBreadcrumbSchema(breadcrumbs)];
 
@@ -84,7 +84,7 @@ const InsightsHub = () => {
       title="Insights Hub | NPL Strategies & African Debt Market Analysis | Libertas Africa"
       description="Expert perspectives, resources, and updates on debt markets, NPL strategies, and cross-border financing in Africa and beyond."
       keywords="NPL strategies, debt market analysis, African finance, cross-border financing, debt recovery"
-      canonical="https://libertasafrica.com/insights-hub"
+      canonical="https://libertasafrica.com/insights-hub/"
       structuredData={structuredData}
     >
       

@@ -14,12 +14,12 @@ interface ArticleTemplateProps {
 }
 
 export const ArticleTemplate = ({ article, children }: ArticleTemplateProps) => {
-  const shareUrl = `https://libertasafrica.com/insights-hub/${article.slug}`;
+  const shareUrl = `https://libertasafrica.com/insights-hub/${article.slug}/`;
   const relatedArticles = getRelatedArticles(article.id);
 
   const breadcrumbs = [
     { name: "Home", url: "https://libertasafrica.com" },
-    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub" },
+    { name: "Insights Hub", url: "https://libertasafrica.com/insights-hub/" },
     { name: article.title, url: shareUrl }
   ];
 

@@ -11,7 +11,7 @@ const Solutions = () => {
 
   const breadcrumbs = [
     { name: "Home", url: "https://libertasafrica.com" },
-    { name: "Solutions", url: "https://libertasafrica.com/solutions" }
+    { name: "Solutions", url: "https://libertasafrica.com/solutions/" }
   ];
 
   const structuredData = [createBreadcrumbSchema(breadcrumbs)];
@@ -44,7 +44,7 @@ const Solutions = () => {
       title="Solutions | NPL Advisory & Financial Services | Libertas Africa"
       description="Comprehensive financial solutions: NPL sales & investment advisory, project finance, cross-border credit, and policy & regulatory advisory across Africa."
       keywords="NPL advisory, investment advisory, project finance, cross-border credit, policy advisory, financial solutions"
-      canonical="https://libertasafrica.com/solutions"
+      canonical="https://libertasafrica.com/solutions/"
       structuredData={structuredData}
     >
 

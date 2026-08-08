@@ -6,7 +6,7 @@ const TermsOfUse = () => {
       title="Terms of Use | Libertas Africa"
       description="Terms of Use for Libertas Africa - Review the terms and conditions governing the use of our website and services."
       keywords="terms of use, terms and conditions, website terms, Libertas Africa"
-      canonical="https://libertasafrica.com/terms-of-use"
+      canonical="https://libertasafrica.com/terms-of-use/"
     >
       
       <main className="container mx-auto px-6 py-32">
