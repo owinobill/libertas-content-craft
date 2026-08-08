@@ -5,18 +5,33 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  
-  # Redirect www to non-www (force canonical domain)
+
+  # Disable Apache's automatic directory-slash redirect so we can control
+  # trailing-slash handling ourselves and avoid multi-hop redirect chains
+  DirectorySlash Off
+
+  # Case 1: www host AND request matches a known prerendered directory route without trailing slash
+  # -> single redirect straight to the non-www, trailing-slash form
+  RewriteCond %{HTTP_HOST} ^www\.libertasafrica\.com [NC]
+  RewriteRule ^(solutions|insights-hub|insights-hub/debt-sales-assignments|insights-hub/debt-sales-dynamics|insights-hub/npl-ecosystem-part-1|insights-hub/npl-ecosystem-part-2|insights-hub/debt-collection-regulation|privacy-policy|terms-of-use)$ https://libertasafrica.com/$1/ [R=301,L]
+
+  # Case 2: www host, no trailing-slash issue -> single redirect to non-www
   RewriteCond %{HTTP_HOST} ^www\.libertasafrica\.com [NC]
   RewriteRule ^(.*)$ https://libertasafrica.com/$1 [R=301,L]
-  
+
+  # Case 3: non-www, request maps to a real directory without trailing slash
+  # -> single redirect adding the trailing slash
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+  RewriteCond %{REQUEST_URI} !/$
+  RewriteRule ^(.*)$ /$1/ [R=301,L]
+
   # Don't rewrite files or directories that exist
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  
+
   # Don't rewrite service worker
   RewriteCond %{REQUEST_URI} !=/sw.js
-  
+
   # Rewrite everything else to index.html to allow React Router to handle routing
   RewriteRule ^ index.html [L]
 </IfModule>
