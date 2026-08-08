@@ -27,8 +27,12 @@ jobs:
 
       - name: Install dependencies
         run: |
+          # `npm ci` is preferred, but the Lovable editor re-injects its
+          # editor-only devDependencies into package.json, which can put the
+          # lockfile out of sync. Fall back to `npm install` so a deploy is
+          # never silently blocked by lockfile drift.
           if [ -f package-lock.json ]; then
-            npm ci
+            npm ci || npm install
           else
             npm install
           fi
