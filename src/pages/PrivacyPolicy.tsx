@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
       title="Privacy Policy | Libertas Africa"
       description="Privacy Policy for Libertas Africa - Learn how we collect, use, and protect your personal information when you interact with our website and services."
       keywords="privacy policy, data protection, personal information, Libertas Africa"
-      canonical="https://libertasafrica.com/privacy-policy"
+      canonical="https://libertasafrica.com/privacy-policy/"
     >
       
       <main className="container mx-auto px-6 py-32">
